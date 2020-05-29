@@ -1,0 +1,47 @@
+#main-search{
+    padding-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+  
+#container{
+    width: 200px;
+    height: 100px;
+}
+  
+#start{
+    text-align: center;
+    background-color: rgb(170, 168, 168); 
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+  
+span{
+    display: inline-block;
+    margin: 10px;
+}
+  
+#search {
+    width: 80%;
+}
+  
+input {
+    height: 20px;
+    border-style: black;
+}
+  
+#results{
+    background-color: lightgray;
+    margin-top: 20vh;
+    height: 40vh;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 30px;
+}
+  
+#results-title{
+    width: 100vw;
+}

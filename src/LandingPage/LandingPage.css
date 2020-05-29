@@ -1,0 +1,17 @@
+#main{
+    padding: 40px;
+    background-color: rgb(231, 231, 231); 
+    height: 60vh;
+}
+  
+#img{
+    text-align: center;
+    padding-top: 100px;
+}
+  
+#start{
+    text-align: center;
+    background-color: rgb(170, 168, 168); 
+    height: 20vh;
+    padding: 5vh;
+}
