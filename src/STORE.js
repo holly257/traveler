@@ -3,7 +3,7 @@ export default {
         {
             trip_id: 1,
             user_id: 1,
-            name: 'weekend trip',
+            name: 'Weekend Trip',
             location: 'Atlanta, Ga',
             days: [
                 {
@@ -45,7 +45,7 @@ export default {
         {
             trip_id: 1,
             user_id: 1,
-            name: 'girls trip',
+            name: 'Girls Trip',
             location: 'Savannah, Ga',
             days: [
                 {
@@ -79,6 +79,48 @@ export default {
                             start_time: '8',
                             meridiem: 'am',
                             task: 'breakfast at cafe',
+                        },
+                    ] 
+                },
+            ]
+        },
+        {
+            trip_id: 1,
+            user_id: 1,
+            name: 'Family Vacation',
+            location: 'Colorado',
+            days: [
+                {
+                    day_id: 1,
+                    details: [
+                        {
+                            detail_id: 1,
+                            start_time: '8',
+                            meridiem: 'am',
+                            task: 'wake up',
+                        },
+                        {
+                            detail_id: 2,
+                            start_time: '9',
+                            meridiem: 'am',
+                            task: 'breakfast at cafe',
+                        },
+                    ] 
+                },
+                {
+                    day_id: 2,
+                    details: [
+                        {
+                            detail_id: 1,
+                            start_time: '8',
+                            meridiem: 'am',
+                            task: 'wake up',
+                        },
+                        {
+                            detail_id: 2,
+                            start_time: '9',
+                            meridiem: 'am',
+                            task: 'breakfast at restaurant',
                         },
                     ] 
                 },

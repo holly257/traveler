@@ -10,6 +10,7 @@ import NewTrip from './Trip/NewTrip/NewTrip'
 import LogIn from './SignIn/LogIn'
 import SignUp from './SignIn/SignUp'
 import store from './STORE'
+import AppContext from './AppContext'
 
 class App extends React.Component {
   state = {
@@ -21,20 +22,24 @@ class App extends React.Component {
   }
 
   render(){
-    const { trips } = this.state;
-    console.log(trips)
+    const value = {
+      trips: this.state.trips,
+    }
     return (
-      <div className="App">
-        <Nav />
-        <Route exact path='/' component={LandingPage} />
-        <Route path='/search' component={SearchPage} />
-        <Route path='/new-review' component={NewReview} />
-        <Route path='/trip' component={TripList} />
-        <Route path='/new-trip' component={NewTrip} />
-        <Route path='/login' component={LogIn} />
-        <Route path='/signup' component={SignUp} />
-        
-      </div>
+      <AppContext.Provider value={value}>
+        <div className="App">
+          <Nav />
+          <Route exact path='/' component={LandingPage} />
+          <Route path='/search' component={SearchPage} />
+          <Route path='/new-review' component={NewReview} />
+          <Route exact path='/trip' component={TripList} />
+          <Route path='/new-trip' component={NewTrip} />
+          <Route path='/login' component={LogIn} />
+          <Route path='/signup' component={SignUp} />
+          <Route exact path='/trip/:tripId' component={NewTrip} />
+          
+        </div>
+      </AppContext.Provider>
     );
   }
 }

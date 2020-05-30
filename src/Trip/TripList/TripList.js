@@ -1,28 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './TripList.css'
+import AppContext from '../../AppContext'
 
-function TripList () {
-    return (
-        <main>
-            <h3 id='title'>Itinerary List</h3>
-            <section id='trip-cont'>
-                <section className='trips'>
-                    <p>Trip one</p>
-                    <button>see more...</button>
+class TripList extends React.Component {
+    static contextType = AppContext;
+
+    render () {
+        return (
+            <main>
+                <h3 id='title'>My Trip's</h3>
+                <section id='trip-cont'>
+                    {this.context.trips.map((trip) => {
+                        return (
+                            <section className='trips'>
+                                <Link to={`/trip/${trip.trip_id}`}>{trip.name}</Link>
+                                <h6>{trip.location}</h6>
+                                <br />
+                            </section>
+                        )
+                    })}
                 </section>
-                <section className='trips'>
-                    <p>Trip two</p>
-                    <button>see more...</button>
-                </section>
-                <section className='trips'>
-                    <p>Trip three</p>
-                    <button>see more...</button>
-                </section>
-                </section>
-            <Link to={'/new-trip'}>make new itinerary</Link>
-        </main>
-    )
+                <br />
+                <Link id='new-trip' to={'/new-trip'}>New Trip</Link>
+            </main>
+        )
+    }
 }
 
 export default TripList;

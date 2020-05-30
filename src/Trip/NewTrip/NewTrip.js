@@ -1,14 +1,13 @@
 import React from 'react';
 import './NewTrip.css'
 import AddActivity from './AddActivity/AddActivity'
+import AppContext from '../../AppContext'
 
 class NewTrip extends React.Component {
+    static contextType = AppContext;
 
-    newActivity() {
-         
-    }
-
-    render () {    
+    render () { 
+        console.log(this.context.trips)   
         return (
             <section id='main-trip'>
                 <div id='container'>       
@@ -20,7 +19,7 @@ class NewTrip extends React.Component {
                         <div id='day-cont'>
                             <AddActivity />
                             {/* adds more activity blocks */}
-                            <button onClick={this.newActivity()}>Add Activity</button>
+                            <button >Add Activity</button>
                             
                         </div>
                         <br />
