@@ -1,13 +1,8 @@
 #main-trip{
     padding-top: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-  
-#container{
-    width: 200px;
-    height: 100px;
+    padding-left: 40px;
+    /* display: flex;
+    justify-content: center; */
 }
   
 #img{
@@ -18,6 +13,12 @@
 span{
     display: inline-block;
     margin: 10px;
+}
+
+#day-cont{
+    border: solid black 1px;
+    width: 60vw;
+    margin-top: 20px;
 }
   
 input {

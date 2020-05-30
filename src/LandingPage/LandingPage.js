@@ -5,7 +5,7 @@ import './LandingPage.css'
 function LandingPage() {
   return (
     <>
-        <main id='main'>
+        <main id='main-landing'>
             <h3>Plan your next trip with ease!</h3>
             <h3>Search travel ideas</h3>
             <h3>See what friends are up to</h3>

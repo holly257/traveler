@@ -9,20 +9,34 @@ import TripList from './Trip/TripList/TripList'
 import NewTrip from './Trip/NewTrip/NewTrip'
 import LogIn from './SignIn/LogIn'
 import SignUp from './SignIn/SignUp'
+import store from './STORE'
 
-function App() {
-  return (
-    <div className="App">
-      <Nav />
-      <Route exact path='/' component={LandingPage} />
-      <Route path='/search' component={SearchPage} />
-      <Route path='/new-review' component={NewReview} />
-      <Route path='/trip' component={TripList} />
-      <Route path='/new-trip' component={NewTrip} />
-      <Route path='/login' component={LogIn} />
-      <Route path='/signup' component={SignUp} />
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    trips: [],
+  };
+
+  componentDidMount() {
+    this.setState(store);
+  }
+
+  render(){
+    const { trips } = this.state;
+    console.log(trips)
+    return (
+      <div className="App">
+        <Nav />
+        <Route exact path='/' component={LandingPage} />
+        <Route path='/search' component={SearchPage} />
+        <Route path='/new-review' component={NewReview} />
+        <Route path='/trip' component={TripList} />
+        <Route path='/new-trip' component={NewTrip} />
+        <Route path='/login' component={LogIn} />
+        <Route path='/signup' component={SignUp} />
+        
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -7,15 +7,15 @@ function TripList () {
         <main>
             <h3 id='title'>Itinerary List</h3>
             <section id='trip-cont'>
-                <section class='trips'>
+                <section className='trips'>
                     <p>Trip one</p>
                     <button>see more...</button>
                 </section>
-                <section class='trips'>
+                <section className='trips'>
                     <p>Trip two</p>
                     <button>see more...</button>
                 </section>
-                <section class='trips'>
+                <section className='trips'>
                     <p>Trip three</p>
                     <button>see more...</button>
                 </section>
