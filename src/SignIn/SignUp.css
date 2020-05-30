@@ -1,23 +1,21 @@
-#main-trip{
-    padding-top: 60px;
+#signup{
+    padding-top: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
   
 #container{
-    width: 200px;
+    width: 100px;
     height: 100px;
 }
   
-#img{
+#start{
     text-align: center;
-    padding-bottom: 50px;
-}
-  
-span{
-    display: inline-block;
-    margin: 10px;
+    background-color: rgb(170, 168, 168);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
   
 input {

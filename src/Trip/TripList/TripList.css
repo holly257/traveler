@@ -1,0 +1,18 @@
+
+#trip-cont{
+    background-color: lightgray;
+    margin-top: 10vh;
+    height: 130px;
+    padding-top: 10px;
+    padding-left: 30px;
+}
+  
+#title{
+    margin-top: 40px;
+    padding-left: 30px;
+}
+  
+#new-trip{
+  margin-top: 20px;
+  margin-left: 30px;
+}

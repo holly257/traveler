@@ -1,0 +1,16 @@
+#login{
+    padding-top: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+#container{
+    width: 100px;
+    height: 100px;
+}
+  
+input {
+    height: 20px;
+    border-style: black;
+}

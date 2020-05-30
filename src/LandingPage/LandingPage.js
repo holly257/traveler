@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './LandingPage.css'
 
 function LandingPage() {
@@ -14,8 +14,8 @@ function LandingPage() {
         </main>
         <section id='start'>
           <h4>Let's Go!</h4>
-          <button>Search</button>
-          <button>Plan</button>
+          <Link to={'/search'}>Search</Link>
+          <Link to={'/new-trip'}>Plan</Link>
         </section>
     </>
   );
