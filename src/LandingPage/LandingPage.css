@@ -1,17 +1,28 @@
 #main-landing{
-    padding: 40px;
-    background-color: rgb(231, 231, 231); 
-    height: 60vh;
+    margin-top: 40px;
+    padding: 20px;
+    background-image: url('../images/SantoriniGreeceTall.jpg'); 
+    background-size: cover;
+    height: 100vh;
 }
+/* media query laptop screen, switch url image to SantoriniGreece */
   
-#img{
-    text-align: center;
-    padding-top: 100px;
+#landing-start{
+    background-color: white; 
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
-  
-#start{
-    text-align: center;
-    background-color: rgb(170, 168, 168); 
-    height: 20vh;
-    padding: 5vh;
+
+.landing-links{
+    color: black;
+    text-decoration: none;
+}
+
+.landing-main-text{
+    padding: 5px;
 }
