@@ -24,3 +24,11 @@
     height: 20px;
     border-style: black;
   }
+
+.allReview{
+    margin: 5px;
+}
+
+#review-title{
+  margin: 20px 0 30px 0;
+}
