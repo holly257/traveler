@@ -12,14 +12,12 @@ function LogIn () {
                         className='allItems' 
                         type='text' 
                         placeholder='username' 
-                        required 
-                    />
+                        required />
                     <input 
                         className='allItems' 
                         type='text' 
                         placeholder='password' 
-                        required 
-                    />
+                        required />
                     <button className='allItems' id='login-btn'>Submit</button>
                 </form>
                 <Link id='signup-link' className='allItems' to={'/signup'}>Sign Up</Link>

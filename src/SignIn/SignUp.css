@@ -22,3 +22,20 @@ input {
     height: 20px;
     border-style: black;
 }
+
+.allSignup{
+    margin: 5px;
+}
+
+#signup-btn{
+    width: 93%;
+}
+
+#login-link{
+    color: black;
+    margin-top: 30px;
+}
+
+#signup-title{
+    margin-bottom: 25px;
+}
