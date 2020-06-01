@@ -1,0 +1,23 @@
+#results-title{
+    width: 100vw;
+}
+
+#results{
+    background-color: lightgray;
+    margin-top: 20vh;
+    height: 40vh;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 30px;
+}
+
+.results-cont{
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.results-image{
+    width: 100px;
+    height: 80px;
+    margin-right: 20px;
+}

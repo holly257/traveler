@@ -1,48 +1,41 @@
 import React from 'react';
 import './SearchPage.css'
+import ResultsPage from './Results/ResultsPage'
 
 function SearchPage () {
     return (
         <>
             <section id='main-search'>
                 <div id='container'>
-                    <h6>Search</h6>
+                    <h6 id='search-title'>Search</h6>
                     <form>
                         <input id='search' type='text' placeholder='city name' />
-                        <span>
+                        <span className='search-check-items'>
                             <img id='food-img' />
-                            <input type='checkbox' title='hey' />
+                            <input type='checkbox' value='restaurants' />
                             <p>restaurants</p>
                         </span>
-                        <span>
+                        <span className='search-check-items'>
                             <img id='bev-img' />
-                            <input type='checkbox' title='hey' />
+                            <input type='checkbox' value='coffee-bars' />
                             <p>coffee/bars</p>
                         </span>
-                        <span>
+                        <span className='search-check-items'>
                             <img id='shopping-img' />
-                            <input type='checkbox' title='hey' />
+                            <input type='checkbox' value='shopping' />
                             <p>shopping</p>
                         </span>
-                        <span>
+                        <span className='search-check-items'>
                             <img id='activities-img' />
-                            <input type='checkbox' title='hey' />
+                            <input type='checkbox' value='activities' />
                             <p>activities</p>
                         </span>
                         <button id='search-btn'>Let's Go!</button>
                     </form>
                 </div>
             </section>
-            <section id='results'>
-                <h1 id='results-title'>results</h1>
-                <div className='results-cont'>
-                    <p>image</p>
-                    <h5>title</h5>
-                    <h6>rating</h6>
-                    <h6>address</h6>
-                    <p>rating notes</p>
-                    <button>add to trip</button>
-                </div>
+            <section>
+                <ResultsPage />
             </section>
         </>
     )

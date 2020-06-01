@@ -13,9 +13,9 @@ class TripList extends React.Component {
                 <section id='trip-cont'>
                     {this.context.trips.map((trip) => {
                         return (
-                            <section className='trips'>
+                            <section key={trip.trip_id} className='trips'>
                                 <Link to={`/trip/${trip.trip_id}`}>{trip.name}</Link>
-                                <h6>{trip.location}</h6>
+                                <h6>{trip.location.city}, {trip.location.country}</h6>
                                 <br />
                             </section>
                         )

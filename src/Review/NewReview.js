@@ -31,7 +31,8 @@ function NewReview () {
                             <option>restaurant</option>
                             <option>bar/coffee</option>
                             <option>shopping</option>
-                            <option>activity</option>  
+                            <option>activity</option>
+                            <option>lodging</option>  
                         </select>
                     </div>
 

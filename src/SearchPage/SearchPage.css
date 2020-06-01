@@ -3,7 +3,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
   
 #container{
@@ -19,29 +18,14 @@
     width: 100%;
 }
   
-span{
-    display: inline-block;
-    margin: 10px;
+#search-title{
+   margin-bottom: 10px;  
 }
-  
-#search {
-    width: 80%;
-}
-  
-input {
-    height: 20px;
-    border-style: black;
-}
-  
-#results{
-    background-color: lightgray;
-    margin-top: 20vh;
-    height: 40vh;
+
+.search-check-items{
     display: flex;
-    flex-wrap: wrap;
-    padding-left: 30px;
 }
-  
-#results-title{
-    width: 100vw;
+
+.search-check-items p{
+    padding-left: 7px;
 }
