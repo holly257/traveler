@@ -33,8 +33,12 @@ nav{
     color: white;
 }
 
-#right-nav{
-    position: relative;
-    top: 80px;
-    right: -20px;
+#nav-show{
+    position: fixed;
+    top: 40px;
+    right: 0px;
 }
+
+/* #right-nav{
+    position: relative;
+} */
