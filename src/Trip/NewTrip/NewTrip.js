@@ -7,7 +7,7 @@ class NewTrip extends React.Component {
     static contextType = AppContext;
 
     render () { 
-        console.log(this.context)   
+        console.log(this.context.trips[0])   
         return (
             <section id='main-trip'>
                 <div id='container'>       

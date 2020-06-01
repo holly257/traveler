@@ -2,9 +2,7 @@ import React from 'react';
 import './ResultsPage.css'
 
 class ResultsPage extends React.Component {
-
     render () {
-        console.log(this.props)
         return (
             <div className='each-result'>
                 <img 
