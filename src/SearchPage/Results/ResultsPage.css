@@ -1,23 +1,17 @@
-#results-title{
-    width: 100vw;
-}
-
-#results{
-    background-color: lightgray;
-    margin-top: 20vh;
-    height: 40vh;
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 30px;
-}
-
-.results-cont{
+.each-result{
     display: flex;
     /* justify-content: space-between; */
+    padding: 10px 0;
+    border-bottom: 1px solid darkgray;
 }
 
 .results-image{
     width: 100px;
     height: 80px;
-    margin-right: 20px;
+    margin: 10px 20px 0 0;
+}
+
+.search-comments{
+    font-size: 10px;
+    padding: 6px;
 }

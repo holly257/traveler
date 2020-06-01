@@ -1,28 +1,28 @@
 import React from 'react';
 import './ResultsPage.css'
 
-function ResultsPage () {
-    return (
-        <>
-            <section id='results'>
-                <h1 id='results-title'>results</h1>
-                <div className='results-cont'>
-                    <img 
-                        className='results-image' 
-                        src='https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
-                        alt=''
-                    />
-                    <section>
-                        <h5>title</h5>
-                        <h6>rating</h6>
-                        <h6>address</h6>
-                        <p>rating notes</p>
-                        <button>add to trip</button>
-                    </section>
-                </div>
-            </section>
-        </>
-    )
+class ResultsPage extends React.Component {
+
+    render () {
+        console.log(this.props)
+        return (
+            <div className='each-result'>
+                <img 
+                    className='results-image' 
+                    src={this.props.rating.images.image}
+                    alt={this.props.rating.images.altText}
+                />
+                <section>
+                    <h5>{this.props.rating.name}</h5>
+                    <h6>Rating: {this.props.rating.rating}</h6>
+                    <h6>{this.props.rating.location.city}, {this.props.rating.location.country}</h6>
+                    <p className='search-comments'>{this.props.rating.comments}</p>
+                    <button >add to trip</button>
+                    
+                </section>
+            </div>
+        )
+    }
 }
 
 export default ResultsPage;
