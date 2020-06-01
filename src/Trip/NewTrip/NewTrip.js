@@ -7,24 +7,23 @@ class NewTrip extends React.Component {
     static contextType = AppContext;
 
     render () { 
-        console.log(this.context.trips)   
+        console.log(this.context)   
         return (
             <section id='main-trip'>
                 <div id='container'>       
-                    <h3>Itinerary</h3>
+                    <h3 id='trip-title'>Trip</h3>
                     <form>
                         <input type='text' placeholder='name' required />
                         <input type='text' placeholder='location' required />
 
                         <div id='day-cont'>
                             <AddActivity />
-                            {/* adds more activity blocks */}
-                            <button >Add Activity</button>
-                            
+                            <button className='new-trip-btns'>Add Activity</button>
                         </div>
+
                         <br />
-                        <button>Add Day</button>
-                        <button id='search-btn'>Save</button>
+                        <button className='new-trip-btns'>Add Day</button>
+                        <button className='new-trip-btns' id='search-btn'>Save</button>
                     </form>
                 </div>
             </section>

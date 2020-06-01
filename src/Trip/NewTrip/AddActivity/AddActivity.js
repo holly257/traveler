@@ -12,7 +12,6 @@ class AddActivity extends React.Component {
         return range;
     }
 
-
     render () {
         return (
             <span id='day'>     
