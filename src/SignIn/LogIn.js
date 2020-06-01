@@ -6,16 +6,23 @@ function LogIn () {
     return (
         <section id='login'>
             <div id='container'>
-            <h3>Log In</h3>
-            <br />
-            <form>
-                <input type='text' placeholder='username' required />
-                <input type='text' placeholder='password' required />
-                <br />
-                <button id='search-btn'>Submit</button>
-            </form>
-            <br />
-            <Link to={'/signup'}>Sign Up</Link>
+                <h3 className='allItems'>Log In</h3>
+                <form className='allItems'>
+                    <input 
+                        className='allItems' 
+                        type='text' 
+                        placeholder='username' 
+                        required 
+                    />
+                    <input 
+                        className='allItems' 
+                        type='text' 
+                        placeholder='password' 
+                        required 
+                    />
+                    <button className='allItems' id='login-btn'>Submit</button>
+                </form>
+                <Link id='signup-link' className='allItems' to={'/signup'}>Sign Up</Link>
             </div>
         </section>
     )

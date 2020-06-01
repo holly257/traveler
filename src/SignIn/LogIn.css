@@ -1,16 +1,28 @@
 #login{
     padding-top: 140px;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
   
 #container{
-    width: 100px;
-    height: 100px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
   
 input {
     height: 20px;
     border-style: black;
+}
+
+.allItems{
+    margin: 5px;
+}
+
+#login-btn{
+    width: 93%;
+}
+
+#signup-link{
+    color: black;
 }
