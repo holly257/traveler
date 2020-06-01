@@ -10,7 +10,7 @@ class SearchPage extends React.Component {
         return (
             <>
                 <section id='main-search'>
-                    <div id='container'>
+                    <div id='search-container'>
                         <h6 id='search-title'>Search</h6>
                         <form>
                             <input id='search' type='text' placeholder='city name' />
@@ -33,6 +33,11 @@ class SearchPage extends React.Component {
                                 <img id='activities-icon' alt=''/>
                                 <input type='checkbox' value='activities' />
                                 <p>activities</p>
+                            </span>
+                            <span className='search-check-items'>
+                                <img id='activities-icon' alt=''/>
+                                <input type='checkbox' value='activities' />
+                                <p>lodging</p>
                             </span>
                             <button id='search-btn'>Let's Go!</button>
                         </form>

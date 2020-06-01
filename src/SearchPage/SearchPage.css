@@ -1,21 +1,12 @@
 #main-search{
-    padding-top: 60px;
+    margin-top: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-  
-#container{
-    width: 200px;
-    height: 100px;
-}
-  
-#start{
-    text-align: center;
-    background-color: rgb(170, 168, 168); 
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+ 
+#search-container{
+    height: 150px;
 }
   
 #search-title{

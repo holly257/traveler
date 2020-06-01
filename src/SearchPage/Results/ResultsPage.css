@@ -1,8 +1,7 @@
 .each-result{
     display: flex;
-    /* justify-content: space-between; */
     padding: 10px 0;
-    border-bottom: 1px solid darkgray;
+    border-top: 1px solid darkgray;
 }
 
 .results-image{
