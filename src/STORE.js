@@ -11,15 +11,15 @@ export default {
             days: [
                 {
                     day_id: 1,
-                    details: [
+                    activity: [
                         {
-                            detail_id: 1,
+                            activity_id: 1,
                             start_time: '8',
                             meridiem: 'am',
                             task: 'wake up',
                         },
                         {
-                            detail_id: 2,
+                            activity_id: 2,
                             start_time: '9',
                             meridiem: 'am',
                             task: 'breakfast at cafe',
@@ -28,15 +28,15 @@ export default {
                 },
                 {
                     day_id: 2,
-                    details: [
+                    activity: [
                         {
-                            detail_id: 1,
+                            activity_id: 1,
                             start_time: '8',
                             meridiem: 'am',
                             task: 'wake up',
                         },
                         {
-                            detail_id: 2,
+                            activity_id: 2,
                             start_time: '9',
                             meridiem: 'am',
                             task: 'breakfast at restaurant',
@@ -56,15 +56,15 @@ export default {
             days: [
                 {
                     day_id: 1,
-                    details: [
+                    activity: [
                         {
-                            detail_id: 1,
+                            activity_id: 1,
                             start_time: '9',
                             meridiem: 'am',
                             task: 'wake up',
                         },
                         {
-                            detail_id: 2,
+                            activity_id: 2,
                             start_time: '10',
                             meridiem: 'am',
                             task: 'breakfast on beach',
@@ -73,15 +73,15 @@ export default {
                 },
                 {
                     day_id: 2,
-                    details: [
+                    activity: [
                         {
-                            detail_id: 1,
+                            activity_id: 1,
                             start_time: '7',
                             meridiem: 'am',
                             task: 'morning walk',
                         },
                         {
-                            detail_id: 2,
+                            activity_id: 2,
                             start_time: '8',
                             meridiem: 'am',
                             task: 'breakfast at cafe',
@@ -101,15 +101,15 @@ export default {
             days: [
                 {
                     day_id: 1,
-                    details: [
+                    activity: [
                         {
-                            detail_id: 1,
+                            activity_id: 1,
                             start_time: '8',
                             meridiem: 'am',
                             task: 'wake up',
                         },
                         {
-                            detail_id: 2,
+                            activity_id: 2,
                             start_time: '9',
                             meridiem: 'am',
                             task: 'breakfast at cafe',
@@ -118,15 +118,15 @@ export default {
                 },
                 {
                     day_id: 2,
-                    details: [
+                    activity: [
                         {
-                            detail_id: 1,
+                            activity_id: 1,
                             start_time: '8',
                             meridiem: 'am',
                             task: 'wake up',
                         },
                         {
-                            detail_id: 2,
+                            activity_id: 2,
                             start_time: '9',
                             meridiem: 'am',
                             task: 'breakfast at restaurant',

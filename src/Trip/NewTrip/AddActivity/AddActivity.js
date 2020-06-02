@@ -15,7 +15,6 @@ class AddActivity extends React.Component {
     render () {
         return (
             <span id='day'>     
-                <p>Day 1</p>
                 <select>
                     {this.optRange()}
                 </select>
