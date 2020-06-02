@@ -49,7 +49,15 @@ class NewTrip extends React.Component {
                                 </>
                                 )
                         })}
-                        
+
+                        {/* value.map(item => {
+                            if(item.trip_id === tripId from url){
+                                then prepopulate with saved values
+                            } else {
+                                populate one day and one activity box
+                            }
+                        }) */}
+
                         <button onClick={(e) => this.anotherDay(e)} className='new-trip-btns'>Add Day</button>
                         <button className='new-trip-btns' id='search-btn'>Save</button>
                     </form>
