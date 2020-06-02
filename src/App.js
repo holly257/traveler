@@ -24,16 +24,17 @@ class App extends React.Component {
     this.setState(store);
   }
 
-  // handleAddReview = review => {
-  //   this.setState({
-  //     reviews:
-  //   })
-  // }
+  handleAddReview = reviewToAdd => {
+    this.setState({
+      reviews: [...this.state.reviews, reviewToAdd]
+    })
+  }
 
   render(){
     const value = {
       trips: this.state.trips,
       reviews: this.state.reviews,
+      addReview: this.handleAddReview,
     }
     return (
       <AppContext.Provider value={value}>

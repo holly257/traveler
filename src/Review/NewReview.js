@@ -1,16 +1,18 @@
 import React from 'react';
 import './NewReview.css'
-//import context
+import AppContext from '../AppContext'
 
-// const Required = () => (
-//     <span className='review__required'>*</span>
-// )
+
+// https://images.unsplash.com/photo-1591076232271-e80adf362a13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1083&q=80
 
 class NewReview extends React.Component {
+    static contextType = AppContext;
+
     SubmitReview = e => {
         e.preventDefault()
         const { name, rating, city, country, address, 
             category, comments, image, altText } = e.target
+
         const review = {
             // review_id: '',
             // user_id: '',
@@ -25,16 +27,17 @@ class NewReview extends React.Component {
                 address: address.value,
             },
              
-            review: review.value,
+            rating: rating.value,
             category: category.value, 
             comments: comments.value,
-        }
-        console.log(review)
-        //function to save review in context
-    }
+            date: new Date().toISOString()
 
-    //savenewreview  - add to context
-    //app/js actually save review
+            
+        }
+
+        this.context.addReview(review)
+        console.log(review)
+    }
 
     render() { 
         return (
