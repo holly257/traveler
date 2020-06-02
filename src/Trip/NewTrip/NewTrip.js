@@ -44,7 +44,7 @@ class NewTrip extends React.Component {
                                         <p>Day {day.day_id}</p>
                                             {day.activity.map((day, index) => {
                                                 return (
-                                                    <AddActivity activity={day.task} key={day.activity_id}/>
+                                                    <AddActivity {...day} key={day.activity_id}/>
                                                 )
                                             })}
                                             <button onClick={(e) => this.anotherActivity(e)} className='new-trip-btns'>Add Activity</button>

@@ -14,13 +14,13 @@ export default {
                     activity: [
                         {
                             activity_id: 1,
-                            start_time: '8',
+                            start_time: 8,
                             meridiem: 'am',
                             task: 'wake up',
                         },
                         {
                             activity_id: 2,
-                            start_time: '9',
+                            start_time: 9,
                             meridiem: 'am',
                             task: 'breakfast at cafe',
                         },
@@ -31,13 +31,13 @@ export default {
                     activity: [
                         {
                             activity_id: 1,
-                            start_time: '8',
+                            start_time: 8,
                             meridiem: 'am',
                             task: 'wake up',
                         },
                         {
                             activity_id: 2,
-                            start_time: '9',
+                            start_time: 9,
                             meridiem: 'am',
                             task: 'breakfast at restaurant',
                         },
@@ -59,13 +59,13 @@ export default {
                     activity: [
                         {
                             activity_id: 1,
-                            start_time: '9',
+                            start_time: 9,
                             meridiem: 'am',
                             task: 'wake up',
                         },
                         {
                             activity_id: 2,
-                            start_time: '10',
+                            start_time: 10,
                             meridiem: 'am',
                             task: 'breakfast on beach',
                         },
@@ -76,13 +76,13 @@ export default {
                     activity: [
                         {
                             activity_id: 1,
-                            start_time: '7',
+                            start_time: 7,
                             meridiem: 'am',
                             task: 'morning walk',
                         },
                         {
                             activity_id: 2,
-                            start_time: '8',
+                            start_time: 8,
                             meridiem: 'am',
                             task: 'breakfast at cafe',
                         },
@@ -104,14 +104,14 @@ export default {
                     activity: [
                         {
                             activity_id: 1,
-                            start_time: '8',
+                            start_time: 8,
                             meridiem: 'am',
                             task: 'wake up',
                         },
                         {
                             activity_id: 2,
-                            start_time: '9',
-                            meridiem: 'am',
+                            start_time: 9,
+                            meridiem: 'pm',
                             task: 'breakfast at cafe',
                         },
                     ] 
@@ -121,13 +121,13 @@ export default {
                     activity: [
                         {
                             activity_id: 1,
-                            start_time: '8',
+                            start_time: 8,
                             meridiem: 'am',
                             task: 'wake up',
                         },
                         {
                             activity_id: 2,
-                            start_time: '9',
+                            start_time: 9,
                             meridiem: 'am',
                             task: 'breakfast at restaurant',
                         },

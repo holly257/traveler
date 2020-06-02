@@ -3,29 +3,27 @@ import './AddActivity.css'
 
 class AddActivity extends React.Component {
 
-    optRange () {
+    optRange (n) {
         let range = [];
 
         for(let i=1; i<=12; i++) {
-            range.push(<option key={i} value='{i}'>{i}</option>)
+            range.push(<option key={i} value='{i}' selected={i == n}>{i}</option>)
         }
         return range;
     }
 
     render () {
+        console.log(this.props)
         return (
             <span id='day'>
-
-                {/*not pulling start time  */}
-                <select value={this.props.start_time ? this.props.start_time : this.optRange()}>
-                    {this.props.start_time ? this.props.start_time : this.optRange()}
+                <select>
+                    {this.optRange(this.props.start_time)}
                 </select>
                 <select>
-                    {/*not sure how to use set am/pm and select */}
-                    <option>AM</option>
-                    <option>PM</option>
+                    <option selected={this.props.meridiem === 'am'}>AM</option>
+                    <option selected={this.props.meridiem === 'pm'}>PM</option>
                 </select>
-                <textarea rows='3'  placeholder='Activity' value={this.props.activity ? this.props.activity : ''}></textarea>
+                <textarea rows='3'  placeholder='Activity' value={this.props.task ? this.props.task : ''}></textarea>
                 
                 <hr />
             </span>
