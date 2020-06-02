@@ -110,9 +110,15 @@ export default {
                         },
                         {
                             activity_id: 2,
+                            start_time: 1,
+                            meridiem: 'pm',
+                            task: 'lunch at beach',
+                        },
+                        {
+                            activity_id: 3,
                             start_time: 9,
                             meridiem: 'pm',
-                            task: 'breakfast at cafe',
+                            task: 'dinner at cafe',
                         },
                     ] 
                 },

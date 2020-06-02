@@ -19,6 +19,11 @@ class NewTrip extends React.Component {
         this.setState({ EachDay: [...this.state.EachDay, '']})
     }
 
+    SaveTrip = e => {
+        e.preventDefault()
+        console.log('trip saved')
+    }
+
     render () { 
         const selectedTrip = this.context.trips.find(trip => 
             trip.trip_id == this.props.match.params.tripId
@@ -32,7 +37,7 @@ class NewTrip extends React.Component {
                         {/* <div>{value.map(item => item.name)}</div>*/}
                         
                         <h3 id='trip-title'>Trip </h3>
-                        <form>
+                        <form onSubmit={(e) => this.SaveTrip(e)}>
                             <input type='text' value={selectedTrip.name} required />
                             <input type='text' value={selectedTrip.location.city} placeholder='location' required />
                             <input type='text' value={selectedTrip.location.country} placeholder='location' required />
@@ -55,7 +60,7 @@ class NewTrip extends React.Component {
                             })}
 
                             <button onClick={(e) => this.AddDay(e)} className='new-trip-btns'>Add Day</button>
-                            <button className='new-trip-btns' id='search-btn'>Save</button>
+                            <button type='submit' className='new-trip-btns' id='search-btn'>Save</button>
                         </form>
                     </div>
                 </section>
@@ -67,7 +72,7 @@ class NewTrip extends React.Component {
                         {/* <div>{value.map(item => item.name)}</div>*/}
                         
                         <h3 id='trip-title'>Trip </h3>
-                        <form>
+                        <form onSubmit={(e) => this.SaveTrip(e)}>
                             <input type='text' placeholder='name' required />
                             <input type='text' placeholder='city' required />
                             <input type='text' placeholder='country' required />
@@ -90,7 +95,7 @@ class NewTrip extends React.Component {
                             })}
 
                             <button onClick={(e) => this.AddDay(e)} className='new-trip-btns'>Add Day</button>
-                            <button className='new-trip-btns' id='search-btn'>Save</button>
+                            <button type='submit' className='new-trip-btns' id='search-btn'>Save</button>
                         </form>
                     </div>
                 </section>

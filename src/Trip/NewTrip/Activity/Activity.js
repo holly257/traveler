@@ -13,7 +13,6 @@ class Activity extends React.Component {
     }
 
     render () {
-        console.log(this.props)
         return (
             <span id='day'>
                 <select>
