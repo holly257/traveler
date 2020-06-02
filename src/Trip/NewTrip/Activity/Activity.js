@@ -15,14 +15,14 @@ class Activity extends React.Component {
     render () {
         return (
             <span id='day'>
-                <select>
+                <select name='start_time'>
                     {this.optRange(this.props.start_time)}
                 </select>
-                <select>
+                <select name='meridiem'>
                     <option selected={this.props.meridiem === 'am'}>AM</option>
                     <option selected={this.props.meridiem === 'pm'}>PM</option>
                 </select>
-                <textarea rows='3'  placeholder='Activity' value={this.props.task ? this.props.task : ''}></textarea>
+                <textarea rows='3' name='task' placeholder='Activity' value={this.props.task ? this.props.task : ''}></textarea>
                 
                 <hr />
             </span>

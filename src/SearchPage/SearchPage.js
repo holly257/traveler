@@ -8,8 +8,13 @@ class SearchPage extends React.Component {
 
     SubmitSearch = e => {
         e.preventDefault()
+        const { searchTerm } = e.target
+        const search = {
+            searchTerm: searchTerm.value,
+            
+        }
         
-        console.log(`let's search`)
+        console.log(search)
     }
 
     render () {
@@ -19,7 +24,7 @@ class SearchPage extends React.Component {
                     <div id='search-container'>
                         <h6 id='search-title'>Search</h6>
                         <form onSubmit={(e) => this.SubmitSearch(e)}>
-                            <input id='search' type='text' placeholder='city name' />
+                            <input id='search' type='text' name='searchTerm' placeholder='city name' />
                             <span className='search-check-items'>
                                 <img id='food-icon' alt=''/>
                                 <input type='checkbox' value='restaurants' />

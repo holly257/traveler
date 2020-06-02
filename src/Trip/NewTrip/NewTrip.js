@@ -21,7 +21,31 @@ class NewTrip extends React.Component {
 
     SaveTrip = e => {
         e.preventDefault()
-        console.log('trip saved')
+        const { name, city, country  } = e.target
+        const trip = {
+            // trip_id: 1,
+            // user_id: 1,
+            name: name.value,
+            location: {
+                city: city.value,
+                country: country.value,
+            },
+            // days: [
+            //     {
+            //         // day_id: 1,
+            //         activity: [
+            //             {
+            //                 // activity_id: 1,
+            //                 start_time: start_time.value,
+            //                 meridiem: meridiem.value,
+            //                 task: task.value,
+            //             },
+            //         ] 
+            //     },
+            // ]
+        }
+
+        console.log(trip)
     }
 
     render () { 
@@ -38,9 +62,9 @@ class NewTrip extends React.Component {
                         
                         <h3 id='trip-title'>Trip </h3>
                         <form onSubmit={(e) => this.SaveTrip(e)}>
-                            <input type='text' value={selectedTrip.name} required />
-                            <input type='text' value={selectedTrip.location.city} placeholder='location' required />
-                            <input type='text' value={selectedTrip.location.country} placeholder='location' required />
+                            <input type='text' name='name' value={selectedTrip.name} required />
+                            <input type='text' name='city' value={selectedTrip.location.city} placeholder='location' required />
+                            <input type='text' name='country' value={selectedTrip.location.country} placeholder='location' required />
 
                             {selectedTrip.days.map((day, index) => {
                                 return (
@@ -73,9 +97,9 @@ class NewTrip extends React.Component {
                         
                         <h3 id='trip-title'>Trip </h3>
                         <form onSubmit={(e) => this.SaveTrip(e)}>
-                            <input type='text' placeholder='name' required />
-                            <input type='text' placeholder='city' required />
-                            <input type='text' placeholder='country' required />
+                            <input type='text' name='name' placeholder='name' required />
+                            <input type='text' name='city' placeholder='city' required />
+                            <input type='text' name='country' placeholder='country' required />
 
                             {this.state.EachDay.map((day, index) => {
                                 return (
