@@ -7,7 +7,7 @@ class Activity extends React.Component {
         let range = [];
 
         for(let i=1; i<=12; i++) {
-            range.push(<option key={i} value='{i}' selected={i == n}>{i}</option>)
+            range.push(<option key={i} value='{i}' selected={i === n}>{i}</option>)
         }
         return range;
     }

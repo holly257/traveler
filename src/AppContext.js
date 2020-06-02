@@ -6,6 +6,7 @@ const AppContext = React.createContext({
     AddActivity: () => {},
     AddDay: () => {},
     SaveTrip: () => {},
+    SubmitSearch: () => {},
 })
 
 export default AppContext;

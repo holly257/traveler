@@ -6,13 +6,19 @@ import AppContext from '../AppContext'
 class SearchPage extends React.Component {
     static contextType = AppContext
 
+    SubmitSearch = e => {
+        e.preventDefault()
+        
+        console.log(`let's search`)
+    }
+
     render () {
         return (
             <>
                 <section id='main-search'>
                     <div id='search-container'>
                         <h6 id='search-title'>Search</h6>
-                        <form>
+                        <form onSubmit={(e) => this.SubmitSearch(e)}>
                             <input id='search' type='text' placeholder='city name' />
                             <span className='search-check-items'>
                                 <img id='food-icon' alt=''/>
@@ -39,7 +45,7 @@ class SearchPage extends React.Component {
                                 <input type='checkbox' value='activities' />
                                 <p>lodging</p>
                             </span>
-                            <button id='search-btn'>Let's Go!</button>
+                            <button type='submit' id='search-btn'>Let's Go!</button>
                         </form>
                     </div>
                 </section>

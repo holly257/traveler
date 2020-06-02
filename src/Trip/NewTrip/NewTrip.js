@@ -82,9 +82,9 @@ class NewTrip extends React.Component {
                                     <>
                                         <div id='day-cont'>
                                         <p>Day {index+1}</p>
-                                            {this.state.EachActivity.map((thing, index) => {
+                                            {this.state.EachActivity.map((activity, index) => {
                                                 return (
-                                                    <Activity />
+                                                    <Activity key={index}/>
                                                 )
                                             })}
                                             <button onClick={(e) => this.AddActivity(e)} className='new-trip-btns'>Add Activity</button>
