@@ -14,15 +14,18 @@ class AddActivity extends React.Component {
 
     render () {
         return (
-            <span id='day'>     
-                <select>
-                    {this.optRange()}
+            <span id='day'>
+
+                {/*not pulling start time  */}
+                <select value={this.props.start_time ? this.props.start_time : this.optRange()}>
+                    {this.props.start_time ? this.props.start_time : this.optRange()}
                 </select>
                 <select>
+                    {/*not sure how to use set am/pm and select */}
                     <option>AM</option>
                     <option>PM</option>
                 </select>
-                <textarea rows='3'  placeholder='Activity' ></textarea>
+                <textarea rows='3'  placeholder='Activity' value={this.props.activity ? this.props.activity : ''}></textarea>
                 
                 <hr />
             </span>

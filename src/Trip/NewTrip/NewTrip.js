@@ -20,64 +20,87 @@ class NewTrip extends React.Component {
     }
 
     render () { 
-        console.log(this.context.trips)
-
-        // let value = this.context.trips;   
-        return (
-            <section id='main-trip'>
-                <div id='container'>
-                    {/* <div>{value.map(item => item.name)}</div>*/}
-                    
-                    <h3 id='trip-title'>Trip </h3>
-                    <form>
-                        <input type='text' placeholder='name' required />
-                        <input type='text' placeholder='location' required />
-
-                        {this.state.anotherDay.map((day, index) => {
-                            return (
-                                <>
-                                    <div id='day-cont'>
-                                    <p>Day {index+1}</p>
-                                        {this.state.anotherActivity.map((thing, index) => {
-                                            return (
-                                                <AddActivity />
-                                            )
-                                        })}
-                                        <button onClick={(e) => this.anotherActivity(e)} className='new-trip-btns'>Add Activity</button>
-                                    </div>
-                                    <br />
-                                </>
-                                )
-                        })}
-
-                        {/* value.map(item => {
-                            if(item.trip_id === tripId from url){
-                                then prepopulate with saved values
-                            } else {
-                                populate one day and one activity box
-                            }
-                        }) */}
-
-                        <button onClick={(e) => this.anotherDay(e)} className='new-trip-btns'>Add Day</button>
-                        <button className='new-trip-btns' id='search-btn'>Save</button>
-                    </form>
-                </div>
-            </section>
+        const selectedTrip = this.context.trips.find(trip => 
+            trip.trip_id == this.props.match.params.tripId
         )
+        // let value = this.context.trips;  
+        
+        if(selectedTrip){
+            return (
+                <section id='main-trip'>
+                    <div id='container'>
+                        {/* <div>{value.map(item => item.name)}</div>*/}
+                        
+                        <h3 id='trip-title'>Trip </h3>
+                        <form>
+                            <input type='text' value={selectedTrip.name} required />
+                            <input type='text' value={selectedTrip.location.city} placeholder='location' required />
+                            <input type='text' value={selectedTrip.location.country} placeholder='location' required />
+
+                            {selectedTrip.days.map((day, index) => {
+                                return (
+                                    <>
+                                        <div key={day.day_id} id='day-cont'>
+                                        <p>Day {day.day_id}</p>
+                                            {day.activity.map((day, index) => {
+                                                return (
+                                                    <AddActivity activity={day.task} key={day.activity_id}/>
+                                                )
+                                            })}
+                                            <button onClick={(e) => this.anotherActivity(e)} className='new-trip-btns'>Add Activity</button>
+                                        </div>
+                                        <br />
+                                    </>
+                                    )
+                            })}
+
+                            <button onClick={(e) => this.anotherDay(e)} className='new-trip-btns'>Add Day</button>
+                            <button className='new-trip-btns' id='search-btn'>Save</button>
+                        </form>
+                    </div>
+                </section>
+            )
+        } else {
+            return (
+                <section id='main-trip'>
+                    <div id='container'>
+                        {/* <div>{value.map(item => item.name)}</div>*/}
+                        
+                        <h3 id='trip-title'>Trip </h3>
+                        <form>
+                            <input type='text' placeholder='name' required />
+                            <input type='text' placeholder='city' required />
+                            <input type='text' placeholder='country' required />
+
+                            {this.state.anotherDay.map((day, index) => {
+                                return (
+                                    <>
+                                        <div id='day-cont'>
+                                        <p>Day {index+1}</p>
+                                            {this.state.anotherActivity.map((thing, index) => {
+                                                return (
+                                                    <AddActivity />
+                                                )
+                                            })}
+                                            <button onClick={(e) => this.anotherActivity(e)} className='new-trip-btns'>Add Activity</button>
+                                        </div>
+                                        <br />
+                                    </>
+                                    )
+                            })}
+
+                            <button onClick={(e) => this.anotherDay(e)} className='new-trip-btns'>Add Day</button>
+                            <button className='new-trip-btns' id='search-btn'>Save</button>
+                        </form>
+                    </div>
+                </section>
+            )
+        }
     }
 }
 
-//if trip_id === selected trip_id
-    // then map over trip days 
-    // populate days
-        //map over activities
-        //populate activities
-//else populate empty
-
-//navigating to new-trip creates new trip_id with one day
 //add activity button pushes empty obj to day array
 //add day button pushes 
-
 
 //notes section for each trip
 //packing list section for each trip
