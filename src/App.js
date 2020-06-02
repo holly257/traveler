@@ -15,17 +15,25 @@ import AppContext from './AppContext'
 class App extends React.Component {
   state = {
     trips: [],
-    ratings: [],
+    reviews: [],
   };
 
+
+  //push to trips 
   componentDidMount() {
     this.setState(store);
   }
 
+  // handleAddReview = review => {
+  //   this.setState({
+  //     reviews:
+  //   })
+  // }
+
   render(){
     const value = {
       trips: this.state.trips,
-      ratings: this.state.ratings,
+      reviews: this.state.reviews,
     }
     return (
       <AppContext.Provider value={value}>

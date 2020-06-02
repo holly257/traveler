@@ -2,7 +2,7 @@ import React from 'react';
 
 const AppContext = React.createContext({
     trips: [],
-    ratings: [],
+    reviews: [],
     AddActivity: () => {},
     AddDay: () => {},
     SaveTrip: () => {},

@@ -142,9 +142,9 @@ export default {
             ]
         },
     ],
-    ratings: [
+    reviews: [
         {
-            rating_id: 1,
+            review_id: 1,
             user_id: 1,
             name: 'Mad Panda Hostel',
             images: {
@@ -161,7 +161,7 @@ export default {
             comments: 'Best place on earth!! Everyone is so friendly and the food is amazing!',
         },
         {
-            rating_id: 2,
+            review_id: 2,
             user_id: 2,
             name: 'Crystal Beer Parlor',
             images: {
@@ -178,7 +178,7 @@ export default {
             comments: 'Great drinks! A little loud, but a nice place to start the night',
         },
         {
-            rating_id: 3,
+            review_id: 3,
             user_id: 1,
             name: 'Stari Most Tour',
             images: {

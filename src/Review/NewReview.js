@@ -1,5 +1,6 @@
 import React from 'react';
 import './NewReview.css'
+//import context
 
 // const Required = () => (
 //     <span className='review__required'>*</span>
@@ -11,7 +12,7 @@ class NewReview extends React.Component {
         const { name, rating, city, country, address, 
             category, comments, image, altText } = e.target
         const review = {
-            // rating_id: '',
+            // review_id: '',
             // user_id: '',
             name: name.value, 
             images: {
@@ -24,12 +25,16 @@ class NewReview extends React.Component {
                 address: address.value,
             },
              
-            rating: rating.value,
+            review: review.value,
             category: category.value, 
             comments: comments.value,
         }
         console.log(review)
+        //function to save review in context
     }
+
+    //savenewreview  - add to context
+    //app/js actually save review
 
     render() { 
         return (
