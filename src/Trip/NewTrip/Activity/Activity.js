@@ -1,7 +1,7 @@
 import React from 'react'
-import './AddActivity.css'
+import './Activity.css'
 
-class AddActivity extends React.Component {
+class Activity extends React.Component {
 
     optRange (n) {
         let range = [];
@@ -31,4 +31,4 @@ class AddActivity extends React.Component {
     }
 }
 
-export default AddActivity
+export default Activity

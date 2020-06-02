@@ -1,22 +1,22 @@
 import React from 'react';
 import './NewTrip.css'
-import AddActivity from './AddActivity/AddActivity'
+import Activity from './Activity/Activity'
 import AppContext from '../../AppContext'
 
 class NewTrip extends React.Component {
     static contextType = AppContext;
 
     state = {
-        anotherActivity: [],
-        anotherDay: [],
+        EachActivity: ['',],
+        EachDay: ['',],
     }
 
-    anotherActivity() {
-        this.setState({ anotherActivity: [...this.state.anotherActivity, '']})
+    AddActivity() {
+        this.setState({ EachActivity: [...this.state.EachActivity, '']})
     }
 
-    anotherDay() {
-        this.setState({ anotherDay: [...this.state.anotherDay, '']})
+    AddDay() {
+        this.setState({ EachDay: [...this.state.EachDay, '']})
     }
 
     render () { 
@@ -44,17 +44,17 @@ class NewTrip extends React.Component {
                                         <p>Day {day.day_id}</p>
                                             {day.activity.map((day, index) => {
                                                 return (
-                                                    <AddActivity {...day} key={day.activity_id}/>
+                                                    <Activity {...day} key={day.activity_id}/>
                                                 )
                                             })}
-                                            <button onClick={(e) => this.anotherActivity(e)} className='new-trip-btns'>Add Activity</button>
+                                            <button onClick={(e) => this.AddActivity(e)} className='new-trip-btns'>Add Activity</button>
                                         </div>
                                         <br />
                                     </>
                                     )
                             })}
 
-                            <button onClick={(e) => this.anotherDay(e)} className='new-trip-btns'>Add Day</button>
+                            <button onClick={(e) => this.AddDay(e)} className='new-trip-btns'>Add Day</button>
                             <button className='new-trip-btns' id='search-btn'>Save</button>
                         </form>
                     </div>
@@ -72,24 +72,24 @@ class NewTrip extends React.Component {
                             <input type='text' placeholder='city' required />
                             <input type='text' placeholder='country' required />
 
-                            {this.state.anotherDay.map((day, index) => {
+                            {this.state.EachDay.map((day, index) => {
                                 return (
                                     <>
                                         <div id='day-cont'>
                                         <p>Day {index+1}</p>
-                                            {this.state.anotherActivity.map((thing, index) => {
+                                            {this.state.EachActivity.map((thing, index) => {
                                                 return (
-                                                    <AddActivity />
+                                                    <Activity />
                                                 )
                                             })}
-                                            <button onClick={(e) => this.anotherActivity(e)} className='new-trip-btns'>Add Activity</button>
+                                            <button onClick={(e) => this.AddActivity(e)} className='new-trip-btns'>Add Activity</button>
                                         </div>
                                         <br />
                                     </>
                                     )
                             })}
 
-                            <button onClick={(e) => this.anotherDay(e)} className='new-trip-btns'>Add Day</button>
+                            <button onClick={(e) => this.AddDay(e)} className='new-trip-btns'>Add Day</button>
                             <button className='new-trip-btns' id='search-btn'>Save</button>
                         </form>
                     </div>
