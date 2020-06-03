@@ -28,15 +28,12 @@ class App extends React.Component {
     this.setState({
       reviews: [...this.state.reviews, reviewToAdd]
     })
-    console.log(this.state.reviews)
   }
 
   handleStartNewTrip = newTrip => {
     this.setState({
       trips: [...this.state.trips, newTrip]
     })
-
-    console.log(this.state.trips)
   }
 
   render(){

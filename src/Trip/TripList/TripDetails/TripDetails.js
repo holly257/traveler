@@ -36,8 +36,8 @@ class TripDetails extends React.Component {
 
                             {selectedTrip.days.map((day, index) => {
                                 return (
-                                    <>
-                                        <div key={day.day_id} id='day-cont'>
+                                    <React.Fragment key={day.day_id}> 
+                                        <div  id='day-cont'>
                                         <p>Day {index+1}</p>
                                             {day.activity.map((day, index) => {
                                                 return (
@@ -57,7 +57,7 @@ class TripDetails extends React.Component {
                                             })}
                                         </div>
                                         <br />
-                                    </>
+                                    </React.Fragment>
                                     )
                             })}
                             <button onClick={(e) => this.EditTrip(e)} className='new-trip-btns'>Edit</button>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './NewTrip.css'
-import Activity from './Activity/Activity'
+// import Activity from './Activity/Activity'
 import AppContext from '../../AppContext'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -19,10 +19,22 @@ class NewTrip extends React.Component {
                 city: city.value,
                 country: country.value,
             },
+            days: [
+                {
+                    day_id: 'f9261356-2137-4e9b-88ba-4b4fa1ea797d',
+                    activity: [
+                        {
+                            activity_id: '453c81fa-d3e5-4daf-b54e-32c2dbda1581',
+                            start_time: 9,
+                            meridiem: 'am',
+                            task: '',
+                        },
+                    ]
+                }
+            ]
         }
 
         this.context.startNewTrip(trip)
-        console.log(trip)
     }
 
     render () { 

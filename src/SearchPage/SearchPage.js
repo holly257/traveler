@@ -57,7 +57,7 @@ class SearchPage extends React.Component {
                 <section id='results-cont'>
                     <h4 id='results-title'>Results</h4>
                     {this.context.reviews.map(review => {
-                        return (<ResultsPage review={review}/>)
+                        return (<ResultsPage key={review.review_id} review={review}/>)
                     })}
                 </section>
             </>
