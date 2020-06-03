@@ -26,13 +26,9 @@ class NewReview extends React.Component {
                 country: country.value,
                 address: address.value,
             },
-             
             rating: rating.value,
             category: category.value, 
             comments: comments.value,
-            date: new Date().toISOString()
-
-            
         }
 
         this.context.addReview(review)

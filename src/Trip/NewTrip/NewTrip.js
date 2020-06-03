@@ -5,18 +5,30 @@ import AppContext from '../../AppContext'
 
 class NewTrip extends React.Component {
     static contextType = AppContext;
-
+    
     state = {
-        EachActivity: ['',],
-        EachDay: ['',],
+        trips: this.context.trips,
     }
 
-    AddActivity() {
-        this.setState({ EachActivity: [...this.state.EachActivity, '']})
-    }
 
-    AddDay() {
-        this.setState({ EachDay: [...this.state.EachDay, '']})
+    //work in progress
+    AddActivity = e => {
+        
+        console.log(e.target.value)
+
+        const selectedTripId = this.context.trips.find(trip => 
+            trip.trip_id == this.props.match.params.tripId
+        )
+
+        const selectedDay = selectedTripId.days.find(day => 
+            day.trip_id == e.target.value
+        )
+
+        if(selectedDay){
+            this.setState({ trips: [...this.state.trips, '']})
+        }
+        console.log(selectedDay)
+
     }
 
     SaveTrip = e => {
@@ -45,21 +57,18 @@ class NewTrip extends React.Component {
             // ]
         }
 
-        console.log(trip)
+        // console.log(trip)
     }
 
     render () { 
         const selectedTrip = this.context.trips.find(trip => 
             trip.trip_id == this.props.match.params.tripId
         )
-        // let value = this.context.trips;  
         
         if(selectedTrip){
             return (
                 <section id='main-trip'>
                     <div id='container'>
-                        {/* <div>{value.map(item => item.name)}</div>*/}
-                        
                         <h3 id='trip-title'>Trip </h3>
                         <form onSubmit={(e) => this.SaveTrip(e)}>
                             <input type='text' name='name' value={selectedTrip.name} required />
@@ -76,7 +85,7 @@ class NewTrip extends React.Component {
                                                     <Activity {...day} key={day.activity_id}/>
                                                 )
                                             })}
-                                            <button onClick={(e) => this.AddActivity(e)} className='new-trip-btns'>Add Activity</button>
+                                            <button onClick={(e) => this.AddActivity(e)} value={day.day_id} className='new-trip-btns'>Add Activity</button>
                                         </div>
                                         <br />
                                     </>
@@ -93,31 +102,19 @@ class NewTrip extends React.Component {
             return (
                 <section id='main-trip'>
                     <div id='container'>
-                        {/* <div>{value.map(item => item.name)}</div>*/}
-                        
                         <h3 id='trip-title'>Trip </h3>
                         <form onSubmit={(e) => this.SaveTrip(e)}>
                             <input type='text' name='name' placeholder='name' required />
                             <input type='text' name='city' placeholder='city' required />
                             <input type='text' name='country' placeholder='country' required />
-
-                            {this.state.EachDay.map((day, index) => {
-                                return (
-                                    <>
-                                        <div id='day-cont'>
-                                        <p>Day {index+1}</p>
-                                            {this.state.EachActivity.map((activity, index) => {
-                                                return (
-                                                    <Activity key={index}/>
-                                                )
-                                            })}
-                                            <button onClick={(e) => this.AddActivity(e)} className='new-trip-btns'>Add Activity</button>
-                                        </div>
-                                        <br />
-                                    </>
-                                    )
-                            })}
-
+                            
+                            <div id='day-cont'>
+                            <p>Day 1</p>
+                                <Activity key={1}/>
+                                <button onClick={(e) => this.AddActivity(e)} className='new-trip-btns'>Add Activity</button>
+                            </div>
+                            <br />
+                                           
                             <button onClick={(e) => this.AddDay(e)} className='new-trip-btns'>Add Day</button>
                             <button type='submit' className='new-trip-btns' id='search-btn'>Save</button>
                         </form>
@@ -135,3 +132,24 @@ class NewTrip extends React.Component {
 //packing list section for each trip
 
 export default NewTrip;
+
+
+//onClick get day block id
+//push new obj to that day array
+
+                            {/* {this.state.EachDay.map((day, index) => {
+                                return (
+                                    <>
+                                        <div id='day-cont'>
+                                        <p>Day {index+1}</p>
+                                            {this.state.EachActivity.map((activity, index) => {
+                                                return (
+                                                    <Activity key={index}/>
+                                                )
+                                            })}
+                                            <button onClick={(e) => this.AddActivity(e)} className='new-trip-btns'>Add Activity</button>
+                                        </div>
+                                        <br />
+                                    </>
+                                    )
+                            })} */}

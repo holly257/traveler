@@ -18,7 +18,6 @@ class App extends React.Component {
     reviews: [],
   };
 
-
   //push to trips 
   componentDidMount() {
     this.setState(store);
