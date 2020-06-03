@@ -7,6 +7,7 @@ import SearchPage from './SearchPage/SearchPage'
 import NewReview from './Review/NewReview'
 import TripList from './Trip/TripList/TripList'
 import NewTrip from './Trip/NewTrip/NewTrip'
+import TripDetails from './Trip/TripList/TripDetails/TripDetails'
 import LogIn from './SignIn/LogIn'
 import SignUp from './SignIn/SignUp'
 import store from './STORE'
@@ -27,6 +28,15 @@ class App extends React.Component {
     this.setState({
       reviews: [...this.state.reviews, reviewToAdd]
     })
+    console.log(this.state.reviews)
+  }
+
+  handleStartNewTrip = newTrip => {
+    this.setState({
+      trips: [...this.state.trips, newTrip]
+    })
+
+    console.log(this.state.trips)
   }
 
   render(){
@@ -34,6 +44,7 @@ class App extends React.Component {
       trips: this.state.trips,
       reviews: this.state.reviews,
       addReview: this.handleAddReview,
+      startNewTrip: this.handleStartNewTrip,
     }
     return (
       <AppContext.Provider value={value}>
@@ -46,7 +57,7 @@ class App extends React.Component {
           <Route path='/new-trip' component={NewTrip} />
           <Route path='/login' component={LogIn} />
           <Route path='/signup' component={SignUp} />
-          <Route exact path='/trip/:tripId' component={NewTrip} />
+          <Route exact path='/trip/:tripId' component={TripDetails} />
           
         </div>
       </AppContext.Provider>
