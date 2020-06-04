@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './TripList.css'
-import AppContext from '../../AppContext'
+import AppContext from '../../App/AppContext'
 
 class TripList extends React.Component {
     static contextType = AppContext;

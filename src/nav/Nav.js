@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React from '../../node_modules/react';
+import { Link } from '../../node_modules/react-router-dom'
 import './Nav.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faWindowClose } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '../../node_modules/@fortawesome/react-fontawesome'
+import { faBars, faWindowClose } from '../../node_modules/@fortawesome/free-solid-svg-icons'
 
 class Nav extends React.Component {
     state = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import './TripDetails.css'
-import AppContext from '../../../AppContext'
+import AppContext from '../../../App/AppContext'
 
 class TripDetails extends React.Component {
     static contextType = AppContext;

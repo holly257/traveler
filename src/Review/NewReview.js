@@ -1,6 +1,6 @@
 import React from 'react';
 import './NewReview.css'
-import AppContext from '../AppContext'
+import AppContext from '../App/AppContext'
 
 // https://images.unsplash.com/photo-1591076232271-e80adf362a13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1083&q=80
 

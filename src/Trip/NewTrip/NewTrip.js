@@ -1,7 +1,7 @@
 import React from 'react';
 import './NewTrip.css'
 // import Activity from './Activity/Activity'
-import AppContext from '../../AppContext'
+import AppContext from '../../App/AppContext'
 import { v4 as uuidv4 } from 'uuid'
 
 class NewTrip extends React.Component {

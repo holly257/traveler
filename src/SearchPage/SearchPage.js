@@ -1,7 +1,7 @@
 import React from 'react';
 import './SearchPage.css'
 import ResultsPage from './Results/ResultsPage'
-import AppContext from '../AppContext'
+import AppContext from '../App/AppContext'
 
 class SearchPage extends React.Component {
     static contextType = AppContext
