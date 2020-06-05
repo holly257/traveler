@@ -19,7 +19,6 @@ class App extends React.Component {
     reviews: [],
   };
 
-  //push to trips 
   componentDidMount() {
     this.setState(store);
   }
@@ -36,12 +35,29 @@ class App extends React.Component {
     })
   }
 
+  handleAddDay = (newDay, tripId) => {
+    const selectedTrip = this.state.trips.find(trip => 
+      trip.trip_id === tripId
+    )
+    
+    let updatedSelectedTrip = [...selectedTrip.days, newDay]
+    const index = this.state.trips.findIndex(trip => trip.trip_id === tripId)
+    let newTripsArr = [...this.state.trips]
+
+    newTripsArr[index].days = updatedSelectedTrip
+
+    this.setState({
+      trips: newTripsArr
+    })
+  }
+
   render(){
     const value = {
       trips: this.state.trips,
       reviews: this.state.reviews,
       addReview: this.handleAddReview,
       startNewTrip: this.handleStartNewTrip,
+      addDay: this.handleAddDay,
     }
     return (
       <AppContext.Provider value={value}>

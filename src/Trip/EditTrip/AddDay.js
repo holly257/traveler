@@ -1,52 +1,31 @@
 import React from 'react';
-import './TripDetails.css'
-import AppContext from '../../../App/AppContext'
+import './AddDay.css'
 
-class TripDetails extends React.Component {
+class AddDay extends React.Component {
     static contextType = AppContext;
 
-    optRange (n) {
-        let range = [];
-
-        for(let i=1; i<=12; i++) {
-            range.push(<option key={i} value='{i}' selected={i === n}>{i}</option>)
-        }
-        return range;
-    }
-
-    AddAnotherDay = e => {
+    EditTrip = e => {
         e.preventDefault()
-
-        const newDay = 
-            {
-                day_id: 'f9261356-2137-4e9b-88ba-4b4fa1ea798d',
-                activity: [
-                    {
-                        activity_id: '453c81fa-d3e5-4daf-b54e-32c2dbdw1581',
-                        start_time: 9,
-                        meridiem: 'am',
-                        task: '',
-                    },
-                ]
-            }
-    
-        this.context.addDay(newDay, this.props.match.params.tripId)
+        console.log('edit')
     }
 
     render () { 
         const selectedTrip = this.context.trips.find(trip => 
             trip.trip_id === this.props.match.params.tripId
         )
+
+        const selectedDay = ''
         
         if(selectedTrip){
             return (
                 <section id='main-trip'>
                     <div id='container'>
                         <h3 id='trip-title'>Trip </h3>
-                        <form onSubmit={(e) => this.SaveTrip(e)}>
-                            <input type='text' name='name' value={selectedTrip.name} required />
-                            <input type='text' name='city' value={selectedTrip.location.city} placeholder='location' required />
-                            <input type='text' name='country' value={selectedTrip.location.country} placeholder='location' required />
+                        <form onSubmit={(e) => this.SaveDay(e)}>
+
+                            <button>Back</button>
+                            <h6>{selectedTrip.name}</h6>
+                            <h6>{selectedTrip.location.city}, {selectedTrip.location.country}</h6>
 
                             {selectedTrip.days.map((day, index) => {
                                 return (
@@ -74,7 +53,7 @@ class TripDetails extends React.Component {
                                     </React.Fragment>
                                     )
                             })}
-                            <button onClick={(e) => this.AddAnotherDay(e)} className='new-trip-btns'>Add Day</button>
+                            <button type='submit' className='submit-new-day'>Edit</button>
                         </form>
                     </div>
                 </section>
@@ -83,4 +62,4 @@ class TripDetails extends React.Component {
     }
 }
 
-export default TripDetails;
+export default AddDay;

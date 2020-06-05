@@ -4,7 +4,7 @@ const AppContext = React.createContext({
     trips: [],
     reviews: [],
     AddActivity: () => {},
-    AddDay: () => {},
+    addDay: () => {},
     SaveTrip: () => {},
     SubmitSearch: () => {},
     addReview: () => {},
