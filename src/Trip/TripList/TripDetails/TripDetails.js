@@ -34,7 +34,7 @@ class TripDetails extends React.Component {
             return (
                 <section id='main-trip'>
                     <div id='container'>
-                        <form onSubmit={(e) => this.SaveTrip(e)}>
+                        <form>
                             <h6>{selectedTrip.name}</h6>
                             <h6>{selectedTrip.location.city}, {selectedTrip.location.country}</h6>
 
@@ -58,7 +58,7 @@ class TripDetails extends React.Component {
                                         </div>
                                         <br />
                                     </React.Fragment>
-                                    )
+                                )
                             })}
                             <button onClick={(e) => this.AddAnotherDay(e)} className='new-trip-btns'>Add Day</button>
                         </form>

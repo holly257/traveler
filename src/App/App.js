@@ -41,11 +41,8 @@ class App extends React.Component {
       trip.trip_id === tripId
     )
     
-    let updatedSelectedTrip = [...selectedTrip.days, newDay]
-    const index = this.state.trips.findIndex(trip => trip.trip_id === tripId)
+    selectedTrip.days = [...selectedTrip.days, newDay]
     let newTripsArr = [...this.state.trips]
-
-    newTripsArr[index].days = updatedSelectedTrip
 
     this.setState({
       trips: newTripsArr
@@ -56,16 +53,16 @@ class App extends React.Component {
     const selectedTrip = this.state.trips.find(trip => 
       trip.trip_id === tripId
     )
-    console.log(selectedTrip)
-    // let updatedSelectedTrip = [...selectedTrip.days, newDay]
-    // const index = this.state.trips.findIndex(trip => trip.trip_id === tripId)
-    // let newTripsArr = [...this.state.trips]
 
-    // newTripsArr[index].days = updatedSelectedTrip
+    const selectedDay= selectedTrip.days.find(day => 
+      day.day_id === dayId
+    )
+    
+    selectedDay.activity = [...selectedDay.activity, newActivity]
 
-    // this.setState({
-    //   trips: newTripsArr
-    // })
+    this.setState({
+      trips: [...this.state.trips]
+    })
   }
 
   render(){

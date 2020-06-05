@@ -11,7 +11,6 @@ class SearchPage extends React.Component {
         const { searchTerm } = e.target
         const search = {
             searchTerm: searchTerm.value,
-            
         }
         
         console.log(search)

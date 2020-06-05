@@ -8,8 +8,7 @@ const AppContext = React.createContext({
     addDay: () => {},
     addActivity: () => {},
     
-    //are these connected to anything? 
-    SaveTrip: () => {},
+    //onClick in search page, not setup in App.js yet 
     SubmitSearch: () => {},
 })
 

@@ -31,7 +31,6 @@ class NewReview extends React.Component {
         }
 
         this.context.addReview(review)
-        console.log(review)
     }
 
     render() { 
