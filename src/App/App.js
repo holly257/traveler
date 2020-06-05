@@ -8,6 +8,7 @@ import NewReview from '../Review/NewReview'
 import TripList from '../Trip/TripList/TripList'
 import NewTrip from '../Trip/NewTrip/NewTrip'
 import TripDetails from '../Trip/TripList/TripDetails/TripDetails'
+import AddActivity from '../Trip/AddActivity/AddActivity'
 import LogIn from '../SignIn/LogIn'
 import SignUp from '../SignIn/SignUp'
 import store from '../STORE'
@@ -51,6 +52,22 @@ class App extends React.Component {
     })
   }
 
+  handleAddActivity = (newActivity, tripId, dayId) => {
+    const selectedTrip = this.state.trips.find(trip => 
+      trip.trip_id === tripId
+    )
+    console.log(selectedTrip)
+    // let updatedSelectedTrip = [...selectedTrip.days, newDay]
+    // const index = this.state.trips.findIndex(trip => trip.trip_id === tripId)
+    // let newTripsArr = [...this.state.trips]
+
+    // newTripsArr[index].days = updatedSelectedTrip
+
+    // this.setState({
+    //   trips: newTripsArr
+    // })
+  }
+
   render(){
     const value = {
       trips: this.state.trips,
@@ -58,6 +75,7 @@ class App extends React.Component {
       addReview: this.handleAddReview,
       startNewTrip: this.handleStartNewTrip,
       addDay: this.handleAddDay,
+      addActivity: this.handleAddActivity,
     }
     return (
       <AppContext.Provider value={value}>
@@ -71,6 +89,7 @@ class App extends React.Component {
           <Route path='/login' component={LogIn} />
           <Route path='/signup' component={SignUp} />
           <Route exact path='/trip/:tripId' component={TripDetails} />
+          <Route exact path='/trip/:tripId/day/:dayId' component={AddActivity} />
           
         </div>
       </AppContext.Provider>

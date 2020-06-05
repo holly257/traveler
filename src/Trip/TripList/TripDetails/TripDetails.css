@@ -18,6 +18,7 @@ span{
     border: solid black 1px;
     width: 60vw;
     margin-top: 20px;
+    padding: 10px;
 }
   
 input {
@@ -28,4 +29,8 @@ input {
 .new-trip-btns{
     margin: 0 0 10px 10px;
     padding: 3px;
+}
+
+#trip-details-task{
+    width: 145px;
 }

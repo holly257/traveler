@@ -1,18 +1,10 @@
 import React from 'react';
 import './TripDetails.css'
 import AppContext from '../../../App/AppContext'
+import { Link } from 'react-router-dom'
 
 class TripDetails extends React.Component {
     static contextType = AppContext;
-
-    optRange (n) {
-        let range = [];
-
-        for(let i=1; i<=12; i++) {
-            range.push(<option key={i} value='{i}' selected={i === n}>{i}</option>)
-        }
-        return range;
-    }
 
     AddAnotherDay = e => {
         e.preventDefault()
@@ -42,11 +34,9 @@ class TripDetails extends React.Component {
             return (
                 <section id='main-trip'>
                     <div id='container'>
-                        <h3 id='trip-title'>Trip </h3>
                         <form onSubmit={(e) => this.SaveTrip(e)}>
-                            <input type='text' name='name' value={selectedTrip.name} required />
-                            <input type='text' name='city' value={selectedTrip.location.city} placeholder='location' required />
-                            <input type='text' name='country' value={selectedTrip.location.country} placeholder='location' required />
+                            <h6>{selectedTrip.name}</h6>
+                            <h6>{selectedTrip.location.city}, {selectedTrip.location.country}</h6>
 
                             {selectedTrip.days.map((day, index) => {
                                 return (
@@ -56,19 +46,15 @@ class TripDetails extends React.Component {
                                             {day.activity.map((day, index) => {
                                                 return (
                                                     <span key={day.activity_id} id='day'>
-                                                        <select name='start_time'>
-                                                            {this.optRange(day.start_time)}
-                                                        </select>
-                                                        <select name='meridiem'>
-                                                            <option selected={day.meridiem === 'am'}>AM</option>
-                                                            <option selected={day.meridiem === 'pm'}>PM</option>
-                                                        </select>
-                                                        <textarea rows='3' name='task' placeholder='Activity' value={day.task}></textarea>
-                
+                                                        <h6 name='start_time'>{day.start_time}</h6>
+                                                        <h6 name='meridiem'>{day.meridiem}</h6>
+                                                        <p id='trip-details-task' name='task'>{day.task}</p>
+                                                        <button onClick={(e) => this.AddAnotherActivity(e)}>Edit</button>
                                                         <hr />
                                                     </span>
                                                 )
                                             })}
+                                            <Link to={`/trip/${selectedTrip.trip_id}/day/${day.day_id}`}>Add Activity</Link>
                                         </div>
                                         <br />
                                     </React.Fragment>

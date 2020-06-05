@@ -1,5 +1,5 @@
-import React from '../../node_modules/react';
-import { Link } from '../../node_modules/react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom'
 import './Nav.css'
 import { FontAwesomeIcon } from '../../node_modules/@fortawesome/react-fontawesome'
 import { faBars, faWindowClose } from '../../node_modules/@fortawesome/free-solid-svg-icons'
@@ -30,7 +30,7 @@ class Nav extends React.Component {
                         <Link onClick={this.toggleDropdown} className='nav-link' to={'/search'} >Search</Link>
                         <Link onClick={this.toggleDropdown} className='nav-link' to={'/new-review'} >Review</Link>
                         <Link onClick={this.toggleDropdown} className='nav-link' to={'/trip'} >Trips</Link>
-                        <Link onClick={this.toggleDropdown} className='nav-link' to={'/new-trip'} >Create</Link>
+                        <Link onClick={this.toggleDropdown} className='nav-link' to={'/new-trip'} >Plan</Link>
                         <Link onClick={this.toggleDropdown} className='nav-link' to={'/login'} >Login</Link>
                     </div>
                 </span>
