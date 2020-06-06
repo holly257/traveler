@@ -35,6 +35,7 @@ class TripDetails extends React.Component {
                 <section id='main-trip'>
                     <div id='container'>
                     <Link to={`/trip`}>Back</Link>
+                    <br />
                         <form>
                             <h6>{selectedTrip.name}</h6>
                             <h6>{selectedTrip.location.city}, {selectedTrip.location.country}</h6>

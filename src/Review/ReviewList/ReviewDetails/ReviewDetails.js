@@ -1,11 +1,12 @@
 import React from 'react';
-import './NewReview.css'
-import AppContext from '../App/AppContext'
+import './ReviewDetails.css'
+import AppContext from '../../../App/AppContext'
 import { Link } from 'react-router-dom'
+
 
 // https://images.unsplash.com/photo-1591076232271-e80adf362a13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1083&q=80
 
-class NewReview extends React.Component {
+class ReviewDetails extends React.Component {
     static contextType = AppContext;
 
     SubmitReview = e => {
@@ -37,9 +38,9 @@ class NewReview extends React.Component {
     render() { 
         return (
             <section id='main-review'>
-                <div id='container'>   
-                    <Link to={`/review`}>Back</Link>    
-                    <h3 id='review-title'>Review</h3>
+                <div id='container'>
+                    <Link to={`/review`}>Back</Link>       
+                    <h3 id='review-title'>Old Review</h3>
                     <form onSubmit={(e) => this.SubmitReview(e)}>
                         <h6>Name:</h6>
                         <input 
@@ -123,4 +124,4 @@ class NewReview extends React.Component {
     }
 }
 
-export default NewReview;
+export default ReviewDetails;
