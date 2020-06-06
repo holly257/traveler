@@ -9,6 +9,7 @@ import TripList from '../Trip/TripList/TripList'
 import NewTrip from '../Trip/NewTrip/NewTrip'
 import TripDetails from '../Trip/TripList/TripDetails/TripDetails'
 import AddActivity from '../Trip/AddActivity/AddActivity'
+import EditActivity from '../Trip/EditActivity/EditActivity'
 import LogIn from '../SignIn/LogIn'
 import SignUp from '../SignIn/SignUp'
 import store from '../STORE'
@@ -87,7 +88,7 @@ class App extends React.Component {
           <Route path='/signup' component={SignUp} />
           <Route exact path='/trip/:tripId' component={TripDetails} />
           <Route exact path='/trip/:tripId/day/:dayId' component={AddActivity} />
-          
+          <Route exact path='/trip/:tripId/day/:dayId/edit/:activityId' component={EditActivity} />
         </div>
       </AppContext.Provider>
     );

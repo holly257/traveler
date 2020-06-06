@@ -34,6 +34,7 @@ class TripDetails extends React.Component {
             return (
                 <section id='main-trip'>
                     <div id='container'>
+                    <Link to={`/trip`}>Back</Link>
                         <form>
                             <h6>{selectedTrip.name}</h6>
                             <h6>{selectedTrip.location.city}, {selectedTrip.location.country}</h6>
@@ -43,13 +44,13 @@ class TripDetails extends React.Component {
                                     <React.Fragment key={day.day_id}> 
                                         <div  id='day-cont'>
                                         <p>Day {index+1}</p>
-                                            {day.activity.map((day, index) => {
+                                            {day.activity.map((activity, index) => {
                                                 return (
-                                                    <span key={day.activity_id} id='day'>
-                                                        <h6 name='start_time'>{day.start_time}</h6>
-                                                        <h6 name='meridiem'>{day.meridiem}</h6>
-                                                        <p id='trip-details-task' name='task'>{day.task}</p>
-                                                        <button onClick={(e) => this.AddAnotherActivity(e)}>Edit</button>
+                                                    <span key={activity.activity_id} id='day'>
+                                                        <h6 name='start_time'>{activity.start_time}</h6>
+                                                        <h6 name='meridiem'>{activity.meridiem}</h6>
+                                                        <p id='trip-details-task' name='task'>{activity.task}</p>
+                                                        <Link to={`/trip/${selectedTrip.trip_id}/day/${day.day_id}/edit/${activity.activity_id}`}>Edit</Link>
                                                         <hr />
                                                     </span>
                                                 )
