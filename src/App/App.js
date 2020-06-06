@@ -66,6 +66,26 @@ class App extends React.Component {
     })
   }
 
+  handleEditActivity = (editedActivity, tripId, dayId, activityId) => {
+    const selectedTrip = this.state.trips.find(trip => 
+      trip.trip_id === tripId
+    )
+
+    const selectedDay= selectedTrip.days.find(day => 
+      day.day_id === dayId
+    )
+
+    const selectedActivityIndex = selectedDay.activity.findIndex(activity =>
+      activity.activity_id === activityId
+    )
+    
+    selectedDay.activity[selectedActivityIndex] = editedActivity
+
+    this.setState({
+      trips: [...this.state.trips]
+    })
+  }
+
   render(){
     const value = {
       trips: this.state.trips,
@@ -74,6 +94,7 @@ class App extends React.Component {
       startNewTrip: this.handleStartNewTrip,
       addDay: this.handleAddDay,
       addActivity: this.handleAddActivity,
+      editActivity: this.handleEditActivity,
     }
     return (
       <AppContext.Provider value={value}>

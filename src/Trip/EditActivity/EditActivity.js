@@ -1,7 +1,6 @@
 import React from 'react';
 import AppContext from '../../App/AppContext'
 import { Link } from 'react-router-dom'
-import { v4 as uuidv4 } from 'uuid'
 
 class EditActivity extends React.Component {
     static contextType = AppContext;
@@ -10,7 +9,7 @@ class EditActivity extends React.Component {
         let range = [];
 
         for(let i=1; i<=12; i++) {
-            range.push(<option key={i} value={i} selected={i == n} >{i}</option>)
+            range.push(<option key={i} defaultValue={i} selected={i == n} >{i}</option>)
         }
         return range;
     }
@@ -18,17 +17,17 @@ class EditActivity extends React.Component {
     EditActivity = e => {
         e.preventDefault()
         const { start_time, meridiem, task } = e.target
+        const activityId = this.props.match.params.activityId
 
         const editedActivity = {
-            activity_id: uuidv4(),
+            activity_id: activityId,
             start_time: start_time.value,
             meridiem: meridiem.value,
             task: task.value,
         }
 
-        // this.context.editActivity(editedActivity, this.props.match.params.tripId, this.props.match.params.dayId)
-        // this.props.history.push(`/trip/${this.props.match.params.tripId}`)
-        console.log(editedActivity)
+        this.context.editActivity(editedActivity, this.props.match.params.tripId, this.props.match.params.dayId, activityId)
+        this.props.history.push(`/trip/${this.props.match.params.tripId}`)
     }
 
     render () { 
@@ -55,18 +54,17 @@ class EditActivity extends React.Component {
         const selectedActivity = selectedDay.activity.find(activity =>
             activity.activity_id === activityId
         )
-        console.log(activityId, selectedActivity)
 
         if(selectedTrip){
             return (
                 <section id='main-trip'>
                     <div id='container'>
-                        <Link to={`/trip/${tripId}`}>Back</Link>
+                        <Link to={`/trip/${tripId}`}>Cancel</Link>
                         <form onSubmit={(e) => this.EditActivity(e)}>
                             <h6>{selectedTrip.name}</h6>
                             <h6>{selectedTrip.location.city}, {selectedTrip.location.country}</h6>
                             <br />
-                            <p>Day {selectedDayIndex+1}</p>
+                            <p value={selectedActivity.activity_id}>Day {selectedDayIndex+1}</p>
                             
                             <span id='day'>
                                 <select name='start_time'>
@@ -76,9 +74,9 @@ class EditActivity extends React.Component {
                                     <option selected={selectedActivity.meridiem === 'am'}>AM</option>
                                     <option selected={selectedActivity.meridiem === 'pm'}>PM</option>
                                 </select>
-                                <textarea rows='3' name='task' value={selectedActivity.task} placeholder='Activity'></textarea>
+                                <textarea rows='3' name='task' defaultValue={selectedActivity.task} placeholder='Activity'></textarea>
                             </span>
-                            <button type='submit' className='submit-new-activity'>Add</button>
+                            <button type='submit' className='submit-new-activity'>Save Edit</button>
                         </form>
                     </div>
                 </section>
