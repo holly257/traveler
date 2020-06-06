@@ -1,0 +1,16 @@
+#review-cont{
+    padding-top: 10px;
+    padding-left: 30px;
+}
+  
+#title{
+    margin-top: 65px;
+    margin-bottom: 15px;
+    padding-left: 30px;
+}
+  
+#new-review{
+  margin-top: 20px;
+  margin-left: 30px;
+  color: black;
+}

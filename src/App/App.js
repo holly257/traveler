@@ -5,6 +5,7 @@ import Nav from '../Nav/Nav'
 import LandingPage from '../LandingPage/LandingPage'
 import SearchPage from '../SearchPage/SearchPage'
 import NewReview from '../Review/NewReview'
+import ReviewList from '../Review/ReviewList/ReviewList'
 import TripList from '../Trip/TripList/TripList'
 import NewTrip from '../Trip/NewTrip/NewTrip'
 import TripDetails from '../Trip/TripList/TripDetails/TripDetails'
@@ -102,6 +103,7 @@ class App extends React.Component {
           <Nav />
           <Route exact path='/' component={LandingPage} />
           <Route path='/search' component={SearchPage} />
+          <Route path='/review' component={ReviewList} />
           <Route path='/new-review' component={NewReview} />
           <Route exact path='/trip' component={TripList} />
           <Route path='/new-trip' component={NewTrip} />
