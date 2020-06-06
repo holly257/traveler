@@ -32,7 +32,7 @@ class ReviewDetails extends React.Component {
             comments: comments.value,
         }
 
-        this.context.addReview(review)
+        // this.context.addReview(review)
     }
 
     render() { 

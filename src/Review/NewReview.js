@@ -2,6 +2,8 @@ import React from 'react';
 import './NewReview.css'
 import AppContext from '../App/AppContext'
 import { Link } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid'
+
 
 // https://images.unsplash.com/photo-1591076232271-e80adf362a13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1083&q=80
 
@@ -14,7 +16,7 @@ class NewReview extends React.Component {
             category, comments, image, altText } = e.target
 
         const review = {
-            // review_id: '',
+            review_id: uuidv4(),
             // user_id: '',
             name: name.value, 
             images: {
@@ -32,6 +34,7 @@ class NewReview extends React.Component {
         }
 
         this.context.addReview(review)
+        this.props.history.push(`/review`)
     }
 
     render() { 
