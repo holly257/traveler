@@ -28,9 +28,8 @@ class Nav extends React.Component {
                     />
                     <div id={`${hiddenDropdown ? 'nav-hide' : 'nav-show'}`} >
                         <Link onClick={this.toggleDropdown} className='nav-link' to={'/search'} >Search</Link>
-                        <Link onClick={this.toggleDropdown} className='nav-link' to={'/review'} >Review</Link>
+                        <Link onClick={this.toggleDropdown} className='nav-link' to={'/review'} >Reviews</Link>
                         <Link onClick={this.toggleDropdown} className='nav-link' to={'/trip'} >Trips</Link>
-                        <Link onClick={this.toggleDropdown} className='nav-link' to={'/new-trip'} >Plan</Link>
                         <Link onClick={this.toggleDropdown} className='nav-link' to={'/login'} >Login</Link>
                     </div>
                 </span>
