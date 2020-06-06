@@ -35,89 +35,45 @@ class ReviewDetails extends React.Component {
         // this.context.addReview(review)
     }
 
-    render() { 
+    render() {
+        if(!this.context.trips.length){
+            return <div>loading</div>
+        }
+
+        const selectedReview = this.context.reviews.find(review =>
+            review.review_id === this.props.match.params.reviewId    
+        )
+
         return (
             <section id='main-review'>
-                <div id='container'>
-                    <Link to={`/review`}>Back</Link>       
-                    <h3 id='review-title'>Old Review</h3>
-                    <form onSubmit={(e) => this.SubmitReview(e)}>
-                        <h6>Name:</h6>
-                        <input 
-                            className='allReview' 
-                            type='text' 
-                            placeholder='name' 
-                            name='name' 
-                            required />
-                        
-                        <h6>Rating:</h6>
-                        <select className='allReview' name='rating' required>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>  
-                        </select>
-                        
-                        <h6>Location:</h6>
-                        <div className='allReview'>
-                            <input 
-                                type='text' 
-                                placeholder='City' 
-                                name='city' 
-                                required />
-                            <input 
-                                type='text' 
-                                placeholder='Country' 
-                                name='country' 
-                                required />
-                            <input 
-                                type='text' 
-                                placeholder='Address' 
-                                name='address' 
-                                required />
-                        </div>
-                        
-                        <div>
-                            <h6>Category:</h6>
-                            <select className='allReview' name='category'  required>
-                                <option>restaurant</option>
-                                <option>bar/coffee</option>
-                                <option>shopping</option>
-                                <option>activity</option>
-                                <option>lodging</option>  
-                            </select>
-                        </div>
+                <div id='review-details-container'>
+                    <Link id='review-details-link' to={`/review`}>Back</Link>       
+                    
+                    <h5>Name: </h5>
+                    <p>{selectedReview.name}</p>
+                    <h5>Rating: </h5>
+                    <p>{selectedReview.rating}</p>
+                    
+                    <br />
+                    <h5>Location: </h5>
+                    <p>{selectedReview.location.city}, {selectedReview.location.country}</p>
+                    <h5>Address: </h5>
+                    <p>{selectedReview.location.address}</p>
 
-                        <h6>Pictures:</h6>
-                        <input 
-                            className='allReview' 
-                            type='url' 
-                            placeholder='link to image' 
-                            name='image' />
-                        <input 
-                            className='allReview' 
-                            type='text' 
-                            placeholder='briefly describe the image' 
-                            name='altText' />
+                    <br />
+                    <h5>Category: </h5>                                          
+                    <p>{selectedReview.category}</p>
 
-
-                        <br />
-                        <h6>Comments:</h6>
-                        <textarea 
-                            className='allReview' 
-                            rows='5' 
-                            name='comments' 
-                            required >
-                        </textarea>
+                    <h5>Pictures:</h5>
+                    <img className='review-details-img' src={selectedReview.images.image} alt={selectedReview.images.altText}/>
+                    
+                    {/* not working */}
+                    {/* <p>Imgage Description: {selectedReview.images.altText}</p> */}
                         
-                        <button 
-                            type='submit' 
-                            className='allReview' 
-                            id='search-btn'>
-                            Submit
-                        </button>
-                    </form>
+                    <h5>Comments:</h5>
+                    <p>{selectedReview.comments}</p>
+                        
+                    {/* <Link to={`/`}>Edit</Link> */}
                 </div>
             </section>
         )

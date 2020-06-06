@@ -1,0 +1,15 @@
+#review-details-container{
+    width: 60vw;
+}
+
+#review-details-container p{
+    font-size: 12px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.review-details-img{
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+}
