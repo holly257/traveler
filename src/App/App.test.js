@@ -1,7 +1,21 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import React from "react"; 
+import ReactDOM from "react-dom"; 
+import renderer from "react-test-renderer";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+ 
+it('renders without crashing', () => {
+    const div = document.createElement('div')
+    ReactDOM.render(
 
-test('renders text', () => {
-  expect(true).toBeTruthy();
-});
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+        , div)
+    ReactDOM.unmountComponentAtNode(div)
+})
+
+it.skip('snapshot matches expected', () => {
+    const tree = renderer.create(<App />).toJSON();
+    expect(tree).toMatchSnapshot();
+})
