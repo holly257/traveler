@@ -13,9 +13,9 @@ class ReviewList extends React.Component {
                 <section id='review-cont'>
                     {this.context.reviews.map((review) => {
                         return (
-                            <section key={review.review_id} className='reviews'>
-                                <Link to={`/review/${review.review_id}`}>{review.name}</Link>
-                                <h6>{review.location.city}, {review.location.country}</h6>
+                            <section key={review.id} className='reviews'>
+                                <Link to={`/review/${review.id}`}>{review.name}</Link>
+                                <h6>{review.city}, {review.country}</h6>
                                 <br />
                             </section>
                         )

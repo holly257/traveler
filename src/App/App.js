@@ -24,8 +24,17 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.setState(store);
-  }
+    // this.setState(store);
+    fetch('http://localhost:8000/api/reviews')
+      .then(response => response.json())
+      .then(data => {
+        // const reviews = Object.keys(data)
+        //   .map(key => data[key].item[0]);
+        this.setState({
+          reviews: data
+        })
+      })
+    }
 
   handleAddReview = reviewToAdd => {
     this.setState({

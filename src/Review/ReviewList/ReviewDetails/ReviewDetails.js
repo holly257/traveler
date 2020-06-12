@@ -15,7 +15,7 @@ class ReviewDetails extends React.Component {
             category, comments, image, altText } = e.target
 
         const review = {
-            // review_id: '',
+            // id: '',
             // user_id: '',
             name: name.value, 
             images: {
@@ -36,12 +36,12 @@ class ReviewDetails extends React.Component {
     }
 
     render() {
-        if(!this.context.trips.length){
+        if(!this.context.reviews.length){
             return <div>loading</div>
         }
-
+        
         const selectedReview = this.context.reviews.find(review =>
-            review.review_id === this.props.match.params.reviewId    
+            review.id == this.props.match.params.reviewId    
         )
 
         return (
@@ -56,16 +56,16 @@ class ReviewDetails extends React.Component {
                     
                     <br />
                     <h5>Location: </h5>
-                    <p>{selectedReview.location.city}, {selectedReview.location.country}</p>
+                    <p>{selectedReview.city}, {selectedReview.country}</p>
                     <h5>Address: </h5>
-                    <p>{selectedReview.location.address}</p>
+                    <p>{selectedReview.address}</p>
 
                     <br />
                     <h5>Category: </h5>                                          
                     <p>{selectedReview.category}</p>
 
                     <h5>Pictures:</h5>
-                    <img className='review-details-img' src={selectedReview.images.image} alt={selectedReview.images.altText}/>
+                    <img className='review-details-img' src={selectedReview.image} alt={selectedReview.altText}/>
                     
                     {/* not working */}
                     {/* <p>Imgage Description: {selectedReview.images.altText}</p> */}

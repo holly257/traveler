@@ -16,7 +16,7 @@ class NewReview extends React.Component {
             category, comments, image, altText } = e.target
 
         const review = {
-            review_id: uuidv4(),
+            id: uuidv4(),
             // user_id: '',
             name: name.value, 
             images: {
