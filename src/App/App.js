@@ -54,6 +54,15 @@ class App extends React.Component {
     })
   }
 
+  handleDeleteReview = reviewToDelete => {
+    const newReviewsList = this.state.reviews.filter(
+        review => review.id != reviewToDelete)
+
+    this.setState({
+      reviews: newReviewsList
+    })
+  }
+
   handleStartNewTrip = newTrip => {
     this.setState({
       trips: [...this.state.trips, newTrip]
@@ -114,6 +123,7 @@ class App extends React.Component {
       trips: this.state.trips,
       reviews: this.state.reviews,
       addReview: this.handleAddReview,
+      deleteReview: this.handleDeleteReview,
       startNewTrip: this.handleStartNewTrip,
       addDay: this.handleAddDay,
       addActivity: this.handleAddActivity,
