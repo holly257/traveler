@@ -27,8 +27,8 @@ class App extends React.Component {
     Promise.all([
       //put these hidden in a config file
       //switch to deployed url
-      fetch(APIkey + 'reviews'),
-      fetch(APIkey + 'trips')
+      fetch(APIkey + '/reviews'),
+      fetch(APIkey + '/trips')
     ])
     .then(([reviewsRes, tripsRes]) => {
       if(!reviewsRes.ok) {

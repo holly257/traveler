@@ -2,7 +2,6 @@ import React from 'react';
 import './NewReview.css'
 import AppContext from '../App/AppContext'
 import { Link } from 'react-router-dom'
-import { v4 as uuidv4 } from 'uuid'
 import APIkey from '../config'
 
 // https://images.unsplash.com/photo-1591076232271-e80adf362a13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1083&q=80
@@ -18,52 +17,41 @@ class NewReview extends React.Component {
             category, comments, image, altText } = e.target
 
         const review = {
-            // id: uuidv4(),
-
             //need to make user_id populate
             user_id: 1,
             name: name.value, 
-            images: {
-                image: image.value,
-                altText: altText.value,
-            },
-            location: {
-                city: city.value, 
-                country: country.value,
-                address: address.value,
-            },
+            image: image.value,
+            image_alt: altText.value,
+            city: city.value, 
+            country: country.value,
+            address: address.value,
             rating: rating.value,
             category: category.value, 
             comments: comments.value,
         }
-        
-        //work in progress
-        // fetch(APIkey + 'reviews', {
-        //     method: 'POST',
-        //     body: JSON.stringify(review)
-        // })
-        // .then(res => {
-        //     if(!res.ok) {
-        //         return res.json().then(error => {
-        //             throw error
-        //         })
-        //     }
-        //     return res.json()
-        // })
-        // .then((data) => {
-        //     this.context.addReview(review)
-        //     //not sure if goBack will work 
-        //     this.props.history.goBack()
-        // })
-        // .catch(error => {
-        //     console.error(error)
-        //     this.setState({ error: 'The review did not add. Please try again later.'});
-        // })
-        
-        
 
-        this.context.addReview(review)
-        this.props.history.push(`/review`)
+        const options = {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(review),   
+        }
+        fetch(`${APIkey}/reviews`, options)
+        .then(res => {
+            if(!res.ok) {
+                throw new Error('Something went wrong, please try again soon.')
+                }
+            return res.json()
+        })
+        .then(data => {
+            this.context.addReview(review) 
+            this.props.history.goBack()
+        })
+        .catch(error => {
+            console.error(error)
+            this.setState({ error: 'The review did not add. Please try again later.'});
+        })
     }
 
     render() { 
