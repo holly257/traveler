@@ -12,7 +12,7 @@ class NewTrip extends React.Component {
         const { name, city, country } = e.target
 
         const trip = {
-            trip_id: uuidv4(),
+            // id: uuidv4(),
             user_id: 1,
             name: name.value,
             location: {
@@ -35,7 +35,7 @@ class NewTrip extends React.Component {
         }
 
         this.context.startNewTrip(trip)
-        this.props.history.push(`/trip/${trip.trip_id}`)
+        this.props.history.push(`/trip/${trip.id}`)
     }
 
     render () { 

@@ -14,27 +14,39 @@ import AddActivity from '../Trip/AddActivity/AddActivity'
 import EditActivity from '../Trip/EditActivity/EditActivity'
 import LogIn from '../SignIn/LogIn'
 import SignUp from '../SignIn/SignUp'
-import store from '../STORE'
 import AppContext from './AppContext'
+import APIkey from '../config'
 
 class App extends React.Component {
   state = {
-    trips: [],
     reviews: [],
+    trips: [],
   };
 
   componentDidMount() {
-    // this.setState(store);
-    fetch('http://localhost:8000/api/reviews')
-      .then(response => response.json())
-      .then(data => {
-        // const reviews = Object.keys(data)
-        //   .map(key => data[key].item[0]);
-        this.setState({
-          reviews: data
-        })
-      })
-    }
+    Promise.all([
+      //put these hidden in a config file
+      //switch to deployed url
+      fetch(APIkey + 'reviews'),
+      fetch(APIkey + 'trips')
+    ])
+    .then(([reviewsRes, tripsRes]) => {
+      if(!reviewsRes.ok) {
+        throw new Error('Review fetch failed, please try again later.')
+      }
+      if(!tripsRes.ok) {
+        throw new Error('Trips fetch failed, please try again later.')
+      }
+      return Promise.all([reviewsRes.json(), tripsRes.json()])
+    })
+    .then(([reviews, trips]) => {
+      this.setState({reviews, trips})
+    })
+    .catch(error => {
+      console.error(error)
+      this.setState({error: 'Something went wrong. Please try again later.'})
+    })
+  }
 
   handleAddReview = reviewToAdd => {
     this.setState({
@@ -50,7 +62,7 @@ class App extends React.Component {
 
   handleAddDay = (newDay, tripId) => {
     const selectedTrip = this.state.trips.find(trip => 
-      trip.trip_id === tripId
+      trip.id === tripId
     )
     
     selectedTrip.days = [...selectedTrip.days, newDay]
@@ -63,7 +75,7 @@ class App extends React.Component {
 
   handleAddActivity = (newActivity, tripId, dayId) => {
     const selectedTrip = this.state.trips.find(trip => 
-      trip.trip_id === tripId
+      trip.id === tripId
     )
 
     const selectedDay= selectedTrip.days.find(day => 
@@ -79,7 +91,7 @@ class App extends React.Component {
 
   handleEditActivity = (editedActivity, tripId, dayId, activityId) => {
     const selectedTrip = this.state.trips.find(trip => 
-      trip.trip_id === tripId
+      trip.id === tripId
     )
 
     const selectedDay= selectedTrip.days.find(day => 

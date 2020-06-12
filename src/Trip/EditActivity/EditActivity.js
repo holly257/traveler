@@ -40,7 +40,7 @@ class EditActivity extends React.Component {
         const activityId = this.props.match.params.activityId
 
         const selectedTrip = this.context.trips.find(trip => 
-            trip.trip_id === tripId
+            trip.id === tripId
         )
 
         const selectedDayIndex = selectedTrip.days.findIndex(day =>

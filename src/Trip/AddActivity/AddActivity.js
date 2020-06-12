@@ -37,7 +37,7 @@ class AddActivity extends React.Component {
 
         const tripId = this.props.match.params.tripId
         const selectedTrip = this.context.trips.find(trip => 
-            trip.trip_id === tripId
+            trip.id === tripId
         )
 
         const selectedDayIndex = selectedTrip.days.findIndex(day =>

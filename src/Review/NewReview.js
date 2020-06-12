@@ -3,7 +3,7 @@ import './NewReview.css'
 import AppContext from '../App/AppContext'
 import { Link } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
-
+import APIkey from '../config'
 
 // https://images.unsplash.com/photo-1591076232271-e80adf362a13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1083&q=80
 
@@ -12,12 +12,16 @@ class NewReview extends React.Component {
 
     SubmitReview = e => {
         e.preventDefault()
+        console.log('review submitted')
+        
         const { name, rating, city, country, address, 
             category, comments, image, altText } = e.target
 
         const review = {
-            id: uuidv4(),
-            // user_id: '',
+            // id: uuidv4(),
+
+            //need to make user_id populate
+            user_id: 1,
             name: name.value, 
             images: {
                 image: image.value,
@@ -32,6 +36,31 @@ class NewReview extends React.Component {
             category: category.value, 
             comments: comments.value,
         }
+        
+        //work in progress
+        // fetch(APIkey + 'reviews', {
+        //     method: 'POST',
+        //     body: JSON.stringify(review)
+        // })
+        // .then(res => {
+        //     if(!res.ok) {
+        //         return res.json().then(error => {
+        //             throw error
+        //         })
+        //     }
+        //     return res.json()
+        // })
+        // .then((data) => {
+        //     this.context.addReview(review)
+        //     //not sure if goBack will work 
+        //     this.props.history.goBack()
+        // })
+        // .catch(error => {
+        //     console.error(error)
+        //     this.setState({ error: 'The review did not add. Please try again later.'});
+        // })
+        
+        
 
         this.context.addReview(review)
         this.props.history.push(`/review`)

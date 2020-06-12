@@ -27,7 +27,7 @@ class TripDetails extends React.Component {
 
     render () { 
         const selectedTrip = this.context.trips.find(trip => 
-            trip.trip_id === this.props.match.params.tripId
+            trip.id === this.props.match.params.tripId
         )
         
         if(selectedTrip){
@@ -51,12 +51,12 @@ class TripDetails extends React.Component {
                                                         <h6 name='start_time'>{activity.start_time}</h6>
                                                         <h6 name='meridiem'>{activity.meridiem}</h6>
                                                         <p id='trip-details-task' name='task'>{activity.task}</p>
-                                                        <Link to={`/trip/${selectedTrip.trip_id}/day/${day.day_id}/edit/${activity.activity_id}`}>Edit</Link>
+                                                        <Link to={`/trip/${selectedTrip.id}/day/${day.day_id}/edit/${activity.activity_id}`}>Edit</Link>
                                                         <hr />
                                                     </span>
                                                 )
                                             })}
-                                            <Link to={`/trip/${selectedTrip.trip_id}/day/${day.day_id}`}>Add Activity</Link>
+                                            <Link to={`/trip/${selectedTrip.id}/day/${day.day_id}`}>Add Activity</Link>
                                         </div>
                                         <br />
                                     </React.Fragment>
