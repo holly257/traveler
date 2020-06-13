@@ -1,18 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './LogIn.css'
+import TokenService from '../services/token-service'
 
 class LogIn extends React.Component {
 
     logInSubmit = e => {
         e.preventDefault()
         const { username, password } = e.target
-        const login = {
-            username: username.value,
-            password: password.value
-        }
-
-        console.log(login)
+        
+        TokenService.saveAuthToken(
+            TokenService.makeBasicAuthToken(username.value, password.value)
+        )
     }
 
     render() {

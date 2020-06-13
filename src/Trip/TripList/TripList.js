@@ -11,7 +11,7 @@ class TripList extends React.Component {
         e.preventDefault()
         console.log('getting trip info')
         // const trip_id = this.trip.id
-        
+        //dont forget headers and auth 
         // fetch(APIkey + `'/trips/${trip_id}`)
         // .then(res => {
         //     if(!res.ok) {

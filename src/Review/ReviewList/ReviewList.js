@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './ReviewList.css'
 import AppContext from '../../App/AppContext'
 import APIkey from '../../config'
+import TokenService from '../../services/token-service'
 
 class ReviewList extends React.Component {
     static contextType = AppContext;
@@ -13,7 +14,8 @@ class ReviewList extends React.Component {
         const options = {
             method: 'DELETE',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
             }
         }
 

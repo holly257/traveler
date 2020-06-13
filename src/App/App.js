@@ -1,6 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom'
 import './App.css'
+import AppContext from './AppContext'
+import APIkey from '../config'
+import TokenService from '../services/token-service'
+import PrivateRoute from '../SignIn/AuthRouting/PrivateRoute'
+import PublicRoute from '../SignIn/AuthRouting/PublicRoute'
 import Nav from '../Nav/Nav'
 import LandingPage from '../LandingPage/LandingPage'
 import SearchPage from '../SearchPage/SearchPage'
@@ -14,8 +19,7 @@ import AddActivity from '../Trip/AddActivity/AddActivity'
 import EditActivity from '../Trip/EditActivity/EditActivity'
 import LogIn from '../SignIn/LogIn'
 import SignUp from '../SignIn/SignUp'
-import AppContext from './AppContext'
-import APIkey from '../config'
+
 
 class App extends React.Component {
   state = {
@@ -24,30 +28,28 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    Promise.all([
-      //put these hidden in a config file
-      //switch to deployed url
-      fetch(APIkey + '/reviews'),
-      fetch(APIkey + '/trips')
-    ])
-    .then(([reviewsRes, tripsRes]) => {
-      if(!reviewsRes.ok) {
-        throw new Error('Review fetch failed, please try again later.')
-      }
-      if(!tripsRes.ok) {
-        throw new Error('Trips fetch failed, please try again later.')
-      }
-      return Promise.all([reviewsRes.json(), tripsRes.json()])
-    })
-    .then(([reviews, trips]) => {
-      this.setState({reviews, trips})
-    })
-    .catch(error => {
-      console.error(error)
-      this.setState({error: 'Something went wrong. Please try again later.'})
-    })
-  }
+    fetch(`${APIkey}/reviews`)
+      .then(res => {
+        console.log(res.json())
+        if(!res.ok) {
+            throw new Error('Something went wrong, please try again soon.')
+            }
+        return res
+      })
+      .then(res => res.json())
+      .then((reviewData) => {
+        console.log(reviewData)
+        this.setState({
+          reviews: reviewData
+        })
+      })
+      .catch(error => {
+        console.error(error)
+        this.setState({error: 'Something went wrong. Please try again later.'})
+      })
 
+  }
+  
   handleAddReview = reviewToAdd => {
     this.setState({
       reviews: [...this.state.reviews, reviewToAdd]
@@ -135,9 +137,10 @@ class App extends React.Component {
           <Nav />
           <Route exact path='/' component={LandingPage} />
           <Route path='/search' component={SearchPage} />
-          <Route exact path='/review' component={ReviewList} />
-          <Route exact path='/review/:reviewId' component={ReviewDetails} />
-          <Route path='/new-review' component={NewReview} />
+
+          <PrivateRoute exact path='/review' component={ReviewList} />
+          <PrivateRoute exact path='/review/:reviewId' component={ReviewDetails} />
+          <PrivateRoute path='/new-review' component={NewReview} />
           <Route exact path='/trip' component={TripList} />
           <Route path='/new-trip' component={NewTrip} />
           <Route path='/login' component={LogIn} />
