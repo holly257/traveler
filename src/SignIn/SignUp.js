@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './SignUp.css'
+import { APIkey } from '../config'
 
 class SignUp extends React.Component {
     signUpSubmit = e => {
@@ -14,6 +15,30 @@ class SignUp extends React.Component {
         }
 
         console.log(newUser)
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(newUser),   
+        }
+        fetch(`${APIkey}/users`, options)
+        .then(res => {
+            if(!res.ok) {
+                throw new Error('Something went wrong, please try again soon.')
+                }
+            return res.json()
+        })
+        // .then(data => {
+        //     this.context.addUser() 
+        //     this.props.history.goBack()
+        // })
+        .catch(error => {
+            console.error(error)
+            this.setState({ error: 'The user did not add. Please try again later.'});
+        })
+        
     }
 
     render() {

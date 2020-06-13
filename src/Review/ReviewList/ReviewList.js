@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './ReviewList.css'
 import AppContext from '../../App/AppContext'
-import APIkey from '../../config'
+import { APIkey } from '../../config'
 import TokenService from '../../services/token-service'
 
 class ReviewList extends React.Component {

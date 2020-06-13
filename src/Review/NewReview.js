@@ -2,7 +2,7 @@ import React from 'react';
 import './NewReview.css'
 import AppContext from '../App/AppContext'
 import { Link } from 'react-router-dom'
-import APIkey from '../config'
+import { APIkey } from '../config'
 import TokenService from '../services/token-service'
 
 

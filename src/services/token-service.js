@@ -1,14 +1,14 @@
-import config from '../config'
+import { TOKEN_KEY} from '../config'
 
 const TokenService = {
   saveAuthToken(token) {
-    window.sessionStorage.setItem(config.TOKEN_KEY, token)
+    window.sessionStorage.setItem(TOKEN_KEY, token)
   },
   getAuthToken() {
-    return window.sessionStorage.getItem(config.TOKEN_KEY)
+    return window.sessionStorage.getItem(TOKEN_KEY)
   },
   clearAuthToken() {
-    window.sessionStorage.removeItem(config.TOKEN_KEY)
+    window.sessionStorage.removeItem(TOKEN_KEY)
   },
   hasAuthToken() {
     return !!TokenService.getAuthToken()

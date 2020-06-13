@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom'
 import './App.css'
 import AppContext from './AppContext'
-import APIkey from '../config'
+import { APIkey } from '../config'
 // import TokenService from '../services/token-service'
 import PrivateRoute from '../SignIn/AuthRouting/PrivateRoute'
 // import PublicRoute from '../SignIn/AuthRouting/PublicRoute'
@@ -30,7 +30,6 @@ class App extends React.Component {
   componentDidMount() {
     fetch(`${APIkey}/reviews`)
       .then(res => {
-        console.log(res.json())
         if(!res.ok) {
             throw new Error('Something went wrong, please try again soon.')
             }
@@ -38,7 +37,6 @@ class App extends React.Component {
       })
       .then(res => res.json())
       .then((reviewData) => {
-        console.log(reviewData)
         this.setState({
           reviews: reviewData
         })
