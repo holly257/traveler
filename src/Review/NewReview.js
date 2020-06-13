@@ -2,7 +2,7 @@ import React from 'react';
 import './NewReview.css'
 import AppContext from '../App/AppContext'
 import { Link } from 'react-router-dom'
-import { APIkey } from '../config'
+import { API_URL } from '../config'
 import TokenService from '../services/token-service'
 
 
@@ -40,7 +40,7 @@ class NewReview extends React.Component {
             },
             body: JSON.stringify(review),   
         }
-        fetch(`${APIkey}/reviews`, options)
+        fetch(`${API_URL}/reviews`, options)
         .then(res => {
             if(!res.ok) {
                 throw new Error('Something went wrong, please try again soon.')

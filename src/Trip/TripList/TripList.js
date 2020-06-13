@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './TripList.css'
 import AppContext from '../../App/AppContext'
-// import APIkey from '../../config'
+// import API_URL from '../../config'
 
 class TripList extends React.Component {
     static contextType = AppContext;
@@ -12,7 +12,7 @@ class TripList extends React.Component {
         console.log('getting trip info')
         // const trip_id = this.trip.id
         //dont forget headers and auth 
-        // fetch(APIkey + `'/trips/${trip_id}`)
+        // fetch(API_URL + `'/trips/${trip_id}`)
         // .then(res => {
         //     if(!res.ok) {
         //         throw new Error('Trip detail fetch failed, please try again later.')

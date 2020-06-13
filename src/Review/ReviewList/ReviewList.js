@@ -2,11 +2,32 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './ReviewList.css'
 import AppContext from '../../App/AppContext'
-import { APIkey } from '../../config'
+import { API_URL } from '../../config'
 import TokenService from '../../services/token-service'
 
 class ReviewList extends React.Component {
     static contextType = AppContext;
+
+    componentDidMount() {
+        fetch(`${API_URL}/reviews`)
+          .then(res => {
+            if(!res.ok) {
+                throw new Error('Something went wrong, please try again soon.')
+                }
+            return res
+          })
+          .then(res => res.json())
+          .then((reviewData) => {
+            this.setState({
+              reviews: reviewData
+            })
+          })
+          .catch(error => {
+            console.error(error)
+            this.setState({error: 'Something went wrong. Please try again later.'})
+          })
+    
+      }
 
     handleDeleteClick = e => {
         e.preventDefault()
@@ -19,7 +40,7 @@ class ReviewList extends React.Component {
             }
         }
 
-        fetch(`${APIkey}/reviews/${review_id}`, options)
+        fetch(`${API_URL}/reviews/${review_id}`, options)
         .then(res => {
             if(!res.ok) {
                 return res.json().then(error => {

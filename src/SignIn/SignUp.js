@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './SignUp.css'
-import { APIkey } from '../config'
+import { API_URL } from '../config'
 
 class SignUp extends React.Component {
     signUpSubmit = e => {
@@ -23,7 +23,7 @@ class SignUp extends React.Component {
             },
             body: JSON.stringify(newUser),   
         }
-        fetch(`${APIkey}/users`, options)
+        fetch(`${API_URL}/users`, options)
         .then(res => {
             if(!res.ok) {
                 throw new Error('Something went wrong, please try again soon.')
