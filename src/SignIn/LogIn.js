@@ -28,7 +28,7 @@ class LogIn extends React.Component {
                             required />
                         <input 
                             className='allItems' 
-                            type='text' 
+                            type='password' 
                             name='password'
                             placeholder='password' 
                             required />

@@ -30,8 +30,8 @@ class Nav extends React.Component {
         return (
             <>
                 <Link
-                to='/register'>
-                Register
+                to='/signup'>
+                Signup
                 </Link>
                 <br />
                 <Link
@@ -63,8 +63,8 @@ class Nav extends React.Component {
                         <Link onClick={this.toggleDropdown} className='nav-link' to={'/search'} >Search</Link>
                         <Link onClick={this.toggleDropdown} className='nav-link' to={'/review'} >Reviews</Link>
                         <Link onClick={this.toggleDropdown} className='nav-link' to={'/trip'} >Trips</Link>
-                        <Link onClick={this.toggleDropdown} className='nav-link' to={TokenService.hasAuthToken() ? '/' : '/login'} >
-                            {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}</Link>
+                        <p onClick={this.toggleDropdown} className='nav-link' to={TokenService.hasAuthToken() ? '/' : '/login'} >
+                            {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}</p>
                     </div>
                 </span>
             </nav>

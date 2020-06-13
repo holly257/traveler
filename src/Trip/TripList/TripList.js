@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './TripList.css'
 import AppContext from '../../App/AppContext'
-import APIkey from '../../config'
+// import APIkey from '../../config'
 
 class TripList extends React.Component {
     static contextType = AppContext;
