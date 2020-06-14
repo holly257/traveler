@@ -9,7 +9,14 @@ class ReviewList extends React.Component {
     static contextType = AppContext;
 
     componentDidMount() {
-        fetch(`${API_URL}/reviews`)
+        const options = {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        }
+        fetch(`${API_URL}/reviews`, options)
           .then(res => {
             if(!res.ok) {
                 throw new Error('Something went wrong, please try again soon.')

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import './App.css'
 import AppContext from './AppContext'
 import { API_URL } from '../config'
 // import TokenService from '../services/token-service'
 import PrivateRoute from '../SignIn/AuthRouting/PrivateRoute'
-// import PublicRoute from '../SignIn/AuthRouting/PublicRoute'
+import PublicRoute from '../SignIn/AuthRouting/PublicRoute'
 import Nav from '../Nav/Nav'
 import LandingPage from '../LandingPage/LandingPage'
 import SearchPage from '../SearchPage/SearchPage'
@@ -17,8 +17,9 @@ import NewTrip from '../Trip/NewTrip/NewTrip'
 import TripDetails from '../Trip/TripList/TripDetails/TripDetails'
 import AddActivity from '../Trip/AddActivity/AddActivity'
 import EditActivity from '../Trip/EditActivity/EditActivity'
-import LogIn from '../SignIn/LogIn'
+import LogInPage from '../SignIn/LogIn/LogInPage'
 import SignUp from '../SignIn/SignUp'
+import NotFound from '../NotFound/NotFound'
 
 
 class App extends React.Component {
@@ -133,19 +134,25 @@ class App extends React.Component {
       <AppContext.Provider value={value}>
         <div className="App">
           <Nav />
-          <Route exact path='/' component={LandingPage} />
-          <Route path='/search' component={SearchPage} />
-
-          <PrivateRoute exact path='/review' component={ReviewList} />
-          <PrivateRoute exact path='/review/:reviewId' component={ReviewDetails} />
-          <PrivateRoute path='/new-review' component={NewReview} />
-          <Route exact path='/trip' component={TripList} />
-          <Route path='/new-trip' component={NewTrip} />
-          <Route path='/login' component={LogIn} />
-          <Route path='/signup' component={SignUp} />
-          <Route exact path='/trip/:tripId' component={TripDetails} />
-          <Route exact path='/trip/:tripId/day/:dayId' component={AddActivity} />
-          <Route exact path='/trip/:tripId/day/:dayId/edit/:activityId' component={EditActivity} />
+          <Switch>
+            <Route exact path='/' component={LandingPage} />
+            <PublicRoute exact path='/search' component={SearchPage} />
+            
+            {/* might need to rework to only have a few routes, and then have child components */}
+            <PrivateRoute exact path='/review' component={ReviewList} />
+            <PrivateRoute exact path='/review/:reviewId' component={ReviewDetails} />
+            <PrivateRoute path='/new-review' component={NewReview} />
+            <PrivateRoute exact path='/trip' component={TripList} />
+            <Route path='/new-trip' component={NewTrip} />
+            <Route path='/login' component={LogInPage} />
+            <Route path='/signup' component={SignUp} />
+            <Route exact path='/trip/:tripId' component={TripDetails} />
+            <Route exact path='/trip/:tripId/day/:dayId' component={AddActivity} />
+            <Route exact path='/trip/:tripId/day/:dayId/edit/:activityId' component={EditActivity} />
+            
+            {/* not working  */}
+            <Route component={NotFound} />
+          </Switch>
         </div>
       </AppContext.Provider>
     );
