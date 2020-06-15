@@ -14,8 +14,6 @@ class SignUp extends React.Component {
             email: email.value,
         }
 
-        console.log(newUser)
-
         const options = {
             method: 'POST',
             headers: {
@@ -30,10 +28,9 @@ class SignUp extends React.Component {
                 }
             return res.json()
         })
-        // .then(data => {
-        //     this.context.addUser() 
-        //     this.props.history.push('/')
-        // })
+        .then(data => {
+            this.props.history.push('/login')
+        })
         .catch(error => {
             console.error(error)
             this.setState({ error: 'The user did not add. Please try again later.'});

@@ -3,36 +3,8 @@ import './ReviewDetails.css'
 import AppContext from '../../../App/AppContext'
 import { Link } from 'react-router-dom'
 
-
-// https://images.unsplash.com/photo-1591076232271-e80adf362a13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1083&q=80
-
 class ReviewDetails extends React.Component {
     static contextType = AppContext;
-
-    SubmitReview = e => {
-        e.preventDefault()
-        const { name, rating, city, country, address, 
-            category, comments, image, altText } = e.target
-
-        const review = {
-            //double check key names
-            // id: '',
-            // user_id: '',
-            name: name.value, 
-            images: {
-                image: image.value,
-                altText: altText.value,
-            },
-            city: city.value, 
-            country: country.value,
-            address: address.value,
-            rating: rating.value,
-            category: category.value, 
-            comments: comments.value,
-        }
-        console.log(review)
-        // this.context.addReview(review)
-    }
 
     render() {
         if(!this.context.reviews.length){
@@ -66,13 +38,12 @@ class ReviewDetails extends React.Component {
                     <h5>Pictures:</h5>
                     <img className='review-details-img' src={selectedReview.image} alt={selectedReview.altText}/>
                     
-                    {/* not working */}
-                    {/* <p>Imgage Description: {selectedReview.images.altText}</p> */}
+                    <h5>Imgage Description: </h5>
+                    <p>{selectedReview.image_alt}</p>
                         
                     <h5>Comments:</h5>
                     <p>{selectedReview.comments}</p>
                         
-                    {/* <Link to={`/`}>Edit</Link> */}
                 </div>
             </section>
         )

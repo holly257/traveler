@@ -11,7 +11,8 @@ class LogInPage extends React.Component {
         }
     }
 
-    handleLoginSuccess = () => {
+    handleLoginSuccess = (userId) => {
+        this.context.setUser()
         const { location, history } = this.props
         const destination = (location.state || {}).from || '/'
         history.push(destination)

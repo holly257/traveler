@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import { API_URL } from '../config'
 import TokenService from '../services/token-service'
 
-
 // https://images.unsplash.com/photo-1591076232271-e80adf362a13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1083&q=80
 
 class NewReview extends React.Component {
@@ -16,14 +15,21 @@ class NewReview extends React.Component {
         console.log('review submitted')
         
         const { name, rating, city, country, address, 
-            category, comments, image, altText } = e.target
+            category, comments, image } = e.target
+
+        let altText = e.target.altText.value
+
+        if(!altText){
+            altText = `${name.value}` + ' image'
+        }
+        console.log(altText)
 
         const review = {
             //need to make user_id populate
             user_id: 1,
             name: name.value, 
             image: image.value,
-            image_alt: altText.value,
+            image_alt: altText,
             city: city.value, 
             country: country.value,
             address: address.value,
@@ -31,30 +37,31 @@ class NewReview extends React.Component {
             category: category.value, 
             comments: comments.value,
         }
+        console.log(review)
 
-        const options = {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            },
-            body: JSON.stringify(review),   
-        }
-        fetch(`${API_URL}/reviews`, options)
-        .then(res => {
-            if(!res.ok) {
-                throw new Error('Something went wrong, please try again soon.')
-                }
-            return res.json()
-        })
-        .then(data => {
-            this.context.addReview(review) 
-            this.props.history.goBack()
-        })
-        .catch(error => {
-            console.error(error)
-            this.setState({ error: 'The review did not add. Please try again later.'});
-        })
+        // const options = {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json',
+        //         'authorization': `bearer ${TokenService.getAuthToken()}`
+        //     },
+        //     body: JSON.stringify(review),   
+        // }
+        // fetch(`${API_URL}/reviews`, options)
+        // .then(res => {
+        //     if(!res.ok) {
+        //         throw new Error('Something went wrong, please try again soon.')
+        //         }
+        //     return res.json()
+        // })
+        // .then(data => {
+        //     this.context.addReview(review) 
+        //     this.props.history.goBack()
+        // })
+        // .catch(error => {
+        //     console.error(error)
+        //     this.setState({ error: 'The review did not add. Please try again later.'});
+        // })
     }
 
     render() { 

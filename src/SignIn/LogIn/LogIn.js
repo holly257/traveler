@@ -11,10 +11,6 @@ class LogIn extends React.Component {
     logInSubmit = e => {
         e.preventDefault()
         const { username, password } = e.target
-        
-        // TokenService.saveAuthToken(
-        //     TokenService.makeBasicAuthToken(username.value, password.value)
-        // )
 
         AuthApiService.postLogin({
             username: username.value,
@@ -24,7 +20,7 @@ class LogIn extends React.Component {
                 username.value = ''
                 password.value = ''
                 TokenService.saveAuthToken(res.authToken)
-                this.props.onLoginSuccess()
+                this.props.onLoginSuccess(res.id)
             })
             .catch(res => {
                 this.setState({ error: res.error })

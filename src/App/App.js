@@ -47,6 +47,12 @@ class App extends React.Component {
 
   }
   
+  handleSetTripsState = allTrips => {
+    this.setState({
+      trips: allTrips
+    })
+  }
+
   handleAddReview = reviewToAdd => {
     this.setState({
       reviews: [...this.state.reviews, reviewToAdd]
@@ -76,12 +82,6 @@ class App extends React.Component {
   handleStartNewTrip = newTrip => {
     this.setState({
       trips: [...this.state.trips, newTrip]
-    })
-  }
-
-  handleSetTripsState = allTrips => {
-    this.setState({
-      trips: allTrips
     })
   }
 
@@ -137,14 +137,14 @@ class App extends React.Component {
   render(){
     const value = {
       trips: this.state.trips,
-      reviews: this.state.reviews,
+      reviews: this.state.reviews, 
+      setTripsState: this.handleSetTripsState,
       addReview: this.handleAddReview,
       deleteReview: this.handleDeleteReview,
       startNewTrip: this.handleStartNewTrip,
       addDay: this.handleAddDay,
       addActivity: this.handleAddActivity,
       editActivity: this.handleEditActivity,
-      setTripsState: this.handleSetTripsState,
       updateSelectedTrip: this.handleUpdateSelectedTrip,
     }
     return (
