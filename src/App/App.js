@@ -22,6 +22,7 @@ import NotFound from '../NotFound/NotFound'
 
 class App extends React.Component {
   state = {
+    searchList: [],
     reviews: [],
     trips: [],
   };
@@ -37,7 +38,7 @@ class App extends React.Component {
       .then(res => res.json())
       .then((reviewData) => {
         this.setState({
-          reviews: reviewData
+          searchList: reviewData
         })
       })
       .catch(error => {
@@ -50,6 +51,12 @@ class App extends React.Component {
   handleSetTripsState = allTrips => {
     this.setState({
       trips: allTrips
+    })
+  }
+
+  handleSetReviewsList = reviewsData => {
+    this.setState({
+      reviews: reviewsData
     })
   }
 
@@ -136,9 +143,11 @@ class App extends React.Component {
 
   render(){
     const value = {
+      searchList: this.state.searchList,
       trips: this.state.trips,
       reviews: this.state.reviews, 
       setTripsState: this.handleSetTripsState,
+      setReviewsList: this.handleSetReviewsList,
       addReview: this.handleAddReview,
       deleteReview: this.handleDeleteReview,
       startNewTrip: this.handleStartNewTrip,

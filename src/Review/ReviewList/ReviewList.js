@@ -25,9 +25,7 @@ class ReviewList extends React.Component {
           })
           .then(res => res.json())
           .then((reviewData) => {
-            this.setState({
-              reviews: reviewData
-            })
+            this.context.setReviewsList(reviewData)
           })
           .catch(error => {
             console.error(error)
@@ -67,9 +65,22 @@ class ReviewList extends React.Component {
     }
 
     render () {
+        if(!this.context.reviews.length){
+            return (
+                <main>
+                <h3 id='title'>My review's</h3>
+                <section id='review-cont'>
+                    <h6>No reviews yet...</h6>
+                </section>
+                <br />
+                <Link id='new-review' to={'/new-review'}>New review</Link>
+            </main>
+            )
+        }
         return (
             <main>
                 <h3 id='title'>My review's</h3>
+                
                 <section id='review-cont'>
                     {this.context.reviews.map((review) => {
                         return (

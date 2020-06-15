@@ -1,9 +1,13 @@
 import React from 'react';
 
 const AppContext = React.createContext({
-    trips: [],
+    searchList: [],
     reviews: [],
+    trips: [],
+    
     setTripsState: () => {},
+
+    serReviewsList: () => {},
     addReview: () => {},
     deleteReview: () => {},
     startNewTrip: () => {},
