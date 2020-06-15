@@ -14,17 +14,15 @@ class NewTrip extends React.Component {
         const trip = {
             user_id: 1,
             name: name.value,
-            location: {
-                city: city.value,
-                country: country.value,
-            },
+            city: city.value,
+            country: country.value,
             days: [
                 {
                     activity: [
                         {
                             start_time: 9,
                             meridiem: 'am',
-                            task: '',
+                            activity: '',
                         },
                     ]
                 }

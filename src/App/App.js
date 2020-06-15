@@ -57,16 +57,33 @@ class App extends React.Component {
 
   handleDeleteReview = reviewToDelete => {
     const newReviewsList = this.state.reviews.filter(
-        review => review.id != reviewToDelete)
+        review => review.id.toString() !== reviewToDelete)
 
     this.setState({
       reviews: newReviewsList
     })
   }
 
+  handleUpdateSelectedTrip = (allTripInfo, trip_id) => {
+    const chosenTripIndex = this.state.trips.findIndex(trips => trips.id.toString() === trip_id)
+
+    let newTrips = this.state.trips
+    newTrips[chosenTripIndex] = allTripInfo[0]
+
+    this.setState({
+      trips: newTrips
+    })
+  }
+
   handleStartNewTrip = newTrip => {
     this.setState({
       trips: [...this.state.trips, newTrip]
+    })
+  }
+
+  handleSetTripsState = allTrips => {
+    this.setState({
+      trips: allTrips
     })
   }
 
@@ -129,6 +146,8 @@ class App extends React.Component {
       addDay: this.handleAddDay,
       addActivity: this.handleAddActivity,
       editActivity: this.handleEditActivity,
+      setTripsState: this.handleSetTripsState,
+      updateSelectedTrip: this.handleUpdateSelectedTrip,
     }
     return (
       <AppContext.Provider value={value}>

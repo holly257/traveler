@@ -15,6 +15,7 @@ class ReviewDetails extends React.Component {
             category, comments, image, altText } = e.target
 
         const review = {
+            //double check key names
             // id: '',
             // user_id: '',
             name: name.value, 
@@ -22,16 +23,14 @@ class ReviewDetails extends React.Component {
                 image: image.value,
                 altText: altText.value,
             },
-            location: {
-                city: city.value, 
-                country: country.value,
-                address: address.value,
-            },
+            city: city.value, 
+            country: country.value,
+            address: address.value,
             rating: rating.value,
             category: category.value, 
             comments: comments.value,
         }
-
+        console.log(review)
         // this.context.addReview(review)
     }
 
@@ -41,7 +40,7 @@ class ReviewDetails extends React.Component {
         }
         
         const selectedReview = this.context.reviews.find(review =>
-            review.id == this.props.match.params.reviewId    
+            review.id.toString() === this.props.match.params.reviewId    
         )
 
         return (

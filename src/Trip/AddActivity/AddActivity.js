@@ -17,13 +17,13 @@ class AddActivity extends React.Component {
 
     SaveActivity = e => {
         e.preventDefault()
-        const { start_time, meridiem, task } = e.target
+        const { start_time, meridiem, activity } = e.target
 
         const newActivity = {
             activity_id: uuidv4(),
             start_time: start_time.value,
             meridiem: meridiem.value,
-            task: task.value,
+            activity: activity.value,
         }
 
         this.context.addActivity(newActivity, this.props.match.params.tripId, this.props.match.params.dayId)
@@ -51,7 +51,7 @@ class AddActivity extends React.Component {
                         <Link to={`/trip/${tripId}`}>Back</Link>
                         <form onSubmit={(e) => this.SaveActivity(e)}>
                             <h6>{selectedTrip.name}</h6>
-                            <h6>{selectedTrip.location.city}, {selectedTrip.location.country}</h6>
+                            <h6>{selectedTrip.city}, {selectedTrip.country}</h6>
                             <br />
                             <p>Day {selectedDayIndex+1}</p>
                             
@@ -63,7 +63,7 @@ class AddActivity extends React.Component {
                                     <option>AM</option>
                                     <option>PM</option>
                                 </select>
-                                <textarea rows='3' name='task' placeholder='Activity'></textarea>
+                                <textarea rows='3' name='activity' placeholder='Activity'></textarea>
                             </span>
                             <button type='submit' className='submit-new-activity'>Add</button>
                         </form>

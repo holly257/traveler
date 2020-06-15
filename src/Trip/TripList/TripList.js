@@ -2,34 +2,39 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './TripList.css'
 import AppContext from '../../App/AppContext'
-// import API_URL from '../../config'
+import { API_URL } from '../../config'
+import TokenService from '../../services/token-service'
 
 class TripList extends React.Component {
     static contextType = AppContext;
 
-    getAllTripInfo = e => {
-        e.preventDefault()
-        console.log('getting trip info')
-        // const trip_id = this.trip.id
-        //dont forget headers and auth 
-        // fetch(API_URL + `'/trips/${trip_id}`)
-        // .then(res => {
-        //     if(!res.ok) {
-        //         throw new Error('Trip detail fetch failed, please try again later.')
-        //     }
-        //     return res.json()
-        // })
-        // .then((data)) => {
-        //     this.setState({
-        //         trips: this.state.trips.filter(trips => trips.id !== trip_id)
-        //     })
-        // })
-        // .catch(error => {
-        //     console.error(error)
-        //     this.setState({error: 'Something went wrong. Please try again later.'})
-        // })
-        // }
-    }
+    componentDidMount() {
+        const options = {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        }
+        
+        fetch(`${API_URL}/trips`, options)
+            .then(res => {
+                if(!res.ok) {
+                    throw new Error('Something went wrong, please try again soon.')
+                    }
+                
+                return res
+            })
+            .then(res => res.json())
+            .then((TripData) => {
+                this.context.setTripsState(TripData)
+            })
+            .catch(error => {
+                console.error(error)
+                this.setState({error: 'Something went wrong. Please try again later.'})
+            })
+            
+      }
 
     render () {
         return (
@@ -39,7 +44,7 @@ class TripList extends React.Component {
                     {this.context.trips.map((trip) => {
                         return (
                             <section key={trip.id} className='trips'>
-                                <Link onClick={(e) => this.getAllTripInfo(e)} to={`/trip/${trip.id}`}>{trip.name}</Link>
+                                <Link to={`/trip/${trip.id}`}>{trip.name}</Link>
                                 <h6>{trip.city}, {trip.country}</h6>
                                 <br />
                             </section>

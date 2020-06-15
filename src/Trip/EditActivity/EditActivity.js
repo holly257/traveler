@@ -16,14 +16,14 @@ class EditActivity extends React.Component {
 
     EditActivity = e => {
         e.preventDefault()
-        const { start_time, meridiem, task } = e.target
+        const { start_time, meridiem, activity } = e.target
         const activityId = this.props.match.params.activityId
 
         const editedActivity = {
             activity_id: activityId,
             start_time: start_time.value,
             meridiem: meridiem.value,
-            task: task.value,
+            activity: activity.value,
         }
 
         this.context.editActivity(editedActivity, this.props.match.params.tripId, this.props.match.params.dayId, activityId)
@@ -40,19 +40,19 @@ class EditActivity extends React.Component {
         const activityId = this.props.match.params.activityId
 
         const selectedTrip = this.context.trips.find(trip => 
-            trip.id === tripId
+            trip.id.toString() === tripId
         )
 
         const selectedDayIndex = selectedTrip.days.findIndex(day =>
-            day.day_id === dayId
+            day.days_id.toString() === dayId
         )
 
         const selectedDay = selectedTrip.days.find(day =>
-            day.day_id === dayId
+            day.days_id.toString() === dayId
         )
 
-        const selectedActivity = selectedDay.activity.find(activity =>
-            activity.activity_id === activityId
+        const selectedActivity = selectedDay.activities.find(activity =>
+            activity.id.toString() === activityId
         )
 
         if(selectedTrip){
@@ -62,7 +62,7 @@ class EditActivity extends React.Component {
                         <Link to={`/trip/${tripId}`}>Cancel</Link>
                         <form onSubmit={(e) => this.EditActivity(e)}>
                             <h6>{selectedTrip.name}</h6>
-                            <h6>{selectedTrip.location.city}, {selectedTrip.location.country}</h6>
+                            <h6>{selectedTrip.city}, {selectedTrip.country}</h6>
                             <br />
                             <p value={selectedActivity.activity_id}>Day {selectedDayIndex+1}</p>
                             
@@ -74,7 +74,7 @@ class EditActivity extends React.Component {
                                     <option selected={selectedActivity.meridiem === 'am'}>AM</option>
                                     <option selected={selectedActivity.meridiem === 'pm'}>PM</option>
                                 </select>
-                                <textarea rows='3' name='task' defaultValue={selectedActivity.task} placeholder='Activity'></textarea>
+                                <textarea rows='3' name='activity' defaultValue={selectedActivity.activity} placeholder='Activity'></textarea>
                             </span>
                             <button type='submit' className='submit-new-activity'>Save Edit</button>
                         </form>
