@@ -5,7 +5,7 @@ import AppContext from './AppContext'
 import { API_URL } from '../config'
 // import TokenService from '../services/token-service'
 import PrivateRoute from '../SignIn/AuthRouting/PrivateRoute'
-import PublicRoute from '../SignIn/AuthRouting/PublicRoute'
+// import PublicRoute from '../SignIn/AuthRouting/PublicRoute'
 import Nav from '../Nav/Nav'
 import LandingPage from '../LandingPage/LandingPage'
 import SearchPage from '../SearchPage/SearchPage'
@@ -136,21 +136,21 @@ class App extends React.Component {
           <Nav />
           <Switch>
             <Route exact path='/' component={LandingPage} />
-            <PublicRoute exact path='/search' component={SearchPage} />
+            <Route exact path='/search' component={SearchPage} />
             
-            {/* might need to rework to only have a few routes, and then have child components */}
+            <Route exact path='/login' component={LogInPage} />
+            <Route exact path='/signup' component={SignUp} />
+
             <PrivateRoute exact path='/review' component={ReviewList} />
             <PrivateRoute exact path='/review/:reviewId' component={ReviewDetails} />
-            <PrivateRoute path='/new-review' component={NewReview} />
+            <PrivateRoute exact path='/new-review' component={NewReview} />
+
+            <PrivateRoute exact path='/new-trip' component={NewTrip} />
             <PrivateRoute exact path='/trip' component={TripList} />
-            <Route path='/new-trip' component={NewTrip} />
-            <Route path='/login' component={LogInPage} />
-            <Route path='/signup' component={SignUp} />
-            <Route exact path='/trip/:tripId' component={TripDetails} />
-            <Route exact path='/trip/:tripId/day/:dayId' component={AddActivity} />
-            <Route exact path='/trip/:tripId/day/:dayId/edit/:activityId' component={EditActivity} />
+            <PrivateRoute exact path='/trip/:tripId' component={TripDetails} />
+            <PrivateRoute exact path='/trip/:tripId/day/:dayId' component={AddActivity} />
+            <PrivateRoute exact path='/trip/:tripId/day/:dayId/edit/:activityId' component={EditActivity} />
             
-            {/* not working  */}
             <Route component={NotFound} />
           </Switch>
         </div>

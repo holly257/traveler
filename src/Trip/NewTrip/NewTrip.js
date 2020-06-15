@@ -2,17 +2,16 @@ import React from 'react';
 import './NewTrip.css'
 import AppContext from '../../App/AppContext'
 import { Link } from 'react-router-dom'
-import { v4 as uuidv4 } from 'uuid'
 
 class NewTrip extends React.Component {
     static contextType = AppContext;
 
+    //need to add id's to trip, day, activity
     StartTrip = e => {
         e.preventDefault()
         const { name, city, country } = e.target
 
         const trip = {
-            // id: uuidv4(),
             user_id: 1,
             name: name.value,
             location: {
@@ -21,10 +20,8 @@ class NewTrip extends React.Component {
             },
             days: [
                 {
-                    day_id: uuidv4(),
                     activity: [
                         {
-                            activity_id: uuidv4(),
                             start_time: 9,
                             meridiem: 'am',
                             task: '',

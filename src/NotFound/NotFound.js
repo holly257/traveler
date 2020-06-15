@@ -3,9 +3,10 @@ import './NotFound.css'
 
 function NotFound() {
     return (
-      <section>
-          <h4 id='notFound'>404 - Page Not Found</h4>
-      </section>
+      <main id='main-landing'>
+        {console.log('404 page')}
+          <p id='notFound'>Sorry, Page Not Found</p>
+      </main>
     );
   }
   
