@@ -1,7 +1,6 @@
 import React from 'react';
 import AppContext from '../../App/AppContext'
 import { Link } from 'react-router-dom'
-import { v4 as uuidv4 } from 'uuid'
 
 class AddActivity extends React.Component {
     static contextType = AppContext;
@@ -20,7 +19,6 @@ class AddActivity extends React.Component {
         const { start_time, meridiem, activity } = e.target
 
         const newActivity = {
-            activity_id: uuidv4(),
             start_time: start_time.value,
             meridiem: meridiem.value,
             activity: activity.value,
