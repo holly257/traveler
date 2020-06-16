@@ -35,8 +35,10 @@ class TripDetails extends React.Component {
         })
         .then(res => res.json())
         .then((tripData) => {
+            console.log(tripData)
+            this.setState({chosenTrip: tripData})
             this.context.updateSelectedTrip(tripData, trip_id)
-            this.state.chosenTrip.push(tripData)
+            
         })
         .catch(error => {
             console.error(error)
@@ -47,27 +49,52 @@ class TripDetails extends React.Component {
     AddAnotherDay = e => {
         e.preventDefault()
 
-        const newDay = 
-            {
-                day_id: 'f9261356-2137-4e9b-88ba-4b4fa1ea798d',
-                activity: [
-                    {
-                        activity_id: '453c81fa-d3e5-4daf-b54e-32c2dbdw1581',
-                        start_time: 9,
-                        meridiem: 'am',
-                        activity: '',
-                    },
-                ]
+            const tripId = this.props.match.params.tripId
+            const newDay = {
+                trip_id: tripId
             }
+
+            console.log(newDay)
+            const options = {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `bearer ${TokenService.getAuthToken()}`
+                },
+                body: JSON.stringify(newDay),   
+            }
+            fetch(`${API_URL}/days`, options)
+            .then(res => {
+                if(!res.ok) {
+                    throw new Error('Trip detail fetch failed, please try again later.')
+                }
+                return res
+            })
+            .then(res => res.json())
+            .then((tripData) => {
+                console.log(tripData)
+                this.context.addDay(newDay, this.props.match.params.tripId)
+
+            })
+            .catch(error => {
+                console.error(error)
+                this.setState({error: 'Something went wrong. Please try again later.'})
+            })
     
-        this.context.addDay(newDay, this.props.match.params.tripId)
     }
 
     render () { 
-        const selectedTrip = this.context.trips.find(trip => 
-            trip.id.toString() === this.props.match.params.tripId
-        )
+        // const selectedTrip = this.context.trips.find(trip => 
+        //     trip.id.toString() === this.props.match.params.tripId
+        // )
+        const selectedTrip = this.state.chosenTrip[0]
+        console.log(this.state.chosenTrip[0])
+        if(!selectedTrip){
+            return (
+                <div>Loading...</div>
 
+            )
+        }
         if(!selectedTrip.days){
             return (
                 <section id='main-trip'>
@@ -95,7 +122,9 @@ class TripDetails extends React.Component {
                                     <h6>{selectedTrip.name}</h6>
                                     <h6>{selectedTrip.city}, {selectedTrip.country}</h6>
 
-                                    {selectedTrip.days.map((day, index) => {
+
+                                    {/* can't get it to render or refresh */}
+                                    {selectedTrip.days ? '' : selectedTrip.days.map((day, index) => {
                                         return (
                                             <React.Fragment key={index}> 
                                                 <div  id='day-cont'>
