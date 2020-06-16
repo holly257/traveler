@@ -121,27 +121,25 @@ class TripDetails extends React.Component {
                                 <form>
                                     <h6>{selectedTrip.name}</h6>
                                     <h6>{selectedTrip.city}, {selectedTrip.country}</h6>
-
-
-                                    {/* can't get it to render or refresh */}
-                                    {selectedTrip.days ? '' : selectedTrip.days.map((day, index) => {
+                                     
+                                    {selectedTrip.days.map((day, index) => {
                                         return (
-                                            <React.Fragment key={index}> 
+                                            <React.Fragment key={index}>                                              
                                                 <div  id='day-cont'>
-                                                <p>Day {index+1}</p>
-                                                    {day.activities.map((activity, index) => {
-                                                        return (
-                                                            <span key={index} id='day'>
-                                                                <h6 name='start_time'>{activity.start_time}</h6>
-                                                                <h6 name='meridiem'>{activity.meridiem}</h6>
-                                                                <p id='trip-details-activity' name='activity'>{activity.activity}</p>
-                                                                <Link to={`/trip/${selectedTrip.id}/day/${day.days_id }/edit/${activity.id}`}>Edit</Link>
-                                                                <hr />
-                                                            </span>
-                                                        )
-                                                    })}
-                                                    
-                                                    <Link to={`/trip/${selectedTrip.id}/day/${day.days_id}`}>Add Activity</Link>
+                                                    <p>Day {index+1}</p>
+                                                        {!day.activities ? '' : day.activities.map((activity, index) => {
+                                                            return (
+                                                                <span key={index} id='day'>
+                                                                    <h6 name='start_time'>{activity.start_time}</h6>
+                                                                    <h6 name='meridiem'>{activity.meridiem}</h6>
+                                                                    <p id='trip-details-activity' name='activity'>{activity.activity}</p>
+                                                                    <Link to={`/trip/${selectedTrip.id}/day/${day.days_id }/edit/${activity.id}`}>Edit</Link>
+                                                                    <hr />
+                                                                </span>
+                                                            )
+                                                        })}
+                                                        
+                                                        <Link to={`/trip/${selectedTrip.id}/day/${day.days_id}`}>Add Activity</Link>
                                                 </div>
                                                 <br />
                                             </React.Fragment>
