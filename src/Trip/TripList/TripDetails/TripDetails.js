@@ -64,9 +64,10 @@ class TripDetails extends React.Component {
             trip.id.toString() === this.props.match.params.tripId
         )
 
-        if(!selectedTrip.days){
-            return <div>loading</div>
-        } 
+        // if(!selectedTrip.days){
+        //     return <div>loading</div>
+        // } 
+        console.log(this.context.trips)
 
         if(!selectedTrip.days){
             return (

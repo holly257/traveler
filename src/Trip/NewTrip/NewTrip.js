@@ -2,6 +2,8 @@ import React from 'react';
 import './NewTrip.css'
 import AppContext from '../../App/AppContext'
 import { Link } from 'react-router-dom'
+import { API_URL } from '../../config'
+import TokenService from '../../services/token-service'
 
 class NewTrip extends React.Component {
     static contextType = AppContext;
@@ -12,25 +14,49 @@ class NewTrip extends React.Component {
         const { name, city, country } = e.target
 
         const trip = {
-            user_id: 1,
             name: name.value,
             city: city.value,
             country: country.value,
             days: [
-                {
-                    activity: [
-                        {
-                            start_time: 9,
-                            meridiem: 'am',
-                            activity: '',
-                        },
-                    ]
-                }
+                // {
+                //     activity: [
+                //         {
+                //             start_time: 9,
+                //             meridiem: 'am',
+                //             activity: '',
+                //         },
+                //     ]
+                // }
             ]
         }
 
-        this.context.startNewTrip(trip)
-        this.props.history.push(`/trip/${trip.id}`)
+        const options = {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify(trip),   
+        }
+        fetch(`${API_URL}/trips`, options)
+        .then(res => {
+            if(!res.ok) {
+                throw new Error('Something went wrong, please try again soon.')
+                }
+            return res.json()
+        })
+        .then(data => {
+            this.context.addReview(trip) 
+            this.props.history.goBack()
+        })
+        .catch(error => {
+            console.error(error)
+            this.setState({ error: 'The review did not add. Please try again later.'});
+        })
+
+        // this.context.startNewTrip(trip)
+        // // this.props.history.push(`/trip/${trip.id}`)
+        // this.props.history.goBack()
     }
 
     render () { 
