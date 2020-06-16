@@ -32,11 +32,22 @@ class TripList extends React.Component {
             .catch(error => {
                 console.error(error)
                 this.setState({error: 'Something went wrong. Please try again later.'})
-            })
-            
+            })    
       }
 
     render () {
+        if(!this.context.trips.length){
+            return (
+                <main>
+                <h3 id='title'>My Trip's</h3>
+                <section id='review-cont'>
+                    <h6>No Trips yet...</h6>
+                </section>
+                <br />
+                <Link id='new-review' to={'/new-review'}>New review</Link>
+            </main>
+            )
+        }
         return (
             <main>
                 <h3 id='title'>My Trip's</h3>
