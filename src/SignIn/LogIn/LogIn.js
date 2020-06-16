@@ -20,7 +20,7 @@ class LogIn extends React.Component {
                 username.value = ''
                 password.value = ''
                 TokenService.saveAuthToken(res.authToken)
-                this.props.onLoginSuccess(res.id)
+                this.props.onLoginSuccess()
             })
             .catch(res => {
                 this.setState({ error: res.error })
