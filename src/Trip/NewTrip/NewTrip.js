@@ -16,17 +16,7 @@ class NewTrip extends React.Component {
             name: name.value,
             city: city.value,
             country: country.value,
-            days: [
-                // {
-                //     activity: [
-                //         {
-                //             start_time: 9,
-                //             meridiem: 'am',
-                //             activity: '',
-                //         },
-                //     ]
-                // }
-            ]
+            days: []
         }
 
         const options = {

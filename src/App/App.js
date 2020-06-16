@@ -98,12 +98,12 @@ class App extends React.Component {
 
   handleAddDay = (newDay, tripId) => {
     const selectedTrip = this.state.trips.find(trip => 
-      trip.id === tripId
+      trip.id.toString() === tripId
     )
     
     selectedTrip.days = [...selectedTrip.days, newDay]
     let newTripsArr = [...this.state.trips]
-
+    
     this.setState({
       trips: newTripsArr
     })

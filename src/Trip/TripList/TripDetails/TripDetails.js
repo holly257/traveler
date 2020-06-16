@@ -17,7 +17,7 @@ class TripDetails extends React.Component {
     }
 
     componentDidMount() {
-        const trip_id = this.props.match.params.tripId
+         const trip_id = this.props.match.params.tripId
         const options = {
             method: 'GET',
             headers: {
@@ -35,7 +35,6 @@ class TripDetails extends React.Component {
         })
         .then(res => res.json())
         .then((tripData) => {
-            console.log(tripData)
             this.setState({chosenTrip: tripData})
             this.context.updateSelectedTrip(tripData, trip_id)
             
@@ -54,7 +53,6 @@ class TripDetails extends React.Component {
                 trip_id: tripId
             }
 
-            console.log(newDay)
             const options = {
                 method: 'POST',
                 headers: {
@@ -72,8 +70,11 @@ class TripDetails extends React.Component {
             })
             .then(res => res.json())
             .then((tripData) => {
-                console.log(tripData)
-                this.context.addDay(newDay, this.props.match.params.tripId)
+                const newData = {
+                    days_id: tripData.id,
+                    trip_id: tripData.trip_id
+                }
+                this.context.addDay(newData, tripId)
 
             })
             .catch(error => {
@@ -84,11 +85,10 @@ class TripDetails extends React.Component {
     }
 
     render () { 
-        // const selectedTrip = this.context.trips.find(trip => 
-        //     trip.id.toString() === this.props.match.params.tripId
-        // )
-        const selectedTrip = this.state.chosenTrip[0]
-        console.log(this.state.chosenTrip[0])
+        const selectedTrip = this.context.trips.find(trip => 
+            trip.id.toString() === this.props.match.params.tripId
+        )
+        
         if(!selectedTrip){
             return (
                 <div>Loading...</div>
