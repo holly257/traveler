@@ -29,17 +29,14 @@ class AddActivity extends React.Component {
     }
 
     render () { 
-        if(!this.context.trips.length){
-            return <div>loading</div>
-        } 
-
         const tripId = this.props.match.params.tripId
         const selectedTrip = this.context.trips.find(trip => 
-            trip.id === tripId
+            trip.id.toString() === tripId
         )
 
+
         const selectedDayIndex = selectedTrip.days.findIndex(day =>
-            day.day_id === this.props.match.params.dayId
+            day.days_id.toString() === this.props.match.params.dayId
         )
 
         if(selectedTrip){

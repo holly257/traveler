@@ -4,6 +4,10 @@ import AppContext from '../../../App/AppContext'
 import { Link } from 'react-router-dom'
 import TokenService from '../../../services/token-service'
 import { API_URL } from '../../../config'
+import { Route, Switch } from 'react-router-dom'
+import AddActivity from '../../AddActivity/AddActivity'
+import EditActivity from '../../EditActivity/EditActivity'
+import PrivateRoute from '../../../SignIn/AuthRouting/PrivateRoute'
 
 class TripDetails extends React.Component {
     static contextType = AppContext;
@@ -64,11 +68,6 @@ class TripDetails extends React.Component {
             trip.id.toString() === this.props.match.params.tripId
         )
 
-        // if(!selectedTrip.days){
-        //     return <div>loading</div>
-        // } 
-        // console.log(this.context.trips)
-
         if(!selectedTrip.days){
             return (
                 <section id='main-trip'>
@@ -86,40 +85,47 @@ class TripDetails extends React.Component {
             )
         } else {
             return (
-                <section id='main-trip'>
-                    <div id='container'>
-                    <Link to={`/trip`}>Back</Link>
-                    <br />
-                        <form>
-                            <h6>{selectedTrip.name}</h6>
-                            <h6>{selectedTrip.city}, {selectedTrip.country}</h6>
+                <Switch>
+                    <Route exact path={`/trip/:tripId`}>
+                        <section id='main-trip'>
+                            <div id='container'>
+                            <Link to={`/trip`}>Back</Link>
+                            <br />
+                                <form>
+                                    <h6>{selectedTrip.name}</h6>
+                                    <h6>{selectedTrip.city}, {selectedTrip.country}</h6>
 
-                            {selectedTrip.days.map((day, index) => {
-                                return (
-                                    <React.Fragment key={index}> 
-                                        <div  id='day-cont'>
-                                        <p>Day {index+1}</p>
-                                            {day.activities.map((activity, index) => {
-                                                return (
-                                                    <span key={index} id='day'>
-                                                        <h6 name='start_time'>{activity.start_time}</h6>
-                                                        <h6 name='meridiem'>{activity.meridiem}</h6>
-                                                        <p id='trip-details-activity' name='activity'>{activity.activity}</p>
-                                                        <Link to={`/trip/${selectedTrip.id}/day/${day.days_id }/edit/${activity.id}`}>Edit</Link>
-                                                        <hr />
-                                                    </span>
-                                                )
-                                            })}
-                                            <Link to={`/trip/${selectedTrip.id}/day/${day.day_id}`}>Add Activity</Link>
-                                        </div>
-                                        <br />
-                                    </React.Fragment>
-                                )
-                            })}
-                            <button onClick={(e) => this.AddAnotherDay(e)} className='new-trip-btns'>Add Day</button>
-                        </form>
-                    </div>
-                </section>
+                                    {selectedTrip.days.map((day, index) => {
+                                        return (
+                                            <React.Fragment key={index}> 
+                                                <div  id='day-cont'>
+                                                <p>Day {index+1}</p>
+                                                    {day.activities.map((activity, index) => {
+                                                        return (
+                                                            <span key={index} id='day'>
+                                                                <h6 name='start_time'>{activity.start_time}</h6>
+                                                                <h6 name='meridiem'>{activity.meridiem}</h6>
+                                                                <p id='trip-details-activity' name='activity'>{activity.activity}</p>
+                                                                <Link to={`/trip/${selectedTrip.id}/day/${day.days_id }/edit/${activity.id}`}>Edit</Link>
+                                                                <hr />
+                                                            </span>
+                                                        )
+                                                    })}
+                                                    
+                                                    <Link to={`/trip/${selectedTrip.id}/day/${day.days_id}`}>Add Activity</Link>
+                                                </div>
+                                                <br />
+                                            </React.Fragment>
+                                        )
+                                    })}
+                                    <button onClick={(e) => this.AddAnotherDay(e)} className='new-trip-btns'>Add Day</button>
+                                </form>
+                            </div>
+                        </section>
+                    </Route>
+                    <PrivateRoute exact path={'/trip/:tripId/day/:dayId'} component={AddActivity} />
+                    <PrivateRoute exact path={'/trip/:tripId/day/:dayId/edit/:activityId'} component={EditActivity} />
+                </Switch>
             )
         } 
     }

@@ -12,9 +12,6 @@ import ReviewList from '../Review/ReviewList/ReviewList'
 import ReviewDetails from '../Review/ReviewList/ReviewDetails/ReviewDetails'
 import TripList from '../Trip/TripList/TripList'
 import NewTrip from '../Trip/NewTrip/NewTrip'
-import TripDetails from '../Trip/TripList/TripDetails/TripDetails'
-import AddActivity from '../Trip/AddActivity/AddActivity'
-import EditActivity from '../Trip/EditActivity/EditActivity'
 import LogInPage from '../SignIn/LogIn/LogInPage'
 import SignUp from '../SignIn/SignUp'
 import NotFound from '../NotFound/NotFound'
@@ -180,10 +177,7 @@ class App extends React.Component {
             <PrivateRoute exact path='/new-review' component={NewReview} />
 
             <PrivateRoute exact path='/new-trip' component={NewTrip} />
-            <PrivateRoute exact path='/trip' component={TripList} />
-            <PrivateRoute exact path='/trip/:tripId' component={TripDetails} />
-            <PrivateRoute exact path='/trip/:tripId/day/:dayId' component={AddActivity} />
-            <PrivateRoute exact path='/trip/:tripId/day/:dayId/edit/:activityId' component={EditActivity} />
+            <PrivateRoute path='/trip' component={TripList} />
             
             <Route component={NotFound} />
           </Switch>

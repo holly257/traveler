@@ -31,12 +31,6 @@ class EditActivity extends React.Component {
     }
 
     render () { 
-        if(!this.context.trips.length){
-
-            //redirect 
-            return <div>loading</div>
-        } 
-
         const tripId = this.props.match.params.tripId
         const dayId = this.props.match.params.dayId
         const activityId = this.props.match.params.activityId

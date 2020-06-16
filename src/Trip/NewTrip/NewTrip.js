@@ -8,7 +8,6 @@ import TokenService from '../../services/token-service'
 class NewTrip extends React.Component {
     static contextType = AppContext;
 
-    //need to add id's to trip, day, activity
     StartTrip = e => {
         e.preventDefault()
         const { name, city, country } = e.target
