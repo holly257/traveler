@@ -44,7 +44,7 @@ class TripList extends React.Component {
                     <h6>No Trips yet...</h6>
                 </section>
                 <br />
-                <Link id='new-review' to={'/new-review'}>New review</Link>
+                <Link  id='new-trip' to={'/new-trip'}>New Trip</Link>
             </main>
             )
         }
