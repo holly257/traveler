@@ -15,7 +15,7 @@ class ResultsPage extends React.Component {
                     <h6>Rating: {this.props.review.rating}</h6>
                     <h6>{this.props.review.city}, {this.props.review.country}</h6>
                     <p className='search-comments'>{this.props.review.comments}</p>
-                    <button>add to trip</button>
+                    {/* <button>add to trip</button> */}
                 </section>
             </div>
         )

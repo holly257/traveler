@@ -82,9 +82,9 @@ class ReviewList extends React.Component {
                 <h3 id='title'>My review's</h3>
                 
                 <section id='review-cont'>
-                    {this.context.reviews.map((review) => {
+                    {this.context.reviews.map((review, index) => {
                         return (
-                            <section key={review.id} className='reviews'>
+                            <section key={index} className='reviews'>
                                 <Link to={`/review/${review.id}`}>{review.name}</Link>
                                 <h6>{review.city}, {review.country}</h6>
                                 <button onClick={(e) => this.handleDeleteClick(e)} value={review.id} id='delete-review'>Delete Review</button>
