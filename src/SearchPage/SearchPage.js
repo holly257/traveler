@@ -42,8 +42,7 @@ class SearchPage extends React.Component {
         })
         .then(res => res.json())
         .then((reviewData) => {
-            console.log(reviewData)
-            // this.context.updateSearchResults(reviewData)
+            this.context.updateSearchResults(reviewData)
         })
         .catch(error => {
             console.error(error)
@@ -61,31 +60,6 @@ class SearchPage extends React.Component {
                         <h6 id='search-title'>Search</h6>
                         <form onSubmit={(e) => this.SubmitSearch(e)}>
                             <input id='search' type='text' name='searchTerm' placeholder='city name' />
-                            {/* <span className='search-check-items'>
-                                <img id='food-icon' alt=''/>
-                                <input type='checkbox' value='restaurants' />
-                                <p>restaurants</p>
-                            </span>
-                            <span className='search-check-items'>
-                                <img id='bev-icon' alt=''/>
-                                <input type='checkbox' value='coffee-bars' />
-                                <p>coffee/bars</p>
-                            </span>
-                            <span className='search-check-items'>
-                                <img id='shopping-icon' alt=''/>
-                                <input type='checkbox' value='shopping' />
-                                <p>shopping</p>
-                            </span>
-                            <span className='search-check-items'>
-                                <img id='activities-icon' alt=''/>
-                                <input type='checkbox' value='activities' />
-                                <p>activities</p>
-                            </span>
-                            <span className='search-check-items'>
-                                <img id='activities-icon' alt=''/>
-                                <input type='checkbox' value='activities' />
-                                <p>lodging</p>
-                            </span> */}
                             <br/>
                             <select className='searchTypes' name='category'>
                                 <option value='cat' >Categories:</option>
