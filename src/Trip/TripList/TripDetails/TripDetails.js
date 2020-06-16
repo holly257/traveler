@@ -67,7 +67,7 @@ class TripDetails extends React.Component {
         // if(!selectedTrip.days){
         //     return <div>loading</div>
         // } 
-        console.log(this.context.trips)
+        // console.log(this.context.trips)
 
         if(!selectedTrip.days){
             return (

@@ -9,7 +9,7 @@ class EditActivity extends React.Component {
         let range = [];
 
         for(let i=1; i<=12; i++) {
-            range.push(<option key={i} defaultValue={i} selected={i == n} >{i}</option>)
+            range.push(<option key={i} value={i} >{i}</option>)
         }
         return range;
     }
@@ -32,6 +32,8 @@ class EditActivity extends React.Component {
 
     render () { 
         if(!this.context.trips.length){
+
+            //redirect 
             return <div>loading</div>
         } 
 
@@ -53,7 +55,7 @@ class EditActivity extends React.Component {
 
         const selectedActivity = selectedDay.activities.find(activity =>
             activity.id.toString() === activityId
-        )
+        ) 
 
         if(selectedTrip){
             return (
@@ -67,12 +69,12 @@ class EditActivity extends React.Component {
                             <p value={selectedActivity.activity_id}>Day {selectedDayIndex+1}</p>
                             
                             <span id='day'>
-                                <select name='start_time'>
+                                <select name='start_time' defaultValue={selectedActivity.start_time}>
                                     {this.optRange(selectedActivity.start_time)}
                                 </select>
-                                <select name='meridiem'>
-                                    <option selected={selectedActivity.meridiem === 'am'}>AM</option>
-                                    <option selected={selectedActivity.meridiem === 'pm'}>PM</option>
+                                <select name='meridiem' defaultValue={selectedActivity.meridiem}>
+                                    <option value='am'>AM</option>
+                                    <option value='pm'>PM</option>
                                 </select>
                                 <textarea rows='3' name='activity' defaultValue={selectedActivity.activity} placeholder='Activity'></textarea>
                             </span>
