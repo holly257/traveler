@@ -10,6 +10,8 @@ const AppContext = React.createContext({
     serReviewsList: () => {},
     addReview: () => {},
     deleteReview: () => {},
+    updateSearchResults: () => {},
+
     startNewTrip: () => {},
     addDay: () => {},
     addActivity: () => {},

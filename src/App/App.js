@@ -62,7 +62,8 @@ class App extends React.Component {
 
   handleAddReview = reviewToAdd => {
     this.setState({
-      reviews: [...this.state.reviews, reviewToAdd]
+      reviews: [...this.state.reviews, reviewToAdd],
+      searchList: [...this.state.searchList, reviewToAdd]
     })
   }
 
@@ -72,6 +73,12 @@ class App extends React.Component {
 
     this.setState({
       reviews: newReviewsList
+    })
+  }
+
+  handleUpdateSearchResults = searchResults => {
+    this.setState({
+      searchList: searchResults
     })
   }
 
@@ -147,6 +154,7 @@ class App extends React.Component {
       trips: this.state.trips,
       reviews: this.state.reviews, 
       setTripsState: this.handleSetTripsState,
+      updateSearchResults: this.handleUpdateSearchResults,
       setReviewsList: this.handleSetReviewsList,
       addReview: this.handleAddReview,
       deleteReview: this.handleDeleteReview,

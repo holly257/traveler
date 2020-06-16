@@ -5,11 +5,6 @@ import { Link } from 'react-router-dom'
 import { API_URL } from '../config'
 import TokenService from '../services/token-service'
 
-// No. 56, Street 2.5, Krong Battambang, Cambodia
-//https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjjMaGYpTnzjuqJXucUowyNInQWWL5r2j6tJqt-XhMaolK47ew&usqp=CAU
-
-// https://images.unsplash.com/photo-1591076232271-e80adf362a13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1083&q=80
-
 class NewReview extends React.Component {
     static contextType = AppContext;
 
@@ -28,8 +23,6 @@ class NewReview extends React.Component {
         console.log(altText)
 
         const review = {
-            //need to make user_id populate
-            user_id: 1,
             name: name.value, 
             image: image.value,
             image_alt: altText,
@@ -42,29 +35,29 @@ class NewReview extends React.Component {
         }
         console.log(review)
 
-        // const options = {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json',
-        //         'authorization': `bearer ${TokenService.getAuthToken()}`
-        //     },
-        //     body: JSON.stringify(review),   
-        // }
-        // fetch(`${API_URL}/reviews`, options)
-        // .then(res => {
-        //     if(!res.ok) {
-        //         throw new Error('Something went wrong, please try again soon.')
-        //         }
-        //     return res.json()
-        // })
-        // .then(data => {
-        //     this.context.addReview(review) 
-        //     this.props.history.goBack()
-        // })
-        // .catch(error => {
-        //     console.error(error)
-        //     this.setState({ error: 'The review did not add. Please try again later.'});
-        // })
+        const options = {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify(review),   
+        }
+        fetch(`${API_URL}/reviews`, options)
+        .then(res => {
+            if(!res.ok) {
+                throw new Error('Something went wrong, please try again soon.')
+                }
+            return res.json()
+        })
+        .then(data => {
+            this.context.addReview(review) 
+            this.props.history.goBack()
+        })
+        .catch(error => {
+            console.error(error)
+            this.setState({ error: 'The review did not add. Please try again later.'});
+        })
     }
 
     render() { 
