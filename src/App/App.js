@@ -159,16 +159,17 @@ class App extends React.Component {
       searchList: this.state.searchList,
       trips: this.state.trips,
       reviews: this.state.reviews, 
-      setTripsState: this.handleSetTripsState,
       updateSearchResults: this.handleUpdateSearchResults,
       setReviewsList: this.handleSetReviewsList,
       addReview: this.handleAddReview,
       deleteReview: this.handleDeleteReview,
+      
+      setTripsState: this.handleSetTripsState,
       startNewTrip: this.handleStartNewTrip,
+      updateSelectedTrip: this.handleUpdateSelectedTrip,
       addDay: this.handleAddDay,
       addActivity: this.handleAddActivity,
       editActivity: this.handleEditActivity,
-      updateSelectedTrip: this.handleUpdateSelectedTrip,
     }
     return (
       <AppContext.Provider value={value}>

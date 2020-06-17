@@ -32,7 +32,7 @@ class SearchPage extends React.Component {
 
         const query = this.formatParams(searchParams)
         
-        const url = `${API_URL}/search/term` + '?' + query
+        const url = `${API_URL}/search/term?${query}`
         fetch(url)
         .then(res => {
             if(!res.ok) {

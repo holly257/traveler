@@ -4,23 +4,17 @@ const AppContext = React.createContext({
     searchList: [],
     reviews: [],
     trips: [],
-    
-    setTripsState: () => {},
-
-    serReviewsList: () => {},
+    updateSearchResults: () => {},
+    setReviewsList: () => {},
     addReview: () => {},
     deleteReview: () => {},
-    updateSearchResults: () => {},
-
+    
+    setTripsState: () => {},
     startNewTrip: () => {},
+    updateSelectedTrip: () => {},
     addDay: () => {},
     addActivity: () => {},
     editActivity: () => {},
-    
-    updateSelectedTrip: () => {},
-
-    //onClick in search page, not setup in App.js yet 
-    SubmitSearch: () => {},
 })
 
 export default AppContext;

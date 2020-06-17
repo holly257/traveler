@@ -17,9 +17,9 @@ class NewReview extends React.Component {
         let altText = e.target.altText.value
 
         if(!altText){
-            altText = `${name.value}` + ' image'
+            altText = name.value + ' image'
         }
-
+        
         const review = {
             name: name.value, 
             image: image.value,
@@ -31,7 +31,7 @@ class NewReview extends React.Component {
             category: category.value, 
             comments: comments.value,
         }
-
+        
         const options = {
             method: 'POST',
             headers: {
@@ -40,6 +40,7 @@ class NewReview extends React.Component {
             },
             body: JSON.stringify(review),   
         }
+        
         fetch(`${API_URL}/reviews`, options)
         .then(res => {
             if(!res.ok) {
