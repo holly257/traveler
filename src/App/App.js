@@ -101,7 +101,12 @@ class App extends React.Component {
       trip.id.toString() === tripId
     )
     
-    selectedTrip.days = [...selectedTrip.days, newDay]
+    if(!selectedTrip.days) {
+      selectedTrip['days'] = [newDay]
+    } else {
+      selectedTrip.days = [...selectedTrip.days, newDay]
+    }
+    
     let newTripsArr = [...this.state.trips]
     
     this.setState({
@@ -113,24 +118,14 @@ class App extends React.Component {
     const selectedTrip = this.state.trips.find(trip => 
       trip.id.toString() === tripId
     )
-    
-    console.log(selectedTrip.days)
+  
     const selectedDay= selectedTrip.days.find(day => 
       day.days_id.toString() === dayId
     )
     
-    console.log(newActivity)
     if(!selectedDay.activities){
-      console.log(selectedDay)
-
-      let newActivityStart = {
-        activities: [],
-      }
-      
-      selectedDay = [...selectedDay, newActivityStart]
-      // selectedDay = [...selectedDay, ...{activities: [newActivity]}]
-      console.log(selectedDay)
-    } else{
+      selectedDay['activities'] = [newActivity]
+    } else {
       selectedDay.activities = [...selectedDay.activities, newActivity]
     } 
 
