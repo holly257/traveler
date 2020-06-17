@@ -1,6 +1,9 @@
 import React from 'react';
 import AppContext from '../../App/AppContext'
 import { Link } from 'react-router-dom'
+import TokenService from '../../services/token-service'
+import { API_URL } from '../../config'
+
 
 class EditActivity extends React.Component {
     static contextType = AppContext;
@@ -18,16 +21,48 @@ class EditActivity extends React.Component {
         e.preventDefault()
         const { start_time, meridiem, activity } = e.target
         const activityId = this.props.match.params.activityId
+        const dayId = this.props.match.params.dayId
+        const tripId = this.props.match.params.tripId
 
         const editedActivity = {
-            activity_id: activityId,
+            activity_id: parseInt(activityId),
             start_time: start_time.value,
             meridiem: meridiem.value,
             activity: activity.value,
+            dayId: parseInt(dayId)
         }
 
-        this.context.editActivity(editedActivity, this.props.match.params.tripId, this.props.match.params.dayId, activityId)
-        this.props.history.push(`/trip/${this.props.match.params.tripId}`)
+        console.log(editedActivity)
+
+        const options = {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify(editedActivity),   
+        }
+        fetch(`${API_URL}/activities/${activityId}`, options)
+        .then(res => {
+            if(!res.ok) {
+                throw new Error('Trip detail fetch failed, please try again later.')
+            }
+            return res
+        })
+        .then(res => res.json())
+        .then((activityData) => {
+            console.log(activityData)
+            // this.context.editActivity(editedActivity, tripId, dayId, activityId)
+            // this.props.history.push(`/trip/${tripId}`)
+
+        })
+        .catch(error => {
+            console.error(error)
+            this.setState({error: 'Something went wrong. Please try again later.'})
+        })
+
+
+        
     }
 
     render () { 

@@ -88,7 +88,7 @@ class TripDetails extends React.Component {
         const selectedTrip = this.context.trips.find(trip => 
             trip.id.toString() === this.props.match.params.tripId
         )
-        
+        console.log(this.context.trips)
         if(!selectedTrip){
             return (
                 <div>Loading...</div>
@@ -127,6 +127,8 @@ class TripDetails extends React.Component {
                                             <React.Fragment key={index}>                                              
                                                 <div  id='day-cont'>
                                                     <p>Day {index+1}</p>
+
+                                                    {/* sort by start_time  */}
                                                         {!day.activities ? '' : day.activities.map((activity, index) => {
                                                             return (
                                                                 <span key={index} id='day'>

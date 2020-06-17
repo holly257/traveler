@@ -119,8 +119,20 @@ class App extends React.Component {
       day.days_id.toString() === dayId
     )
     
-    console.log(selectedDay)
-    selectedDay.activities = [...selectedDay.activities, newActivity]
+    console.log(newActivity)
+    if(!selectedDay.activities){
+      console.log(selectedDay)
+
+      let newActivityStart = {
+        activities: [],
+      }
+      
+      selectedDay = [...selectedDay, newActivityStart]
+      // selectedDay = [...selectedDay, ...{activities: [newActivity]}]
+      console.log(selectedDay)
+    } else{
+      selectedDay.activities = [...selectedDay.activities, newActivity]
+    } 
 
     this.setState({
       trips: [...this.state.trips]
