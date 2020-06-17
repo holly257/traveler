@@ -8,10 +8,18 @@ import { Route, Switch } from 'react-router-dom'
 import TripDetails from '../TripList/TripDetails/TripDetails'
 import PrivateRoute from '../../SignIn/AuthRouting/PrivateRoute'
 
+
+let fullTripArray = []
 class TripList extends React.Component {
     static contextType = AppContext;
+    
+    addDataToTrip(data){
+        fullTripArray.push(data)
+        this.context.setTripsState(fullTripArray)
+    }
 
     componentDidMount() {
+        fullTripArray = []
         const options = {
             method: 'GET',
             headers: {
@@ -30,12 +38,29 @@ class TripList extends React.Component {
             })
             .then(res => res.json())
             .then((TripData) => {
-                this.context.setTripsState(TripData)
+                TripData.map(eachTrip => {
+                    fetch(`${API_URL}/trips/${eachTrip.id}`, options)
+                        .then(res => {
+                            if(!res.ok) {
+                                throw new Error('Trip detail fetch failed, please try again later.')
+                            }
+                            return res
+                        })
+                        .then(res => res.json())
+                        .then((tripData) => {
+                            this.addDataToTrip(tripData)
+                            
+                        })
+                        .catch(error => {
+                            console.error(error)
+                            this.setState({error: 'Something went wrong. Please try again later.'})
+                        })
+                })
             })
             .catch(error => {
                 console.error(error)
                 this.setState({error: 'Something went wrong. Please try again later.'})
-            })    
+            })      
       }
 
     render () {
@@ -59,9 +84,9 @@ class TripList extends React.Component {
                         <section id='trip-cont'>
                             {this.context.trips.map((trip) => {
                                 return (
-                                    <section key={trip.id} className='trips'>
-                                        <Link to={`/trip/${trip.id}`}>{trip.name}</Link>
-                                        <h6>{trip.city}, {trip.country}</h6>
+                                    <section key={trip[0].id} className='trips'>
+                                        <Link to={`/trip/${trip[0].id}`}>{trip[0].name}</Link>
+                                        <h6>{trip[0].city}, {trip[0].country}</h6>
                                         <br />
                                     </section>
                                 )

@@ -49,9 +49,8 @@ class EditActivity extends React.Component {
         })
         .then(res => res.json())
         .then((activityData) => {
-            console.log(activityData)
-            // this.context.editActivity(editedActivity, tripId, dayId, activityId)
-            // this.props.history.push(`/trip/${tripId}`)
+            this.context.editActivity(editedActivity, tripId, dayId, activityId)
+            this.props.history.push(`/trip/${tripId}`)
 
         })
         .catch(error => {

@@ -135,10 +135,12 @@ class App extends React.Component {
   }
 
   handleEditActivity = (editedActivity, tripId, dayId, activityId) => {
+    console.log('editing')
     const selectedTrip = this.state.trips.find(trip => 
       trip.id === tripId
     )
-
+    
+    console.log(this.state.trips)
     const selectedDay= selectedTrip.days.find(day => 
       day.day_id === dayId
     )

@@ -17,7 +17,7 @@ class TripDetails extends React.Component {
     }
 
     componentDidMount() {
-         const trip_id = this.props.match.params.tripId
+        const trip_id = this.props.match.params.tripId
         const options = {
             method: 'GET',
             headers: {

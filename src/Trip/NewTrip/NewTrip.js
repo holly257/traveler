@@ -49,6 +49,7 @@ class NewTrip extends React.Component {
     }
 
     render () { 
+        
         return (
             <section id='main-trip'>
                 <div id='container'>
