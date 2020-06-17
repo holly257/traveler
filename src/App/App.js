@@ -111,14 +111,16 @@ class App extends React.Component {
 
   handleAddActivity = (newActivity, tripId, dayId) => {
     const selectedTrip = this.state.trips.find(trip => 
-      trip.id === tripId
-    )
-
-    const selectedDay= selectedTrip.days.find(day => 
-      day.day_id === dayId
+      trip.id.toString() === tripId
     )
     
-    selectedDay.activity = [...selectedDay.activity, newActivity]
+    console.log(selectedTrip.days)
+    const selectedDay= selectedTrip.days.find(day => 
+      day.days_id.toString() === dayId
+    )
+    
+    console.log(selectedDay)
+    selectedDay.activities = [...selectedDay.activities, newActivity]
 
     this.setState({
       trips: [...this.state.trips]

@@ -1,6 +1,8 @@
 import React from 'react';
 import AppContext from '../../App/AppContext'
 import { Link } from 'react-router-dom'
+import TokenService from '../../services/token-service'
+import { API_URL } from '../../config'
 
 class AddActivity extends React.Component {
     static contextType = AppContext;
@@ -17,15 +19,45 @@ class AddActivity extends React.Component {
     SaveActivity = e => {
         e.preventDefault()
         const { start_time, meridiem, activity } = e.target
+        const dayId = this.props.match.params.dayId
+        const tripId = this.props.match.params.tripId
 
         const newActivity = {
             start_time: start_time.value,
-            meridiem: meridiem.value,
+            meridiem: meridiem.value.toLowerCase(),
             activity: activity.value,
+            day_id: parseInt(dayId)
         }
+        console.log(newActivity)
 
-        this.context.addActivity(newActivity, this.props.match.params.tripId, this.props.match.params.dayId)
-        this.props.history.push(`/trip/${this.props.match.params.tripId}`)
+        const options = {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify(newActivity),   
+        }
+        fetch(`${API_URL}/activities`, options)
+        .then(res => {
+            if(!res.ok) {
+                throw new Error('Trip detail fetch failed, please try again later.')
+            }
+            return res
+        })
+        .then(res => res.json())
+        .then((activityData) => {
+            console.log(activityData)
+            this.context.addActivity(activityData, tripId, dayId)
+            this.props.history.push(`/trip/${tripId}`)
+
+        })
+        .catch(error => {
+            console.error(error)
+            this.setState({error: 'Something went wrong. Please try again later.'})
+        })
+
+        
     }
 
     render () { 

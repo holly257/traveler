@@ -48,39 +48,39 @@ class TripDetails extends React.Component {
     AddAnotherDay = e => {
         e.preventDefault()
 
-            const tripId = this.props.match.params.tripId
-            const newDay = {
-                trip_id: tripId
-            }
+        const tripId = this.props.match.params.tripId
+        const newDay = {
+            trip_id: tripId
+        }
 
-            const options = {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json',
-                    'authorization': `bearer ${TokenService.getAuthToken()}`
-                },
-                body: JSON.stringify(newDay),   
+        const options = {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify(newDay),   
+        }
+        fetch(`${API_URL}/days`, options)
+        .then(res => {
+            if(!res.ok) {
+                throw new Error('Trip detail fetch failed, please try again later.')
             }
-            fetch(`${API_URL}/days`, options)
-            .then(res => {
-                if(!res.ok) {
-                    throw new Error('Trip detail fetch failed, please try again later.')
-                }
-                return res
-            })
-            .then(res => res.json())
-            .then((tripData) => {
-                const newData = {
-                    days_id: tripData.id,
-                    trip_id: tripData.trip_id
-                }
-                this.context.addDay(newData, tripId)
+            return res
+        })
+        .then(res => res.json())
+        .then((tripData) => {
+            const newData = {
+                days_id: tripData.id,
+                trip_id: tripData.trip_id
+            }
+            this.context.addDay(newData, tripId)
 
-            })
-            .catch(error => {
-                console.error(error)
-                this.setState({error: 'Something went wrong. Please try again later.'})
-            })
+        })
+        .catch(error => {
+            console.error(error)
+            this.setState({error: 'Something went wrong. Please try again later.'})
+        })
     
     }
 
