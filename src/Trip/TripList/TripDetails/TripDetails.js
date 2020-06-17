@@ -88,7 +88,7 @@ class TripDetails extends React.Component {
         const selectedTrip = this.context.trips.find(trip => 
             trip.id.toString() === this.props.match.params.tripId
         )
-        console.log(this.context.trips)
+        
         if(!selectedTrip){
             return (
                 <div>Loading...</div>

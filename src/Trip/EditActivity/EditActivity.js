@@ -32,8 +32,6 @@ class EditActivity extends React.Component {
             dayId: parseInt(dayId)
         }
 
-        console.log(editedActivity)
-
         const options = {
             method: 'PATCH',
             headers: {

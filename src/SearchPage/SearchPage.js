@@ -48,8 +48,6 @@ class SearchPage extends React.Component {
             console.error(error)
             this.setState({error: 'Something went wrong. Please try again later.'})
         })
-
-        console.log(searchParams)
     }
 
     render () {

@@ -28,7 +28,6 @@ class AddActivity extends React.Component {
             activity: activity.value,
             day_id: parseInt(dayId)
         }
-        console.log(newActivity)
 
         const options = {
             method: 'POST',
@@ -47,7 +46,6 @@ class AddActivity extends React.Component {
         })
         .then(res => res.json())
         .then((activityData) => {
-            console.log(activityData)
             this.context.addActivity(activityData, tripId, dayId)
             this.props.history.push(`/trip/${tripId}`)
 

@@ -10,7 +10,6 @@ class NewReview extends React.Component {
 
     SubmitReview = e => {
         e.preventDefault()
-        console.log('review submitted')
         
         const { name, rating, city, country, address, 
             category, comments, image } = e.target
@@ -20,7 +19,6 @@ class NewReview extends React.Component {
         if(!altText){
             altText = `${name.value}` + ' image'
         }
-        console.log(altText)
 
         const review = {
             name: name.value, 
@@ -33,7 +31,6 @@ class NewReview extends React.Component {
             category: category.value, 
             comments: comments.value,
         }
-        console.log(review)
 
         const options = {
             method: 'POST',
