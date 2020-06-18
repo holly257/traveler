@@ -70,16 +70,18 @@ class SignUp extends React.Component {
         fetch(`${API_URL}/users`, options)
         .then(res => {
             if(!res.ok) {
-                throw new Error(res)
-                }
+                return res.json().then(error => {
+                    throw error
+                })
+            }
             return res.json()
         })
         .then(data => {
             this.props.history.push('/login')
         })
         .catch(res => {
-            console.error(res)
-            this.setState({ serverError: 'Username already taken'});
+            console.error(res.error)
+            this.setState({ serverError: res.error});
         })
     }
 

@@ -8,7 +8,16 @@ import TokenService from '../../services/token-service'
 class ReviewList extends React.Component {
     static contextType = AppContext;
 
+    state = { 
+        error: null,
+        success: null  
+    }
+
     componentDidMount() {
+        this.setState({ 
+            error: null,
+            success: null  
+        })
         const options = {
             method: 'GET',
             headers: {
@@ -31,7 +40,6 @@ class ReviewList extends React.Component {
             console.error(error)
             this.setState({error: 'Something went wrong. Please try again later.'})
           })
-    
       }
 
     handleDeleteClick = e => {
@@ -55,33 +63,43 @@ class ReviewList extends React.Component {
             return
         })
         .then(() => {
+            this.setState({success: 'Review Deleted'})
             this.context.deleteReview(review_id)
         })
         .catch(error => {
             console.error({error})
-            this.setState(() => { throw error; })
+            this.setState({error: 'Something went wrong. Please try again later.'})
         })
-        this.context.deleteReview(review_id)
+        
     }
 
     render () {
+        const { error, success } = this.state
         if(!this.context.reviews.length){
             return (
                 <main>
-                <h3 id='title'>My review's</h3>
-                <section id='review-cont'>
-                    <h6>No reviews yet...</h6>
-                </section>
-                <br />
-                <Link id='new-review' to={'/new-review'}>New review</Link>
-            </main>
+                    <h3 id='title'>My review's</h3>
+                    <section id='review-cont'>
+                        <div role='alert'>
+                            {error && <p className='error'>{error}</p>}
+                        </div>
+                        <h6>No reviews yet...</h6>
+                    </section>
+                    <br />
+                    <Link id='new-review' to={'/new-review'}>New review</Link>
+                </main>
             )
         }
         return (
             <main>
-                <h3 id='title'>My review's</h3>
-                
+                <h3 id='title'>My review's</h3> 
                 <section id='review-cont'>
+                    <div role='alert'>
+                        {error && <p className='error'>{error}</p>}
+                    </div>
+                    <div role='alert'>
+                        {success && <p className='success'>{success}</p>}
+                    </div>
                     {this.context.reviews.map((review, index) => {
                         return (
                             <section key={index} className='reviews'>

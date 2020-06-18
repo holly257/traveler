@@ -8,7 +8,7 @@ class ReviewDetails extends React.Component {
 
     render() {
         if(!this.context.reviews.length){
-            return <div>loading</div>
+            return <div>Sorry, something went wrong</div>
         }
         
         const selectedReview = this.context.reviews.find(review =>

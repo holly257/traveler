@@ -19,3 +19,10 @@
   margin-bottom: 15px;
   font-size: 10px;
 }
+
+.success{
+  color: blue; 
+  font-size: 14px;
+  width: 210px;
+  margin-bottom: 10px;
+}

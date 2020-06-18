@@ -7,10 +7,12 @@ import TokenService from '../services/token-service'
 
 class NewReview extends React.Component {
     static contextType = AppContext;
+    state = { error: null }
 
     SubmitReview = e => {
         e.preventDefault()
-        
+        this.setState({ error: null })
+
         const { name, rating, city, country, address, 
             category, comments, image } = e.target
 
@@ -44,8 +46,10 @@ class NewReview extends React.Component {
         fetch(`${API_URL}/reviews`, options)
         .then(res => {
             if(!res.ok) {
-                throw new Error('Something went wrong, please try again soon.')
-                }
+                return res.json().then(error => {
+                    throw error
+                })
+            }
             return res.json()
         })
         .then(data => {
@@ -53,17 +57,21 @@ class NewReview extends React.Component {
             this.props.history.goBack()
         })
         .catch(error => {
-            console.error(error)
-            this.setState({ error: 'The review did not add. Please try again later.'});
+            console.error({error})
+            this.setState({ error: 'Sorry, the review did not add. Please try again later.'});
         })
     }
 
-    render() { 
+    render() {
+        const { error } = this.state 
         return (
             <section id='main-review'>
                 <div id='container'>   
                     <Link to={`/review`}>Back</Link>    
                     <h3 id='review-title'>Review</h3>
+                    <div role='alert'>
+                        {error && <p className='error'>{error}</p>}
+                    </div>
                     <form onSubmit={(e) => this.SubmitReview(e)}>
                         <h6>Name:</h6>
                         <input 
