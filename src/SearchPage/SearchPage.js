@@ -7,6 +7,8 @@ import { API_URL } from '../config'
 class SearchPage extends React.Component {
     static contextType = AppContext
     
+    state = { error: null }
+
     formatParams(params) {
         const items = Object.keys(params).map(key =>
             `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
@@ -16,6 +18,8 @@ class SearchPage extends React.Component {
 
     SubmitSearch = e => {
         e.preventDefault()
+        this.setState({ error: null })
+
         const { searchTerm, category } = e.target
 
         let searchParams
@@ -36,21 +40,24 @@ class SearchPage extends React.Component {
         fetch(url)
         .then(res => {
             if(!res.ok) {
-                throw new Error('Something went wrong, please try again soon.')
-                }
+                return res.json().then(error => {
+                    throw error
+                })
+            }
             return res
         })
         .then(res => res.json())
         .then((reviewData) => {
             this.context.updateSearchResults(reviewData)
         })
-        .catch(error => {
-            console.error(error)
-            this.setState({error: 'Something went wrong. Please try again later.'})
+        .catch(res => {
+            console.error(!res.error ? res : res.error.message)
+            this.setState({error: !res.error ? 'Sorry, something went wrong' : res.error.message})
         })
     }
 
     render () {
+        const { error } = this.state
         return (
             <>
                 <section id='main-search'>
@@ -69,12 +76,18 @@ class SearchPage extends React.Component {
                             </select>
                             <button type='submit' id='search-btn'>Let's Go!</button>
                         </form>
+                        <div role='alert'>
+                            {error && <p className='error'>{error}</p>}
+                        </div>
                     </div>
                 </section>
                 <section id='results-cont'>
                     <h4 id='results-title'>Results</h4>
-                    {this.context.searchList.map(review => {
-                        return (<ResultsPage key={review.id} review={review}/>)
+
+                    {!this.context.searchList.length 
+                        ? <p id='empty-results-error'>Sorry, something went wrong.</p> 
+                        : this.context.searchList.map(review => {
+                            return (<ResultsPage key={review.id} review={review}/>)
                     })}
                 </section>
             </>
