@@ -85,25 +85,27 @@ class TripDetails extends React.Component {
     }
 
     render () { 
-        const selectedTrip = this.context.trips.find(trip => 
-            trip.id.toString() === this.props.match.params.tripId
-        )
+        // const selectedTrip = this.context.trips.find(trip => 
+        //     trip.id === this.props.match.params.tripId
+        // )
         
-        if(!selectedTrip){
+        const selectedTrip = this.state.chosenTrip
+        console.log(selectedTrip[0])
+        if(!selectedTrip[0]){
             return (
                 <div>Loading...</div>
 
             )
         }
-        if(!selectedTrip.days){
+        if(!selectedTrip[0].days){
             return (
                 <section id='main-trip'>
                     <div id='container'>
                     <Link to={`/trip`}>Back</Link>
                     <br />
                         <form>
-                            <h6>{selectedTrip.name}</h6>
-                            <h6>{selectedTrip.city}, {selectedTrip.country}</h6>
+                            <h6>{selectedTrip[0].name}</h6>
+                            <h6>{selectedTrip[0].city}, {selectedTrip[0].country}</h6>
 
                             <button onClick={(e) => this.AddAnotherDay(e)} className='new-trip-btns'>Add Day</button>
                         </form>
@@ -119,10 +121,10 @@ class TripDetails extends React.Component {
                             <Link to={`/trip`}>Back</Link>
                             <br />
                                 <form>
-                                    <h6>{selectedTrip.name}</h6>
-                                    <h6>{selectedTrip.city}, {selectedTrip.country}</h6>
+                                    <h6>{selectedTrip[0].name}</h6>
+                                    <h6>{selectedTrip[0].city}, {selectedTrip[0].country}</h6>
                                      
-                                    {selectedTrip.days.map((day, index) => {
+                                    {selectedTrip[0].days.map((day, index) => {
                                         return (
                                             <React.Fragment key={index}>                                              
                                                 <div  id='day-cont'>
@@ -141,7 +143,7 @@ class TripDetails extends React.Component {
                                                             )
                                                         })}
                                                         
-                                                        <Link to={`/trip/${selectedTrip.id}/day/${day.days_id}`}>Add Activity</Link>
+                                                        <Link to={`/trip/${selectedTrip[0].id}/day/${day.days_id}`}>Add Activity</Link>
                                                 </div>
                                                 <br />
                                             </React.Fragment>

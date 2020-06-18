@@ -80,7 +80,7 @@ class App extends React.Component {
   }
 
   handleUpdateSelectedTrip = (allTripInfo, trip_id) => {
-    const chosenTripIndex = this.state.trips.findIndex(trips => trips.id.toString() === trip_id)
+    const chosenTripIndex = this.state.trips.findIndex(trips => trips.id === trip_id)
 
     let newTrips = this.state.trips
     newTrips[chosenTripIndex] = allTripInfo[0]
@@ -98,7 +98,7 @@ class App extends React.Component {
 
   handleAddDay = (newDay, tripId) => {
     const selectedTrip = this.state.trips.find(trip => 
-      trip.id.toString() === tripId
+      trip[0].id.toString() === tripId
     )
     
     if(!selectedTrip.days) {
@@ -116,10 +116,10 @@ class App extends React.Component {
 
   handleAddActivity = (newActivity, tripId, dayId) => {
     const selectedTrip = this.state.trips.find(trip => 
-      trip.id.toString() === tripId
+      trip[0].id.toString() === tripId
     )
   
-    const selectedDay= selectedTrip.days.find(day => 
+    const selectedDay= selectedTrip[0].days.find(day => 
       day.days_id.toString() === dayId
     )
     

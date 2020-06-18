@@ -61,11 +61,10 @@ class AddActivity extends React.Component {
     render () { 
         const tripId = this.props.match.params.tripId
         const selectedTrip = this.context.trips.find(trip => 
-            trip.id.toString() === tripId
+            trip[0].id.toString() === tripId
         )
 
-
-        const selectedDayIndex = selectedTrip.days.findIndex(day =>
+        const selectedDayIndex = selectedTrip[0].days.findIndex(day =>
             day.days_id.toString() === this.props.match.params.dayId
         )
 
@@ -75,8 +74,8 @@ class AddActivity extends React.Component {
                     <div id='container'>
                         <Link to={`/trip/${tripId}`}>Back</Link>
                         <form onSubmit={(e) => this.SaveActivity(e)}>
-                            <h6>{selectedTrip.name}</h6>
-                            <h6>{selectedTrip.city}, {selectedTrip.country}</h6>
+                            <h6>{selectedTrip[0].name}</h6>
+                            <h6>{selectedTrip[0].city}, {selectedTrip[0].country}</h6>
                             <br />
                             <p>Day {selectedDayIndex+1}</p>
                             

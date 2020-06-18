@@ -1,2 +1,2 @@
 test_user
-password
+Pa55w-rd
