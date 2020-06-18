@@ -5,8 +5,9 @@ This is my capstone project, called Traveler.
 ## Set up
 
 Live App: https://traveler.now.sh
+<br />
 Getting Started: 
- - Please feel free to check out my app! I have set up a test user account and password.
+Please feel free to check out my app! I have set up a test user account and password.
 
  - username: test_user
  - password: Pa55w-rd
@@ -18,6 +19,7 @@ Traveler allows users to create and browse reviews of things to do on a trip. Th
 ## Technology Used
 
 Front End: HTML, CSS, JavaScript, React
+<br />
 Back End: Node, Express, PostresSQL
 
 ## Screenshots
