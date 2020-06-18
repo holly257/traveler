@@ -26,7 +26,8 @@ class LogIn extends React.Component {
                 this.props.onLoginSuccess()
             })
             .catch(res => {
-                this.setState({ error: res.error })
+                console.error(res)
+                this.setState({ error: res.error ? res.error : 'Sorry, something went wrong.' })
             })
         
     }
