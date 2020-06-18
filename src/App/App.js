@@ -22,6 +22,7 @@ class App extends React.Component {
     searchList: [],
     reviews: [],
     trips: [],
+    error: false
   };
 
   componentDidMount() {
@@ -43,6 +44,15 @@ class App extends React.Component {
         this.setState({error: 'Something went wrong. Please try again later.'})
       })
 
+  }
+
+  handleSetError = error => {
+    console.error(error)
+    this.setState({ error })
+  }
+
+  handleClearError = () => {
+    this.setState({ error: null })
   }
   
   handleSetTripsState = allTrips => {
@@ -161,6 +171,9 @@ class App extends React.Component {
       searchList: this.state.searchList,
       trips: this.state.trips,
       reviews: this.state.reviews, 
+      setError: this.handleSetError,
+      clearError: this.handleClearError,
+      
       updateSearchResults: this.handleUpdateSearchResults,
       setReviewsList: this.handleSetReviewsList,
       addReview: this.handleAddReview,

@@ -8,8 +8,11 @@ class LogIn extends React.Component {
         onLoginSuccess: () => {}
     }
 
+    state = { error: null }
+
     logInSubmit = e => {
         e.preventDefault()
+        this.setState({ error: null })
         const { username, password } = e.target
 
         AuthApiService.postLogin({
@@ -29,6 +32,7 @@ class LogIn extends React.Component {
     }
 
     render() {
+        const { error } = this.state
         return (
             <>
                 <form onSubmit={(e) => this.logInSubmit(e)} className='allItems'>
@@ -46,6 +50,9 @@ class LogIn extends React.Component {
                         required />
                     <button className='allItems' type='submit' id='login-btn'>Submit</button>
                 </form>
+                <div role='alert'>
+                    {error && <p className='error'>{error}</p>}
+                </div>
             </>
         )
     }
