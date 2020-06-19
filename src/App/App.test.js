@@ -35,3 +35,10 @@ it('renders without crashing', () => {
         , div)
     ReactDOM.unmountComponentAtNode(div)
 })
+
+it.skip('renders the UI as expected', () => {
+    const tree = renderer
+      .create(<App name="Messages" unread={4}/>)
+      .toJSON();
+    expect(tree).toMatchSnapshot();  
+});
