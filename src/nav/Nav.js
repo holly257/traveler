@@ -4,7 +4,6 @@ import './Nav.css'
 import TokenService from '../services/token-service'
 import { FontAwesomeIcon } from '../../node_modules/@fortawesome/react-fontawesome'
 import { faBars, faWindowClose, faPlaneDeparture } from '../../node_modules/@fortawesome/free-solid-svg-icons'
-import { browserHistory } from 'react'
 
 class Nav extends React.Component {
     state = {
@@ -66,8 +65,8 @@ class Nav extends React.Component {
                         <Link onClick={this.toggleDropdown} className='nav-link' to={'/search'} >Search</Link>
                         <Link onClick={this.toggleDropdown} className='nav-link' to={'/review'} >Reviews</Link>
                         <Link onClick={this.toggleDropdown} className='nav-link' to={'/trip'} >Trips</Link>
-                        <Link onClick={this.toggleDropdown} className='nav-auth' to={TokenService.hasAuthToken() ? '/' : '/login'} >
-                            {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}</Link>
+                        <p onClick={this.toggleDropdown} className='nav-auth' to={TokenService.hasAuthToken() ? '/' : '/login'} >
+                            {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}</p>
                     </div>
                 </span>
             </nav>

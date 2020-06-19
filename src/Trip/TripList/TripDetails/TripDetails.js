@@ -101,13 +101,13 @@ class TripDetails extends React.Component {
             return (
                 <section id='main-trip'>
                     <div id='container'>
-                    <Link to={`/trip`}>Back</Link>
+                    <Link className='back-to-trip-list' to={`/trip`}>Back</Link>
                     <br />
                         <form>
-                            <h6>{selectedTrip[0].name}</h6>
-                            <h6>{selectedTrip[0].city}, {selectedTrip[0].country}</h6>
+                            <h5 className='trip-name'>{selectedTrip[0].name}</h5>
+                            <h6 className='trip-details'>{selectedTrip[0].city}, {selectedTrip[0].country}</h6>
 
-                            <button onClick={(e) => this.AddAnotherDay(e)} className='new-trip-btns'>Add Day</button>
+                            <button  className='back-to-trip-list' onClick={(e) => this.AddAnotherDay(e)} >Add Day</button>
                         </form>
                     </div>
                 </section>
@@ -118,11 +118,11 @@ class TripDetails extends React.Component {
                     <Route exact path={`/trip/:tripId`}>
                         <section id='main-trip'>
                             <div id='container'>
-                            <Link to={`/trip`}>Back</Link>
+                            <Link className='back-to-trip-list' to={`/trip`}>Back</Link>
                             <br />
                                 <form>
-                                    <h6>{selectedTrip[0].name}</h6>
-                                    <h6>{selectedTrip[0].city}, {selectedTrip[0].country}</h6>
+                                    <h5 className='trip-name'>{selectedTrip[0].name}</h5>
+                                    <h6 className='trip-details'>{selectedTrip[0].city}, {selectedTrip[0].country}</h6>
                                      
                                     {selectedTrip[0].days.map((day, index) => {
                                         return (
@@ -133,23 +133,22 @@ class TripDetails extends React.Component {
                                                     {/* sort by start_time  */}
                                                         {!day.activities ? '' : day.activities.map((activity, index) => {
                                                             return (
-                                                                <span key={index} id='day'>
-                                                                    <h6 name='start_time'>{activity.start_time}</h6>
-                                                                    <h6 name='meridiem'>{activity.meridiem}</h6>
-                                                                    <p id='trip-details-activity' name='activity'>{activity.activity}</p>
-                                                                    <Link to={`/trip/${selectedTrip.id}/day/${day.days_id }/edit/${activity.id}`}>Edit</Link>
+                                                                <span key={index} id='day'>                                                
+                                                                    <h5 className='start_time'>{activity.start_time} {activity.meridiem}</h5>
+                                                                    <p id='trip-details-activity' className='activity'>{activity.activity}</p>
+                                                                    <Link className='edit-btn' to={`/trip/${selectedTrip.id}/day/${day.days_id }/edit/${activity.id}`}>Edit</Link>
                                                                     <hr />
                                                                 </span>
                                                             )
                                                         })}
                                                         
-                                                        <Link to={`/trip/${selectedTrip[0].id}/day/${day.days_id}`}>Add Activity</Link>
+                                                        <Link className='add-activity' to={`/trip/${selectedTrip[0].id}/day/${day.days_id}`}>Add Activity</Link>
                                                 </div>
                                                 <br />
                                             </React.Fragment>
                                         )
                                     })}
-                                    <button onClick={(e) => this.AddAnotherDay(e)} className='new-trip-btns'>Add Day</button>
+                                    <button className='add-day' onClick={(e) => this.AddAnotherDay(e)} >Add Day</button>
                                 </form>
                             </div>
                         </section>

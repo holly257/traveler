@@ -78,7 +78,7 @@ class ReviewList extends React.Component {
         if(!this.context.reviews.length){
             return (
                 <main>
-                    <h3 id='title'>My review's</h3>
+                    <h3 id='title'>My Review's</h3>
                     <section id='review-cont'>
                         <div role='alert'>
                             {error && <p className='error'>{error}</p>}
@@ -91,8 +91,8 @@ class ReviewList extends React.Component {
             )
         }
         return (
-            <main>
-                <h3 id='title'>My review's</h3> 
+            <main id='review-main'>
+                <h3 id='title'>My Review's</h3> 
                 <section id='review-cont'>
                     <div role='alert'>
                         {error && <p className='error'>{error}</p>}
@@ -103,16 +103,16 @@ class ReviewList extends React.Component {
                     {this.context.reviews.map((review, index) => {
                         return (
                             <section key={index} className='reviews'>
-                                <Link to={`/review/${review.id}`}>{review.name}</Link>
+                                <Link className='review-list' to={`/review/${review.id}`}>{review.name}</Link>
                                 <h6>{review.city}, {review.country}</h6>
-                                <button onClick={(e) => this.handleDeleteClick(e)} value={review.id} id='delete-review'>Delete Review</button>
+                                <button className='review-delete-btn' onClick={(e) => this.handleDeleteClick(e)} value={review.id} >Delete</button>
                                 <br />
                             </section>
                         )
                     })}
                 </section>
                 <br />
-                <Link id='new-review' to={'/new-review'}>New review</Link>
+                <Link id='new-review' to={'/new-review'}>New Review</Link>
             </main>
         )
     }

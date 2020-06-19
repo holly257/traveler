@@ -11,7 +11,7 @@ class ResultsPage extends React.Component {
                     alt={this.props.review.altText}
                 />
                 <section>
-                    <h5>{this.props.review.name}</h5>
+                    <h5 className='trip-name'>{this.props.review.name}</h5>
                     <h6>Rating: {this.props.review.rating}</h6>
                     <h6>{this.props.review.city}, {this.props.review.country}</h6>
                     <p className='search-comments'>{this.props.review.comments}</p>

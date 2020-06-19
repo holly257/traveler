@@ -5,17 +5,19 @@ import './LandingPage.css'
 function LandingPage() {
   return (
     <>
-        <main id='main-landing'>
-            <h5 className='landing-main-text'>Plan your next trip with ease!</h5>
-            <br />
-            <h5 className='landing-main-text'>Search travel ideas</h5>
-            <h5 className='landing-main-text'>Create new trips</h5>
-            <h5 className='landing-main-text'>Post reviews of what you did</h5>
-        </main>
-        <section id='landing-start'>
-          <Link className='landing-links' to={'/search'}>Search</Link>
-          <Link className='landing-links' to={'/new-trip'}>Plan</Link>
-        </section>
+      <main id='main-landing'>
+        <br/>
+        <h5 className='landing-main-text'>Plan your next trip with ease!</h5>
+        <br />
+        <br />
+        <h5 className='landing-main-text'>Want to demo the app?</h5>
+        <p className='landing-demo-text'>Username: test_user</p>
+        <p className='landing-demo-text'>Password: Pa55w-rd</p> 
+      </main>
+      <section id='landing-start'>
+        <Link className='landing-links' to={'/search'}>Search Reviews</Link>
+        <Link className='landing-links' to={'/new-trip'}>Plan Trips</Link>
+      </section>
     </>
   );
 }

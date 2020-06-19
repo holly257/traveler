@@ -8,7 +8,13 @@ class ReviewDetails extends React.Component {
 
     render() {
         if(!this.context.reviews.length){
-            return <div>Sorry, something went wrong</div>
+            return (
+                <section id='main-review'>
+                    <div id='review-details-container'>
+                    <div>Sorry, something went wrong</div>
+                    </div>
+                </section>
+                )
         }
         
         const selectedReview = this.context.reviews.find(review =>
@@ -18,7 +24,7 @@ class ReviewDetails extends React.Component {
         return (
             <section id='main-review'>
                 <div id='review-details-container'>
-                    <Link id='review-details-link' to={`/review`}>Back</Link>       
+                    <Link id='back-to-review-details' to={`/review`}>Back</Link>       
                     
                     <h5>Name: </h5>
                     <p>{selectedReview.name}</p>
@@ -43,7 +49,7 @@ class ReviewDetails extends React.Component {
                         
                     <h5>Comments:</h5>
                     <p>{selectedReview.comments}</p>
-                        
+                    <br/>
                 </div>
             </section>
         )

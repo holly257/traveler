@@ -87,10 +87,10 @@ class EditActivity extends React.Component {
             return (
                 <section id='main-trip'>
                     <div id='container'>
-                        <Link to={`/trip/${tripId}`}>Cancel</Link>
+                        <Link className='back-to-trip-list' to={`/trip/${tripId}`}>Cancel</Link>
                         <form onSubmit={(e) => this.EditActivity(e)}>
-                            <h6>{selectedTrip.name}</h6>
-                            <h6>{selectedTrip.city}, {selectedTrip.country}</h6>
+                            <h5 className='trip-name'>{selectedTrip.name}</h5>
+                            <h6 className='trip-details'>{selectedTrip.city}, {selectedTrip.country}</h6>
                             <br />
                             <p value={selectedActivity.activity_id}>Day {selectedDayIndex+1}</p>
                             
@@ -102,9 +102,9 @@ class EditActivity extends React.Component {
                                     <option value='am'>AM</option>
                                     <option value='pm'>PM</option>
                                 </select>
-                                <textarea rows='3' name='activity' defaultValue={selectedActivity.activity} placeholder='Activity'></textarea>
+                                <textarea className='edit-add-activity-box' rows='3' name='activity' defaultValue={selectedActivity.activity} placeholder='Activity'></textarea>
                             </span>
-                            <button type='submit' className='submit-new-activity'>Save Edit</button>
+                            <button type='submit' className='add-activity'>Save Edit</button>
                         </form>
                     </div>
                 </section>

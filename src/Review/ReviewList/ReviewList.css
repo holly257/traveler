@@ -1,23 +1,25 @@
 #review-cont{
-    padding-top: 10px;
-    padding-left: 30px;
+  padding-top: 10px;
+  padding-left: 30px;   
 }
   
 #title{
     margin-top: 65px;
     margin-bottom: 15px;
     padding-left: 30px;
+    font-weight: 400;
 }
   
 #new-review{
-  margin-top: 20px;
+  margin-top: 10px;
   margin-left: 30px;
-  color: black;
-}
-
-#delete-review{
+  color: rgba(0, 0, 0, 0.836);
+  border: grey 1px solid;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 12px;
   margin-bottom: 15px;
-  font-size: 10px;
+  width: 94px;
 }
 
 .success{
@@ -25,4 +27,23 @@
   font-size: 14px;
   width: 210px;
   margin-bottom: 10px;
+}
+
+.review-list{
+  color: rgba(0, 0, 0, 0.753);
+  font-weight: 400;
+  padding-left: 0;
+}
+
+.review-delete-btn{
+  color: rgba(0, 0, 0, 0.836);
+  background-color: white;
+  border: grey 1px solid;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 3px 5px;
+  margin: 5px 0;
+  margin-bottom: 15px;
+  width: 49px;
 }
