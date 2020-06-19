@@ -9,7 +9,7 @@ it('renders without crashing', () => {
             <LandingPage >
                 <main id='main-landing'>
                     <br/>
-                    <h1>Plan your next trip with ease!</h1>
+                    <h1></h1>
                     <br />
                     <br />
                     <h2></h2>
@@ -23,4 +23,13 @@ it('renders without crashing', () => {
             </LandingPage>
         </BrowserRouter>
     )
+})
+
+test('renders title', () => {
+    const { getByText } = render(
+        <BrowserRouter>
+            <LandingPage />
+        </BrowserRouter>);
+    const linkElement = getByText(/Plan your next trip with ease!/i);
+    expect(linkElement).toBeInTheDocument();
 })

@@ -15,3 +15,12 @@ it('renders without crashing', () => {
         </BrowserRouter>
     )
 })
+
+test('renders link text', () => {
+    const { getByText } = render(
+        <BrowserRouter>
+            <Nav />
+        </BrowserRouter>);
+    const linkElement = getByText(/Search/i);
+    expect(linkElement).toBeInTheDocument();
+})

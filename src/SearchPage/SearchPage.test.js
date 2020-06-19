@@ -35,6 +35,15 @@ it('renders without crashing', () => {
     ReactDOM.unmountComponentAtNode(div)
 })
 
+test('renders search reviews title', () => {
+    const { getByText } = render(
+        <AppContext.Provider value={contextValue}>
+            <SearchPage />
+        </AppContext.Provider>);
+    const linkElement = getByText(/Search Reviews/i);
+    expect(linkElement).toBeInTheDocument();
+});
+
 // const server = setupServer(
 //     rest.get('/search/term?', (req, res, ctx) => {
 //         return res(ctx.json( data ))

@@ -1,23 +1,24 @@
 import React from "react"; 
 import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import ReviewList from "./ReviewList";
+import LogIn from "./LogIn";
 
 it('renders without crashing', () => {
     render(
         <BrowserRouter>
-            <ReviewList >
-                
-            </ReviewList>
+            <LogIn >
+               <form></form>
+               <div></div>
+            </LogIn>
         </BrowserRouter>
     )
 })
 
-test('renders title', () => {
+test('renders link text', () => {
     const { getByText } = render(
         <BrowserRouter>
-            <ReviewList />
+            <LogIn />
         </BrowserRouter>);
-    const linkElement = getByText(/My Review's/i);
+    const linkElement = getByText(/Submit/i);
     expect(linkElement).toBeInTheDocument();
 })

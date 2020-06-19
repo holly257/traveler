@@ -14,3 +14,12 @@ it('renders without crashing', () => {
         </BrowserRouter>
     )
 })
+
+test('renders text', () => {
+    const { getByText } = render(
+        <BrowserRouter>
+            <NotFound />
+        </BrowserRouter>);
+    const linkElement = getByText(/Sorry, Page Not Found/i);
+    expect(linkElement).toBeInTheDocument();
+})

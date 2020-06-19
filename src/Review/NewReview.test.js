@@ -12,3 +12,12 @@ it('renders without crashing', () => {
         </BrowserRouter>
     )
 })
+
+test('renders new review title', () => {
+    const { getByText } = render(
+        <BrowserRouter>
+            <NewReview />
+        </BrowserRouter>);
+    const linkElement = getByText(/Review/i);
+    expect(linkElement).toBeInTheDocument();
+});
