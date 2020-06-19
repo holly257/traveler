@@ -54,17 +54,15 @@ class AddActivity extends React.Component {
             console.error(error)
             this.setState({error: 'Something went wrong. Please try again later.'})
         })
-
-        
     }
 
     render () { 
         const tripId = this.props.match.params.tripId
         const selectedTrip = this.context.trips.find(trip => 
-            trip[0].id.toString() === tripId
+            trip.id.toString() === tripId
         )
 
-        const selectedDayIndex = selectedTrip[0].days.findIndex(day =>
+        const selectedDayIndex = selectedTrip.days.findIndex(day =>
             day.days_id.toString() === this.props.match.params.dayId
         )
 
@@ -74,8 +72,8 @@ class AddActivity extends React.Component {
                     <div id='container'>
                         <Link className='back-to-trip-list' to={`/trip/${tripId}`}>Back</Link>
                         <form onSubmit={(e) => this.SaveActivity(e)}>
-                            <h5 className='trip-name'>{selectedTrip[0].name}</h5>
-                            <h6 className='trip-details'>{selectedTrip[0].city}, {selectedTrip[0].country}</h6>
+                            <h5 className='trip-name'>{selectedTrip.name}</h5>
+                            <h6 className='trip-details'>{selectedTrip.city}, {selectedTrip.country}</h6>
                             <br />
                             <p>Day {selectedDayIndex+1}</p>
                             

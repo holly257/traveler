@@ -16,7 +16,6 @@ import LogInPage from '../SignIn/LogIn/LogInPage'
 import SignUp from '../SignIn/SignUp'
 import NotFound from '../NotFound/NotFound'
 
-
 class App extends React.Component {
   state = {
     searchList: [],
@@ -93,7 +92,7 @@ class App extends React.Component {
     const chosenTripIndex = this.state.trips.findIndex(trips => trips.id === trip_id)
 
     let newTrips = this.state.trips
-    newTrips[chosenTripIndex] = allTripInfo[0]
+    newTrips[chosenTripIndex] = allTripInfo
 
     this.setState({
       trips: newTrips
@@ -108,7 +107,7 @@ class App extends React.Component {
 
   handleAddDay = (newDay, tripId) => {
     const selectedTrip = this.state.trips.find(trip => 
-      trip[0].id.toString() === tripId
+      trip.id.toString() === tripId
     )
     
     if(!selectedTrip.days) {
@@ -126,10 +125,10 @@ class App extends React.Component {
 
   handleAddActivity = (newActivity, tripId, dayId) => {
     const selectedTrip = this.state.trips.find(trip => 
-      trip[0].id.toString() === tripId
+      trip.id.toString() === tripId
     )
   
-    const selectedDay= selectedTrip[0].days.find(day => 
+    const selectedDay= selectedTrip.days.find(day => 
       day.days_id.toString() === dayId
     )
     
@@ -145,21 +144,19 @@ class App extends React.Component {
   }
 
   handleEditActivity = (editedActivity, tripId, dayId, activityId) => {
-    console.log('editing')
     const selectedTrip = this.state.trips.find(trip => 
-      trip.id === tripId
+      trip.id.toString() === tripId
     )
     
-    console.log(this.state.trips)
     const selectedDay= selectedTrip.days.find(day => 
-      day.day_id === dayId
-    )
-
-    const selectedActivityIndex = selectedDay.activity.findIndex(activity =>
-      activity.activity_id === activityId
+      day.days_id.toString() === dayId
     )
     
-    selectedDay.activity[selectedActivityIndex] = editedActivity
+    const selectedActivityIndex = selectedDay.activities.findIndex(activity =>
+      activity.id.toString() === activityId
+    )
+    
+    selectedDay.activities[selectedActivityIndex] = editedActivity
 
     this.setState({
       trips: [...this.state.trips]

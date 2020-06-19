@@ -25,7 +25,7 @@ class EditActivity extends React.Component {
         const tripId = this.props.match.params.tripId
 
         const editedActivity = {
-            activity_id: parseInt(activityId),
+            id: parseInt(activityId),
             start_time: start_time.value,
             meridiem: meridiem.value,
             activity: activity.value,
@@ -51,15 +51,11 @@ class EditActivity extends React.Component {
         .then((activityData) => {
             this.context.editActivity(editedActivity, tripId, dayId, activityId)
             this.props.history.push(`/trip/${tripId}`)
-
         })
         .catch(error => {
             console.error(error)
             this.setState({error: 'Something went wrong. Please try again later.'})
         })
-
-
-        
     }
 
     render () { 
@@ -78,7 +74,7 @@ class EditActivity extends React.Component {
         const selectedDay = selectedTrip.days.find(day =>
             day.days_id.toString() === dayId
         )
-
+        
         const selectedActivity = selectedDay.activities.find(activity =>
             activity.id.toString() === activityId
         ) 

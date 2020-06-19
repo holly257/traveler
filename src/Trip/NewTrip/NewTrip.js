@@ -42,10 +42,6 @@ class NewTrip extends React.Component {
             console.error(error)
             this.setState({ error: 'The review did not add. Please try again later.'});
         })
-
-        // this.context.startNewTrip(trip)
-        // // this.props.history.push(`/trip/${trip.id}`)
-        // this.props.history.goBack()
     }
 
     render () { 
