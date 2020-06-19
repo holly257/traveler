@@ -8,12 +8,12 @@ class ResultsPage extends React.Component {
                 <img 
                     className='results-image' 
                     src={this.props.review.image}
-                    alt={this.props.review.altText}
+                    alt={this.props.review.image_alt}
                 />
                 <section>
                     <h5 className='trip-name'>{this.props.review.name}</h5>
-                    <h6>Rating: {this.props.review.rating}</h6>
-                    <h6>{this.props.review.city}, {this.props.review.country}</h6>
+                    <h6 className='review-details'>Rating: {this.props.review.rating}</h6>
+                    <h6 className='review-details'>{this.props.review.city}, {this.props.review.country}</h6>
                     <p className='search-comments'>{this.props.review.comments}</p>
                 </section>
             </div>

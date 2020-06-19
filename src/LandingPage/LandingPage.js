@@ -7,10 +7,10 @@ function LandingPage() {
     <>
       <main id='main-landing'>
         <br/>
-        <h5 className='landing-main-text'>Plan your next trip with ease!</h5>
+        <h1 className='landing-main-text'>Plan your next trip with ease!</h1>
         <br />
         <br />
-        <h5 className='landing-main-text'>Want to demo the app?</h5>
+        <h2 className='landing-main-text'>Want to demo the app?</h2>
         <p className='landing-demo-text'>Username: test_user</p>
         <p className='landing-demo-text'>Password: Pa55w-rd</p> 
       </main>

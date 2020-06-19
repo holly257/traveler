@@ -2,6 +2,7 @@
     display: flex;
     padding: 10px 0;
     border-top: 1px solid darkgray;
+    width: 100%;
 }
 
 .results-image{
@@ -12,8 +13,12 @@
 }
 
 .search-comments{
-    font-size: 10px;
+    font-size: 12px;
     padding: 6px;
+}
+
+.review-details{
+    font-size: 12px;
 }
 
 #empty-results-error{
