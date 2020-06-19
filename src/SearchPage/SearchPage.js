@@ -64,7 +64,6 @@ class SearchPage extends React.Component {
                     <div id='search-container'>
                         <h3 id='search-title'>Search Reviews</h3>
                         <form onSubmit={(e) => this.SubmitSearch(e)}>
-                            <label for="search"></label>
                             <input id='search' type='text' name='searchTerm' placeholder='search by city name' />
                             <br/>
                             <select className='searchTypes' name='category'>

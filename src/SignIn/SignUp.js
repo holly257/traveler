@@ -90,7 +90,7 @@ class SignUp extends React.Component {
         return (
             <section id='signup'>
                 <div id='container'>
-                    <h3 id='signup-title' >Sign Up</h3>
+                    <h1 id='signup-title' >Sign Up</h1>
                     <br />
                     <form onSubmit={(e) => this.signUpSubmit(e)}>
                         <input 

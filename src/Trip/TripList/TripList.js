@@ -67,9 +67,9 @@ class TripList extends React.Component {
         if(!this.context.trips.length){
             return (
                 <main>
-                <h3 id='title'>My Trip's</h3>
+                <h1 id='title'>My Trip's</h1>
                 <section id='review-cont'>
-                    <h6>No Trips yet...</h6>
+                    <h2>No Trips yet...</h2>
                 </section>
                 <br />
                 <Link  id='new-trip' to={'/new-trip'}>New Trip</Link>
@@ -80,13 +80,13 @@ class TripList extends React.Component {
             <Switch>
                 <Route exact path={'/trip'}>
                     <main>
-                        <h3 id='title'>My Trip's</h3>
+                        <h1 id='title'>My Trip's</h1>
                         <section id='trip-cont'>
                             {this.context.trips.map((trip) => {
                                 return (
                                     <section key={trip[0].id} className='trips'>
                                         <Link to={`/trip/${trip[0].id}`} className='trip-list'>{trip[0].name}</Link>
-                                        <h6>{trip[0].city}, {trip[0].country}</h6>
+                                        <h2 className='trip-details'>{trip[0].city}, {trip[0].country}</h2>
                                         <br />
                                     </section>
                                 )

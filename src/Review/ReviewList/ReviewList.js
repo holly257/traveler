@@ -92,7 +92,7 @@ class ReviewList extends React.Component {
         }
         return (
             <main id='review-main'>
-                <h3 id='title'>My Review's</h3> 
+                <h1 id='title'>My Review's</h1> 
                 <section id='review-cont'>
                     <div role='alert'>
                         {error && <p className='error'>{error}</p>}
@@ -104,7 +104,7 @@ class ReviewList extends React.Component {
                         return (
                             <section key={index} className='reviews'>
                                 <Link className='review-list' to={`/review/${review.id}`}>{review.name}</Link>
-                                <h6>{review.city}, {review.country}</h6>
+                                <h2 className='review-list-link'>{review.city}, {review.country}</h2>
                                 <button className='review-delete-btn' onClick={(e) => this.handleDeleteClick(e)} value={review.id} >Delete</button>
                                 <br />
                             </section>

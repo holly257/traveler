@@ -67,22 +67,23 @@ class NewReview extends React.Component {
         return (
             <section id='main-review'>
                 <div id='container'>   
-                    <Link to={`/review`}>Back</Link>    
-                    <h3 id='review-title'>Review</h3>
+                    <Link id='back-to-review-details' to={`/review`}>Back</Link>    
+                    <h1 id='review-title'>Review</h1>
                     <div role='alert'>
                         {error && <p className='error'>{error}</p>}
                     </div>
                     <form onSubmit={(e) => this.SubmitReview(e)}>
-                        <h6>Name:</h6>
+                        <label htmlFor='name' className='form-input-titles'>Name:</label>
                         <input 
                             className='allReview' 
                             type='text' 
                             placeholder='name' 
                             name='name' 
+                            id='name' 
                             required />
                         
-                        <h6>Rating:</h6>
-                        <select className='allReview' name='rating' required>
+                        <label htmlFor='rating' className='form-input-titles'>Rating:</label>
+                        <select className='allReview' name='rating' id='rating' required>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -90,28 +91,32 @@ class NewReview extends React.Component {
                             <option>5</option>  
                         </select>
                         
-                        <h6>Location:</h6>
+                        <br/>
+                        <label htmlFor='location' className='form-input-titles'>Location:</label>
                         <div className='allReview'>
                             <input 
                                 type='text' 
                                 placeholder='City' 
                                 name='city' 
+                                id='location'
                                 required />
                             <input 
                                 type='text' 
                                 placeholder='Country' 
                                 name='country' 
+                                id='location'
                                 required />
                             <input 
                                 type='text' 
                                 placeholder='Address' 
                                 name='address' 
+                                id='location'
                                 required />
                         </div>
                         
                         <div>
-                            <h6>Category:</h6>
-                            <select className='allReview' name='category'  required>
+                            <label htmlFor='category' className='form-input-titles'>Category:</label>
+                            <select className='allReview' name='category' id='category' required>
                                 <option>restaurant</option>
                                 <option>bar/coffee</option>
                                 <option>shopping</option>
@@ -120,25 +125,28 @@ class NewReview extends React.Component {
                             </select>
                         </div>
 
-                        <h6>Pictures:</h6>
+                        <label htmlFor='image' className='form-input-titles'>Pictures:</label>
                         <input 
                             className='allReview' 
                             type='url' 
                             placeholder='link to image' 
-                            name='image' />
+                            name='image'
+                            id='image' />
                         <input 
                             className='allReview' 
                             type='text' 
                             placeholder='briefly describe the image' 
-                            name='altText' />
+                            name='altText'
+                            id='image' />
 
 
                         <br />
-                        <h6>Comments:</h6>
+                        <label htmlFor='comments' className='form-input-titles'>Comments:</label>
                         <textarea 
                             className='allReview' 
                             rows='5' 
                             name='comments' 
+                            id='comments'
                             required >
                         </textarea>
                         
