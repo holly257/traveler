@@ -8,12 +8,10 @@ import { Route, Switch } from 'react-router-dom'
 import TripDetails from '../TripList/TripDetails/TripDetails'
 import PrivateRoute from '../../SignIn/AuthRouting/PrivateRoute'
 
-let fullTripArray = []
 class TripList extends React.Component {
     static contextType = AppContext;
 
     componentDidMount() {
-        fullTripArray = []
         const options = {
             method: 'GET',
             headers: {
