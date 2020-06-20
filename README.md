@@ -29,3 +29,13 @@ Back End: Node, Express, PostresSQL
 <br/>
 
 ![Landing Page](src/Images/LandingPage.png)
+
+<br/>
+
+![Landing Page](/Users/hollyrogers/thinkful/capstones/traveler/src/Images/LandingPage.png)
+
+<br/>
+
+![Landing Page](traveler/src/Images/LandingPage.png)
+
+<!-- /Users/hollyrogers/thinkful/capstones/traveler/src/Images/LandingPage.png -->
