@@ -32,8 +32,8 @@ Back End: Node, Express, PostresSQL
 
 <br/>
 
-![Search Page](src/Images/SearchPage.png)
+![Search Page](../src/Images/SearchPage.png)
 
 <br/>
 
-![Trip Details Page](src/Images/TripDetailsPage.png)
+![Trip Details Page](./src/Images/TripDetailsPage.png)
