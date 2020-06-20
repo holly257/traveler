@@ -24,8 +24,7 @@ Back End: Node, Express, PostresSQL
 
 ## Screenshots
 
-![Landing Page](src/Images/LandingPage.png)
-Format: ![Alt Text](src/Images/LandingPage.png)
+![Landing Page](/src/Images/LandingPage.png "Landing Page")
 
 <br/>
 
