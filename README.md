@@ -24,20 +24,16 @@ Back End: Node, Express, PostresSQL
 
 ## Screenshots
 
-Landing Page
 ![Landing Page](/src/images/LandingPage.png)
 
 <br/>
 
-Reviews List
 ![Reviews List Page](/src/images/ReviewsListPage.png)
 
 <br/>
 
-Search Page
 ![Search Page](/src/images/SearchPage.png)
 
 <br/>
 
-Trip Details
 ![Trip Details Page](/src/images/TripDetailsPage.png)
