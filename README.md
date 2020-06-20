@@ -25,6 +25,7 @@ Back End: Node, Express, PostresSQL
 ## Screenshots
 
 ![Landing Page](src/Images/LandingPage.png)
+Format: ![Alt Text](src/Images/LandingPage.png)
 
 <br/>
 
@@ -32,7 +33,7 @@ Back End: Node, Express, PostresSQL
 
 <br/>
 
-![Search Page](../src/Images/SearchPage.png)
+![Search Page]('../src/Images/SearchPage.png')
 
 <br/>
 
