@@ -24,18 +24,16 @@ Back End: Node, Express, PostresSQL
 
 ## Screenshots
 
-![Landing Page](/src/Images/LandingPage.png)
-
-<br/>
-
 ![Landing Page](src/Images/LandingPage.png)
 
 <br/>
 
-![Landing Page](/Users/hollyrogers/thinkful/capstones/traveler/src/Images/LandingPage.png)
+![Reviews List Page](src/Images/ReviewsListPage.png)
 
 <br/>
 
-![Landing Page](traveler/src/Images/LandingPage.png)
+![Search Page](src/Images/SearchPage.png)
 
-<!-- /Users/hollyrogers/thinkful/capstones/traveler/src/Images/LandingPage.png -->
+<br/>
+
+![Trip Details Page](src/Images/TripDetailsPage.png)
