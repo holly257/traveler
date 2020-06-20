@@ -24,16 +24,16 @@ Back End: Node, Express, PostresSQL
 
 ## Screenshots
 
-![Landing Page](/src/Images/LandingPage.png "Landing Page")
+![Landing Page](src/Images/LandingPage.png "Landing Page")
 
 <br/>
 
-![Reviews List Page](src/Images/ReviewsListPage.png)
+![Reviews List Page](src/Images/ReviewsListPage.png "Reviews List Page")
 
 <br/>
 
-![Search Page]('../src/Images/SearchPage.png')
+![Search Page]('../src/Images/SearchPage.png' "Search Page")
 
 <br/>
 
-![Trip Details Page](./src/Images/TripDetailsPage.png)
+![Trip Details Page](./src/Images/TripDetailsPage.png "Trip Details Page")
