@@ -24,4 +24,10 @@ Back End: Node, Express, PostresSQL
 
 ## Screenshots
 
-Coming soon!
+![Landing Page](/images/LandingPage.png)
+Format: ![Alt Text]()
+
+<br/>
+
+![Landing Page](images/LandingPage.png)
+Format: ![Alt Text](test)
