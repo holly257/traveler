@@ -83,7 +83,7 @@ class NewReview extends React.Component {
                             required />
                         
                         <label htmlFor='rating' className='form-input-titles'>Rating:</label>
-                        <select className='allReview' name='rating' id='rating' required>
+                        <select className='allReview-dropdown' name='rating' id='rating' required>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -99,24 +99,27 @@ class NewReview extends React.Component {
                                 placeholder='City' 
                                 name='city' 
                                 id='location'
+                                className='allReview'
                                 required />
                             <input 
                                 type='text' 
                                 placeholder='Country' 
                                 name='country' 
                                 id='location'
+                                className='allReview'
                                 required />
                             <input 
                                 type='text' 
                                 placeholder='Address' 
                                 name='address' 
                                 id='location'
+                                className='allReview'
                                 required />
                         </div>
                         
                         <div>
                             <label htmlFor='category' className='form-input-titles'>Category:</label>
-                            <select className='allReview' name='category' id='category' required>
+                            <select className='allReview-dropdown' name='category' id='category' required>
                                 <option>restaurant</option>
                                 <option>bar/coffee</option>
                                 <option>shopping</option>
@@ -139,7 +142,6 @@ class NewReview extends React.Component {
                             name='altText'
                             id='image' />
 
-
                         <br />
                         <label htmlFor='comments' className='form-input-titles'>Comments:</label>
                         <textarea 
@@ -153,7 +155,7 @@ class NewReview extends React.Component {
                         <button 
                             type='submit' 
                             className='allReview' 
-                            id='search-btn'>
+                            id='add-review-btn'>
                             Submit
                         </button>
                     </form>

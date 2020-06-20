@@ -29,7 +29,6 @@ class LogIn extends React.Component {
                 console.error(res)
                 this.setState({ error: res.error ? res.error : 'Sorry, something went wrong.' })
             })
-        
     }
 
     render() {

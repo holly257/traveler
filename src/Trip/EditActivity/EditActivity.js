@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import { API_URL } from '../../config'
 
-
 class EditActivity extends React.Component {
     static contextType = AppContext;
 
@@ -83,10 +82,10 @@ class EditActivity extends React.Component {
             return (
                 <section id='main-trip'>
                     <div id='container'>
-                        <Link className='back-to-trip-list' to={`/trip/${tripId}`}>Cancel</Link>
+                        <Link id='back-to-trip-details' to={`/trip/${tripId}`}>Cancel</Link>
                         <form onSubmit={(e) => this.EditActivity(e)}>
-                            <h5 className='trip-name'>{selectedTrip.name}</h5>
-                            <h6 className='trip-details'>{selectedTrip.city}, {selectedTrip.country}</h6>
+                            <h1 className='trip-name'>{selectedTrip.name}</h1>
+                            <h2 className='trip-details'>{selectedTrip.city}, {selectedTrip.country}</h2>
                             <br />
                             <p value={selectedActivity.activity_id}>Day {selectedDayIndex+1}</p>
                             

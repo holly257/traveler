@@ -36,6 +36,11 @@ input {
     width: 145px;
 }
 
+.start_time{
+    font-size: 14px;
+    font-weight: 700;
+}
+
 .back-to-trip-list{
     color: rgba(0, 0, 0, 0.836);
     border: grey 1px solid;
@@ -85,20 +90,41 @@ input {
     width: 32px;
 }
 
+#back-to-trip-details{
+    color: rgba(0, 0, 0, 0.836);
+    border: grey 1px solid;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 1px 4px;
+    margin: 5px 0;
+    width: 50px;
+}
+
 .activity{
     font-weight: 300;
 }
 
 .trip-name{
+    margin-top: 15px;
     font-weight: 300;
     font-size: 16px;
 }
 .trip-details{
-    font-weight: 400;
-    font-size: 12px;
+    font-weight: 500;
+    font-size: 14px;
 }
 
 .edit-add-activity-box{
     padding: 8px;
     margin-top: 5px;
+}
+
+@media only screen and (min-width: 768px){
+    .trip-name{
+        font-size: 24px;
+    }
+    .trip-details{
+        font-size: 16px;
+    }
 }

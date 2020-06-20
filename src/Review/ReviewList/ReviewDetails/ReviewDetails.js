@@ -7,6 +7,7 @@ class ReviewDetails extends React.Component {
     static contextType = AppContext;
 
     render() {
+        console.log(this.context.reviews)
         if(!this.context.reviews.length){
             return (
                 <section id='main-review'>
@@ -42,7 +43,7 @@ class ReviewDetails extends React.Component {
                     <p>{selectedReview.category}</p>
 
                     <h5>Pictures:</h5>
-                    <img className='review-details-img' src={selectedReview.image} alt={selectedReview.altText}/>
+                    <img className='review-details-img' src={selectedReview.image} alt={selectedReview.image_alt}/>
                     
                     <h5>Imgage Description: </h5>
                     <p>{selectedReview.image_alt}</p>

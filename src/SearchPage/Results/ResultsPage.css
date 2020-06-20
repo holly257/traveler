@@ -27,3 +27,9 @@
     font-size: 12px;
     color: red;
 }
+
+.results-trip-name{
+    margin-top: 15px;
+    font-weight: 300;
+    font-size: 16px;
+}

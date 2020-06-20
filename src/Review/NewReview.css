@@ -22,14 +22,37 @@ span{
   
 input {
   height: 20px;
-  border-style: black;
+  border: grey 1px solid;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.form-input-titles{
+  font-weight: 300;
 }
 
 .allReview{
-  margin: 5px;
+  margin: 5px 0;
+}
+
+.allReview-dropdown{
+  border: grey 1px solid;
+  border-radius: 4px;
+  margin: 5px 0 5px 8px;
 }
 
 #review-title{
   margin: 20px 0 30px 0;
   font-weight: 200;
+}
+
+#add-review-btn{
+  background-color: white;
+  color: rgba(0, 0, 0, 0.836);
+  border: grey 1px solid;
+  border-radius: 4px;
+  padding: 2px;
+  font-weight: 400;
+  font-size: 12px;
+  width: 95%;
 }

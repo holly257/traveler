@@ -1,13 +1,7 @@
-#review-cont{
-  padding-top: 10px;
-  padding-left: 30px;   
-}
-  
-#title{
-    margin-top: 65px;
-    margin-bottom: 15px;
-    padding-left: 30px;
+.review-list-title{
+    margin-bottom: 25px;
     font-weight: 200;
+    font-size: 25px;
 }
   
 #new-review{
@@ -50,4 +44,12 @@
   margin: 5px 0;
   margin-bottom: 15px;
   width: 49px;
+}
+
+@media only screen and (min-width: 768px){
+  .review-list-title{
+    margin: 55px 0;
+    font-weight: 200;
+    font-size: 30px;
+  }
 }

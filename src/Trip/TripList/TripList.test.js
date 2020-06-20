@@ -24,7 +24,6 @@ it('renders title', () => {
     expect(linkElement).toBeInTheDocument();
 })
 
-
 const data = [
     {
         city: "Bangkok",

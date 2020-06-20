@@ -19,11 +19,15 @@ input {
 
 .allItems{
     margin: 5px;
+    width: 130px;
+}
+
+#login-title{
     font-weight: 300;
 }
 
 #login-btn{
-    width: 93%;
+    width: 100%;
     color: rgba(0, 0, 0, 0.836);
     border: grey 1px solid;
     border-radius: 4px;
@@ -42,6 +46,7 @@ input {
     margin-top: 20px;
     padding: 3px 3px;
     background-color: white;
+    width: 53px
 }
 
 .error{

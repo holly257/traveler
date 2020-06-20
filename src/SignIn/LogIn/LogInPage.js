@@ -22,7 +22,7 @@ class LogInPage extends React.Component {
         return (
             <section id='login'>
                 <div id='container'>
-                    <h1 className='allItems'>Log In</h1>
+                    <h1 id='login-title'>Log In</h1>
                     <LogIn onLoginSuccess={this.handleLoginSuccess} />
                     <Link id='signup-link' className='allItems' to={'/signup'}>Sign Up</Link>
                 </div>

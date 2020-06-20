@@ -43,38 +43,41 @@ class TripList extends React.Component {
     render () {
         if(!this.context.trips.length){
             return (
-                <main>
-                <h1 id='title'>My Trip's</h1>
-                <section id='review-cont'>
-                    <h2>No Trips yet...</h2>
-                </section>
-                <br />
-                <Link  id='new-trip' to={'/new-trip'}>New Trip</Link>
-            </main>
+                <main id='main-review'>
+                    <div>
+                        <h1 className='trip-list-title'>My Trip's</h1>
+                        <section >
+                            <h2>No Trips yet...</h2>
+                        </section>
+                        <br />
+                        <Link  id='new-trip' to={'/new-trip'}>New Trip</Link>
+                    </div>
+                </main>
             )
         }
         return (
             <Switch>
                 <Route exact path={'/trip'}>
-                    <main>
-                        <h1 id='title'>My Trip's</h1>
-                        <section id='trip-cont'>
-                            {this.context.trips.map((trip) => {
-                                return (
-                                    <section key={trip.id} className='trips'>
-                                        <Link to={`/trip/${trip.id}`} className='trip-list'>{trip.name}</Link>
-                                        <h2 className='trip-details'>{trip.city}, {trip.country}</h2>
-                                        <br />
-                                    </section>
-                                )
-                            })}
-                        </section>
-                        <br />
-                        <Link  id='new-trip' to={'/new-trip'}>New Trip</Link>
+                    <main id='main-review'>
+                        <div>
+                            <h1 className='trip-list-title'>My Trip's</h1>
+                            <section >
+                                {this.context.trips.map((trip) => {
+                                    return (
+                                        <section key={trip.id} className='trips'>
+                                            <Link to={`/trip/${trip.id}`} className='trip-list-name'>{trip.name}</Link>
+                                            <h2 className='trip-details-link'>{trip.city}, {trip.country}</h2>
+                                            <br />
+                                        </section>
+                                    )
+                                })}
+                            </section>
+                            <br />
+                            <Link  id='new-trip' to={'/new-trip'}>New Trip</Link>
+                        </div>
                     </main>
                 </Route>
                 <PrivateRoute path='/trip/:tripId' component={TripDetails} />
-                
             </Switch>
         )
     }

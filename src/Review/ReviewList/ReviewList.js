@@ -77,42 +77,46 @@ class ReviewList extends React.Component {
         const { error, success } = this.state
         if(!this.context.reviews.length){
             return (
-                <main>
-                    <h3 id='title'>My Review's</h3>
-                    <section id='review-cont'>
-                        <div role='alert'>
-                            {error && <p className='error'>{error}</p>}
-                        </div>
-                        <h6>No reviews yet...</h6>
-                    </section>
-                    <br />
-                    <Link id='new-review' to={'/new-review'}>New review</Link>
+                <main id='main-review'>
+                    <div > 
+                        <h3 className='review-list-title'>My Review's</h3>
+                        <section>
+                            <div role='alert'>
+                                {error && <p className='error'>{error}</p>}
+                            </div>
+                            <h6>No reviews yet...</h6>
+                        </section>
+                        <br />
+                        <Link id='new-review' to={'/new-review'}>New review</Link>
+                    </div>
                 </main>
             )
         }
         return (
-            <main id='review-main'>
-                <h1 id='title'>My Review's</h1> 
-                <section id='review-cont'>
-                    <div role='alert'>
-                        {error && <p className='error'>{error}</p>}
-                    </div>
-                    <div role='alert'>
-                        {success && <p className='success'>{success}</p>}
-                    </div>
-                    {this.context.reviews.map((review, index) => {
-                        return (
-                            <section key={index} className='reviews'>
-                                <Link className='review-list' to={`/review/${review.id}`}>{review.name}</Link>
-                                <h2 className='review-list-link'>{review.city}, {review.country}</h2>
-                                <button className='review-delete-btn' onClick={(e) => this.handleDeleteClick(e)} value={review.id} >Delete</button>
-                                <br />
-                            </section>
-                        )
-                    })}
-                </section>
-                <br />
-                <Link id='new-review' to={'/new-review'}>New Review</Link>
+            <main id='main-review'>
+                <div > 
+                    <h1 className='review-list-title'>My Review's</h1> 
+                    <section>
+                        <div role='alert'>
+                            {error && <p className='error'>{error}</p>}
+                        </div>
+                        <div role='alert'>
+                            {success && <p className='success'>{success}</p>}
+                        </div>
+                        {this.context.reviews.map((review, index) => {
+                            return (
+                                <section key={index} className='reviews'>
+                                    <Link className='review-list' to={`/review/${review.id}`}>{review.name}</Link>
+                                    <h2 className='review-list-link'>{review.city}, {review.country}</h2>
+                                    <button className='review-delete-btn' onClick={(e) => this.handleDeleteClick(e)} value={review.id} >Delete</button>
+                                    <br />
+                                </section>
+                            )
+                        })}
+                    </section>
+                    <br />
+                    <Link id='new-review' to={'/new-review'}>New Review</Link>
+                </div>
             </main>
         )
     }

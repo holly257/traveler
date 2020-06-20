@@ -48,7 +48,6 @@ class TripDetails extends React.Component {
             console.error(error)
             this.setState({error: 'Something went wrong. Please try again later.'})
         })
-    
     }
 
     render () { 
@@ -59,7 +58,6 @@ class TripDetails extends React.Component {
         if(!selectedTrip){
             return (
                 <div>Loading...</div>
-
             )
         }
         if(!selectedTrip.days){
@@ -69,8 +67,8 @@ class TripDetails extends React.Component {
                     <Link className='back-to-trip-list' to={`/trip`}>Back</Link>
                     <br />
                         <form>
-                            <h5 className='trip-name'>{selectedTrip.name}</h5>
-                            <h6 className='trip-details'>{selectedTrip.city}, {selectedTrip.country}</h6>
+                            <h1 className='trip-name'>{selectedTrip.name}</h1>
+                            <h2 className='trip-details'>{selectedTrip.city}, {selectedTrip.country}</h2>
 
                             <button  className='back-to-trip-list' onClick={(e) => this.AddAnotherDay(e)} >Add Day</button>
                         </form>
@@ -86,8 +84,8 @@ class TripDetails extends React.Component {
                             <Link className='back-to-trip-list' to={`/trip`}>Back</Link>
                             <br />
                                 <form>
-                                    <h5 className='trip-name'>{selectedTrip.name}</h5>
-                                    <h6 className='trip-details'>{selectedTrip.city}, {selectedTrip.country}</h6>
+                                    <h1 className='trip-name'>{selectedTrip.name}</h1>
+                                    <h2 className='trip-details'>{selectedTrip.city}, {selectedTrip.country}</h2>
                                      
                                     {selectedTrip.days.map((day, index) => {
                                         return (
@@ -99,7 +97,7 @@ class TripDetails extends React.Component {
                                                         {!day.activities ? '' : day.activities.map((activity, index) => {
                                                             return (
                                                                 <span key={index} id='day'>                                                
-                                                                    <h5 className='start_time'>{activity.start_time} {activity.meridiem}</h5>
+                                                                    <h3 className='start_time'>{activity.start_time} {activity.meridiem}</h3>
                                                                     <p id='trip-details-activity' className='activity'>{activity.activity}</p>
                                                                     <Link className='edit-btn' to={`/trip/${selectedTrip.id}/day/${day.days_id }/edit/${activity.id}`}>Edit</Link>
                                                                     <hr />

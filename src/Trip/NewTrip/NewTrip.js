@@ -45,11 +45,9 @@ class NewTrip extends React.Component {
     }
 
     render () { 
-        
         return (
             <section id='main-trip'>
                 <div id='container'>
-                    
                     <h3 id='trip-title'>Trip </h3>
                     <form onSubmit={(e) => this.StartTrip(e)}>
                         <input type='text' name='name' placeholder='name' required />

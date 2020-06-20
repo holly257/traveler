@@ -17,14 +17,10 @@
     bottom: 0;
     width: 100%;
 }
-  
-input {
-    height: 20px;
-    border-style: black;
-}
 
 .allSignup{
     margin: 5px;
+    width: 150px;
 }
 
 #signup-btn{
