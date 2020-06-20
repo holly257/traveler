@@ -29,5 +29,5 @@ Format: ![Alt Text](app landing page)
 
 <br/>
 
-![Landing Page](images/LandingPage.png)
+![./src/Images/LandingPage.png](images/LandingPage.png)
 Format: ![Alt Text](test)
