@@ -1,9 +1,6 @@
 import React from "react"; 
 import ReactDOM from "react-dom"; 
-import { rest } from "msw";
-import { setupServer } from "msw/node";
-import { screen, fireEvent, render, waitFor } from "@testing-library/react";
-import renderer from "react-test-renderer";
+import { render } from "@testing-library/react";
 import AppContext from "../App/AppContext";
 import SearchPage from "./SearchPage";
 
@@ -27,7 +24,6 @@ const contextValue = {
 it('renders without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(
- 
         <AppContext.Provider value={contextValue}>
             <SearchPage />
         </AppContext.Provider>
@@ -35,7 +31,7 @@ it('renders without crashing', () => {
     ReactDOM.unmountComponentAtNode(div)
 })
 
-test('renders search reviews title', () => {
+it('renders search reviews title', () => {
     const { getByText } = render(
         <AppContext.Provider value={contextValue}>
             <SearchPage />
@@ -43,27 +39,3 @@ test('renders search reviews title', () => {
     const linkElement = getByText(/Search Reviews/i);
     expect(linkElement).toBeInTheDocument();
 });
-
-// const server = setupServer(
-//     rest.get('/search/term?', (req, res, ctx) => {
-//         return res(ctx.json( data ))
-//     })
-// )
-
-// beforeAll(() => server.listen())
-// afterEach(() => server.resetHandlers())
-// afterAll(() => server.close())
- 
-// it('searches on click', async () => {
-//     render(
-//         <AppContext.Provider value={contextValue}>
-//             <SearchPage />
-//         </AppContext.Provider>
-//     )
-    
-//     fireEvent.submit(screen.getByRole('form'), {target: {searchTerm: {value: 'city'}, category: {value: 'shopping'}}})
-
-//     // await waitFor(() => screen.getByText('test name')) 
-
-//     expect(contextValue.updateSearchResults).toHaveBeenCalled()
-// })

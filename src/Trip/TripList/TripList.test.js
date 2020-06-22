@@ -5,15 +5,6 @@ import { BrowserRouter } from "react-router-dom";
 import TripList from "./TripList";
 import AppContext from '../../App/AppContext'
 
-it('renders without crashing', () => {
-    render(
-        <BrowserRouter>
-            <TripList >   
-            </TripList>
-        </BrowserRouter>
-    )
-})
-
 it('renders title', () => {
     const { getByText } = render(
         <BrowserRouter>
