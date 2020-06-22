@@ -8,8 +8,7 @@ import AppContext from '../../App/AppContext'
 it('renders without crashing', () => {
     render(
         <BrowserRouter>
-            <TripList >
-                
+            <TripList >   
             </TripList>
         </BrowserRouter>
     )
@@ -53,12 +52,13 @@ const contextValue = {
     trips: data, 
 } 
  
-it.skip('renders without crashing', () => {
+it('renders without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(
- 
         <AppContext.Provider value={contextValue}>
-            <TripList />
+            <BrowserRouter>
+                <TripList />
+            </BrowserRouter>
         </AppContext.Provider>
         , div)
     ReactDOM.unmountComponentAtNode(div)

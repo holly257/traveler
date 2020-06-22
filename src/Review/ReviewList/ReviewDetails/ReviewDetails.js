@@ -7,7 +7,6 @@ class ReviewDetails extends React.Component {
     static contextType = AppContext;
 
     render() {
-        console.log(this.context.reviews)
         if(!this.context.reviews.length){
             return (
                 <section id='main-review'>

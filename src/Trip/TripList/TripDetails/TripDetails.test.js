@@ -1,19 +1,9 @@
 import React from "react"; 
 import { render } from "@testing-library/react";
 import ReactDOM from "react-dom"; 
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, MemoryRouter } from "react-router-dom";
 import TripDetails from "./TripDetails";
 import AppContext from '../../../App/AppContext'
-
-it('renders without crashing', () => {
-    render(
-        <BrowserRouter>
-            <TripDetails >
-                
-            </TripDetails>
-        </BrowserRouter>
-    )
-})
 
 const data = [
     {
@@ -40,25 +30,36 @@ const data = [
     }
 ]
 
-it.skip('renders button text', () => {
-    const { getByText } = render(
-        <AppContext.Provider value={contextValue}>
-            <TripDetails />
-        </AppContext.Provider>);
-    const linkElement = getByText(/Back/i);
-    expect(linkElement).toBeInTheDocument();
-})
+const match = {
+    params: {
+        tripId: '1',
+        dayId: '1',
+        activityId: '2'
+    }
+}
 
 const contextValue = {
     trips: data, 
 } 
+
+it('renders button text', () => {
+    const { getByText } = render(
+        <AppContext.Provider value={contextValue}>
+            <MemoryRouter initialEntries={["/trip/1"]}>
+                <TripDetails match={match}/>
+            </MemoryRouter>
+        </AppContext.Provider>);
+    const linkElement = getByText('Add Day'); 
+    expect(linkElement).toBeInTheDocument();
+})
  
-it.skip('renders without crashing', () => {
+it('renders without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(
- 
         <AppContext.Provider value={contextValue}>
-            <TripDetails />
+            <BrowserRouter>
+                <TripDetails match={match}/>
+            </BrowserRouter>
         </AppContext.Provider>
         , div)
     ReactDOM.unmountComponentAtNode(div)

@@ -2,6 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import AddActivity from "./AddActivity";
 import AppContext from '../../App/AppContext'
+import { BrowserRouter } from 'react-router-dom'
 
 const data = [
     {
@@ -32,19 +33,29 @@ const contextValue = {
     trips: data, 
 } 
 
-it.skip('renders without crashing', () => {
+const match = {
+    params: {
+        tripId: '1',
+    }
+}
+
+it('renders without crashing', () => {
     render(
         <AppContext.Provider value={contextValue}>
-            <AddActivity />
+            <BrowserRouter>
+                <AddActivity match={match} />
+            </BrowserRouter>
         </AppContext.Provider>
     )
 })
 
-it.skip('renders button text', () => {
+it('renders button text', () => {
     const { getByText } = render(
         <AppContext.Provider value={contextValue}>
-            <AddActivity />
-        </AppContext.Provider>);
+        <BrowserRouter>
+            <AddActivity match={match} />
+        </BrowserRouter>
+    </AppContext.Provider>);
     const linkElement = getByText(/Add/i);
     expect(linkElement).toBeInTheDocument();
 })
