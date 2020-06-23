@@ -54,14 +54,17 @@ class NewTrip extends React.Component {
                     <div role='alert'>
                         {error && <p className='error'>{error}</p>}
                     </div>
-                    <h3 id='trip-title'>Trip </h3>
+                    <h1 id='trip-title'>New Trip</h1>
                     <form onSubmit={(e) => this.StartTrip(e)}>
-                        <input type='text' name='name' placeholder='name' required />
-                        <input type='text' name='city' placeholder='city' required />
-                        <input type='text' name='country' placeholder='country' required />
+                        <label for='name' className='new-trip-label'>Name: </label>
+                        <input className='new-trip-input' type='text' id='name' name='name' placeholder='name' required />
+                        <label for='city' className='new-trip-label'>City: </label>
+                        <input className='new-trip-input' type='text' id='city' name='city' placeholder='city' required />
+                        <label for='country' className='new-trip-label'>Country: </label>
+                        <input className='new-trip-input' type='text' id='country' name='country' placeholder='country' required />
                         <button type='submit' id='search-btn'>Get Started</button>
                     </form>
-                    <Link to={`/trip`}>Back</Link>
+                    <Link className='back-to-trip-list' to={`/trip`}>Back</Link>
                 </div>
             </section>
         )

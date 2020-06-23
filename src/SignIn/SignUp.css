@@ -19,7 +19,7 @@
 }
 
 .allSignup{
-    margin: 5px;
+    margin: 5px 0 15px;
     width: 150px;
 }
 
@@ -47,5 +47,9 @@
 
 #signup-title{
     margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.signup-label{
     font-weight: 300;
 }

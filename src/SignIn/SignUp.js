@@ -93,28 +93,36 @@ class SignUp extends React.Component {
                     <h1 id='signup-title' >Sign Up</h1>
                     <br />
                     <form onSubmit={(e) => this.signUpSubmit(e)}>
+                        <label for='fullname' className='signup-label'>Name: </label>
                         <input 
                             className='allSignup' 
                             type='text'
                             name='fullname' 
+                            id='fullname'
                             placeholder='full name' 
                             required />
+                        <label for='password' className='signup-label'>Password: </label>
                         <input 
                             className='allSignup' 
                             type='text' 
                             name='password'
+                            id='password'
                             placeholder='password' 
                             required />
+                        <label for='username' className='signup-label'>Username: </label>
                         <input 
                             className='allSignup' 
                             type='text'
                             name='username' 
+                            id='username' 
                             placeholder='username' 
                             required />
+                        <label for='email' className='signup-label'>Email: </label>
                         <input 
                             className='allSignup' 
                             type='text' 
                             name='email'
+                            id='email'
                             placeholder='email' 
                             required />
                         <br />

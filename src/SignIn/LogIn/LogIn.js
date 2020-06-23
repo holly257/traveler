@@ -36,16 +36,20 @@ class LogIn extends React.Component {
         return (
             <>
                 <form onSubmit={(e) => this.logInSubmit(e)} className='allItems'>
+                    <label for='username' className='signup-label'>Username: </label>
                     <input 
                         className='allItems' 
                         type='text' 
                         name='username'
+                        id='username'
                         placeholder='username' 
                         required />
+                    <label for='password' className='signup-label'>Password: </label>
                     <input 
                         className='allItems' 
                         type='password' 
                         name='password'
+                        id='password'
                         placeholder='password' 
                         required />
                     <button className='allItems' type='submit' id='login-btn'>Submit</button>

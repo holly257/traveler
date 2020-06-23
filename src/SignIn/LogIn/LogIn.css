@@ -18,12 +18,13 @@ input {
 }
 
 .allItems{
-    margin: 5px;
+    margin: 5px 0 15px;
     width: 130px;
 }
 
 #login-title{
     font-weight: 300;
+    margin-bottom: 15px;
 }
 
 #login-btn{
