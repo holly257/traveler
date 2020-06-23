@@ -7,9 +7,11 @@ import TokenService from '../../services/token-service'
 
 class NewTrip extends React.Component {
     static contextType = AppContext;
+    state = { error: null }
 
     StartTrip = e => {
         e.preventDefault()
+        this.setState({ error: null })
         const { name, city, country } = e.target
 
         const trip = {
@@ -45,9 +47,13 @@ class NewTrip extends React.Component {
     }
 
     render () { 
+        const { error } = this.state
         return (
             <section id='main-trip'>
                 <div id='container'>
+                    <div role='alert'>
+                        {error && <p className='error'>{error}</p>}
+                    </div>
                     <h3 id='trip-title'>Trip </h3>
                     <form onSubmit={(e) => this.StartTrip(e)}>
                         <input type='text' name='name' placeholder='name' required />

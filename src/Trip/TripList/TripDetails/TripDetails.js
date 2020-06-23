@@ -11,9 +11,11 @@ import PrivateRoute from '../../../SignIn/AuthRouting/PrivateRoute'
 
 class TripDetails extends React.Component {
     static contextType = AppContext;
+    state = { error: null }
 
     AddAnotherDay = e => {
         e.preventDefault()
+        this.setState({ error: null })
 
         const tripId = this.props.match.params.tripId
         const newDay = {
@@ -50,7 +52,8 @@ class TripDetails extends React.Component {
         })
     }
 
-    render () { 
+    render () {
+        const { error } = this.state
         const selectedTrip = this.context.trips.find(trip => 
             trip.id.toString() === this.props.match.params.tripId
         )
@@ -66,10 +69,14 @@ class TripDetails extends React.Component {
                     <div id='container'>
                     <Link className='back-to-trip-list' to={`/trip`}>Back</Link>
                     <br />
+                        
                         <form>
                             <h1 className='trip-name'>{selectedTrip.name}</h1>
                             <h2 className='trip-details'>{selectedTrip.city}, {selectedTrip.country}</h2>
-
+                            
+                            <div role='alert'>
+                                {error && <p className='error'>{error}</p>}
+                            </div>
                             <button  className='back-to-trip-list' onClick={(e) => this.AddAnotherDay(e)} >Add Day</button>
                         </form>
                     </div>
@@ -83,10 +90,14 @@ class TripDetails extends React.Component {
                             <div id='container'>
                             <Link className='back-to-trip-list' to={`/trip`}>Back</Link>
                             <br />
+
                                 <form>
                                     <h1 className='trip-name'>{selectedTrip.name}</h1>
                                     <h2 className='trip-details'>{selectedTrip.city}, {selectedTrip.country}</h2>
                                      
+                                    <div role='alert'>
+                                        {error && <p className='error'>{error}</p>}
+                                    </div>
                                     {selectedTrip.days.map((day, index) => {
                                         return (
                                             <React.Fragment key={index}>                                              

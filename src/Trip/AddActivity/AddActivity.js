@@ -6,6 +6,7 @@ import { API_URL } from '../../config'
 
 class AddActivity extends React.Component {
     static contextType = AppContext;
+    state = { error: null }
 
     optRange() {
         let range = [];
@@ -18,6 +19,7 @@ class AddActivity extends React.Component {
 
     SaveActivity = e => {
         e.preventDefault()
+        this.setState({ error: null })
         const { start_time, meridiem, activity } = e.target
         const dayId = this.props.match.params.dayId
         const tripId = this.props.match.params.tripId
@@ -57,6 +59,7 @@ class AddActivity extends React.Component {
     }
 
     render () { 
+        const { error } = this.state
         const tripId = this.props.match.params.tripId
         const selectedTrip = this.context.trips.find(trip => 
             trip.id.toString() === tripId
@@ -71,6 +74,9 @@ class AddActivity extends React.Component {
                 <section id='main-trip'>
                     <div id='container'>
                         <Link className='back-to-trip-list' to={`/trip/${tripId}`}>Back</Link>
+                        <div role='alert'>
+                            {error && <p className='error'>{error}</p>}
+                        </div>
                         <form onSubmit={(e) => this.SaveActivity(e)}>
                             <h5 className='trip-name'>{selectedTrip.name}</h5>
                             <h6 className='trip-details'>{selectedTrip.city}, {selectedTrip.country}</h6>

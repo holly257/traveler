@@ -10,8 +10,11 @@ import PrivateRoute from '../../SignIn/AuthRouting/PrivateRoute'
 
 class TripList extends React.Component {
     static contextType = AppContext;
+    state = { error: null }
 
     componentDidMount() {
+        this.setState({ error: null })
+
         const options = {
             method: 'GET',
             headers: {
@@ -39,11 +42,15 @@ class TripList extends React.Component {
         }
 
     render () {
+        const { error } = this.state
         if(!this.context.trips.length){
             return (
                 <main id='main-review'>
                     <div>
                         <h1 className='trip-list-title'>My Trip's</h1>
+                        <div role='alert'>
+                            {error && <p className='error'>{error}</p>}
+                        </div>
                         <section >
                             <h2>No Trips yet...</h2>
                         </section>

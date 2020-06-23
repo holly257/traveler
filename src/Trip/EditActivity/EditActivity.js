@@ -6,6 +6,7 @@ import { API_URL } from '../../config'
 
 class EditActivity extends React.Component {
     static contextType = AppContext;
+    state = { error: null }
 
     optRange(n) {
         let range = [];
@@ -18,6 +19,7 @@ class EditActivity extends React.Component {
 
     EditActivity = e => {
         e.preventDefault()
+        this.setState({ error: null })
         const { start_time, meridiem, activity } = e.target
         const activityId = this.props.match.params.activityId
         const dayId = this.props.match.params.dayId
@@ -58,6 +60,7 @@ class EditActivity extends React.Component {
     }
 
     render () { 
+        const { error } = this.state
         const tripId = this.props.match.params.tripId
         const dayId = this.props.match.params.dayId
         const activityId = this.props.match.params.activityId
@@ -83,6 +86,9 @@ class EditActivity extends React.Component {
                 <section id='main-trip'>
                     <div id='container'>
                         <Link id='back-to-trip-details' to={`/trip/${tripId}`}>Cancel</Link>
+                        <div role='alert'>
+                            {error && <p className='error'>{error}</p>}
+                        </div>
                         <form onSubmit={(e) => this.EditActivity(e)}>
                             <h1 className='trip-name'>{selectedTrip.name}</h1>
                             <h2 className='trip-details'>{selectedTrip.city}, {selectedTrip.country}</h2>
