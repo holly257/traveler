@@ -15,6 +15,7 @@ const AppContext = React.createContext({
     addDay: () => {},
     addActivity: () => {},
     editActivity: () => {},
+    deleteActivity: () => {},
 })
 
 export default AppContext;

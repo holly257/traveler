@@ -69,8 +69,7 @@ class ReviewList extends React.Component {
         .catch(error => {
             console.error({error})
             this.setState({error: 'Something went wrong. Please try again later.'})
-        })
-        
+        }) 
     }
 
     render () {

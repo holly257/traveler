@@ -8,6 +8,8 @@ import { Route, Switch } from 'react-router-dom'
 import AddActivity from '../../AddActivity/AddActivity'
 import EditActivity from '../../EditActivity/EditActivity'
 import PrivateRoute from '../../../SignIn/AuthRouting/PrivateRoute'
+import { FontAwesomeIcon } from '../../../../node_modules/@fortawesome/react-fontawesome'
+import { faEdit, faTrash } from '../../../../node_modules/@fortawesome/free-solid-svg-icons'
 
 class TripDetails extends React.Component {
     static contextType = AppContext;
@@ -50,6 +52,39 @@ class TripDetails extends React.Component {
             console.error(error)
             this.setState({error: 'Something went wrong. Please try again later.'})
         })
+    }
+
+    handleDeleteActivity = e => {
+        e.preventDefault()
+        
+        const dayId = e.target.name
+        const tripId = e.target.value
+        const activity_id = e.target.id
+
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        }
+
+        fetch(`${API_URL}/activities/${activity_id}`, options)
+        .then(res => {
+            if(!res.ok) {
+                return res.json().then(error => {
+                    throw error
+                })
+            }
+            return
+        })
+        .then(() => {
+            this.context.deleteActivity(activity_id, dayId, tripId)
+        })
+        .catch(error => {
+            console.error({error})
+            this.setState({error: 'Something went wrong. Please try again later.'})
+        }) 
     }
 
     render () {
@@ -111,6 +146,13 @@ class TripDetails extends React.Component {
                                                                     <h3 className='start_time'>{activity.start_time} {activity.meridiem}</h3>
                                                                     <p id='trip-details-activity' className='activity'>{activity.activity}</p>
                                                                     <Link className='edit-btn' to={`/trip/${selectedTrip.id}/day/${day.days_id }/edit/${activity.id}`}>Edit</Link>
+                                                                    <button
+                                                                        className='delete-act-btn'
+                                                                        onClick={(e) => this.handleDeleteActivity(e)}
+                                                                        value={selectedTrip.id}
+                                                                        name={day.days_id}
+                                                                        id={activity.id}
+                                                                    >Delete</button>
                                                                     <hr />
                                                                 </span>
                                                             )
