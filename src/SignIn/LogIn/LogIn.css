@@ -27,6 +27,17 @@ input {
     margin-bottom: 15px;
 }
 
+.login-demo{
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.login-demo-title{
+    margin: 25px 0 10px;
+    font-weight: 400;
+}
+
 #login-btn{
     width: 100%;
     color: rgba(0, 0, 0, 0.836);
