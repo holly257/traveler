@@ -8,8 +8,6 @@ import { Route, Switch } from 'react-router-dom'
 import AddActivity from '../../AddActivity/AddActivity'
 import EditActivity from '../../EditActivity/EditActivity'
 import PrivateRoute from '../../../SignIn/AuthRouting/PrivateRoute'
-import { FontAwesomeIcon } from '../../../../node_modules/@fortawesome/react-fontawesome'
-import { faEdit, faTrash } from '../../../../node_modules/@fortawesome/free-solid-svg-icons'
 
 class TripDetails extends React.Component {
     static contextType = AppContext;
