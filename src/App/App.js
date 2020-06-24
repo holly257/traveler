@@ -113,6 +113,22 @@ class App extends React.Component {
     })
   }
 
+  handleDeleteDay = (dayId, tripId) => {
+    const selectedTrip = this.state.trips.find(trip => 
+      trip.id.toString() === tripId
+    )
+    
+    const newDays= selectedTrip.days.filter(day => 
+      day.days_id.toString() !== dayId
+    )
+    
+    selectedTrip.days = newDays
+
+    this.setState({
+      trips: [...this.state.trips]
+    })
+  }
+
   handleAddActivity = (newActivity, tripId, dayId) => {
     const selectedTrip = this.state.trips.find(trip => 
       trip.id.toString() === tripId
@@ -188,6 +204,7 @@ class App extends React.Component {
       startNewTrip: this.handleStartNewTrip,
       updateSelectedTrip: this.handleUpdateSelectedTrip,
       addDay: this.handleAddDay,
+      deleteDay: this.handleDeleteDay,
       addActivity: this.handleAddActivity,
       editActivity: this.handleEditActivity,
       deleteActivity: this.handleDeleteActivity,

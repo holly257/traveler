@@ -87,6 +87,39 @@ class TripDetails extends React.Component {
         }) 
     }
 
+    handleDeleteDay = e => {
+        e.preventDefault()
+        
+        const dayId = e.target.name
+        const tripId = e.target.value
+        console.log(dayId, tripId)
+
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        }
+
+        fetch(`${API_URL}/days/${dayId}`, options)
+        .then(res => {
+            if(!res.ok) {
+                return res.json().then(error => {
+                    throw error
+                })
+            }
+            return
+        })
+        .then(() => {
+            this.context.deleteDay(dayId, tripId)
+        })
+        .catch(error => {
+            console.error({error})
+            this.setState({error: 'Something went wrong. Please try again later.'})
+        }) 
+    }
+
     render () {
         const { error } = this.state
         const selectedTrip = this.context.trips.find(trip => 
@@ -139,13 +172,15 @@ class TripDetails extends React.Component {
                                                 <div  id='day-cont'>
                                                     <p>Day {index+1}</p>
 
-                                                    {/* sort by start_time  */}
                                                         {!day.activities ? '' : day.activities.map((activity, index) => {
                                                             return (
                                                                 <span key={index} id='day'>                                                
                                                                     <h3 className='start_time'>{activity.start_time} {activity.meridiem}</h3>
                                                                     <p id='trip-details-activity' className='activity'>{activity.activity}</p>
-                                                                    <Link className='edit-btn' to={`/trip/${selectedTrip.id}/day/${day.days_id }/edit/${activity.id}`}>Edit</Link>
+                                                                    <Link 
+                                                                        className='edit-btn' 
+                                                                        to={`/trip/${selectedTrip.id}/day/${day.days_id }/edit/${activity.id}`}
+                                                                    >Edit</Link>
                                                                     <button
                                                                         className='delete-act-btn'
                                                                         onClick={(e) => this.handleDeleteActivity(e)}
@@ -159,6 +194,12 @@ class TripDetails extends React.Component {
                                                         })}
                                                         
                                                         <Link className='add-activity' to={`/trip/${selectedTrip.id}/day/${day.days_id}`}>Add Activity</Link>
+                                                        <button 
+                                                            className='add-day' 
+                                                            onClick={(e) => this.handleDeleteDay(e)} 
+                                                            value={selectedTrip.id}
+                                                            name={day.days_id}
+                                                        >Delete Day</button>
                                                 </div>
                                                 <br />
                                             </React.Fragment>

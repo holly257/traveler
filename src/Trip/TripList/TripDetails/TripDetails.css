@@ -79,6 +79,18 @@ input {
     width: 81px;
 }
 
+.delete-act-btn{
+    background-color: white;
+    color: rgba(0, 0, 0, 0.836);
+    border: grey 1px solid;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 1px;
+    margin: 0 0 5px 0;
+    width: 50px;
+}
+
 .edit-btn{
     color: rgba(0, 0, 0, 0.836);
     border: grey 1px solid;

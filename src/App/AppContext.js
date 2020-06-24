@@ -13,6 +13,7 @@ const AppContext = React.createContext({
     startNewTrip: () => {},
     updateSelectedTrip: () => {},
     addDay: () => {},
+    deleteDay: () => {},
     addActivity: () => {},
     editActivity: () => {},
     deleteActivity: () => {},
