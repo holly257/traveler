@@ -1,35 +1,35 @@
-.trip-list-title{
-  margin-bottom: 25px;
-  font-weight: 200;
-  font-size: 25px;
-}
-  
-#new-trip{
-  margin-top: 20px;
-  margin-left: 30px;
-  color: rgba(0, 0, 0, 0.836);
-  border: grey 1px solid;
-  border-radius: 4px;
-  font-weight: 400;
-  font-size: 12px;
-  margin-bottom: 15px;
-  width: 75px;
-}
-
-.trip-list-name{
-  color: rgba(0, 0, 0, 0.753);
-  font-weight: 400;
-  padding-left: 0;
-}
-
-.trip-details-link{
-  font-size: 12px;
-}
-
-@media only screen and (min-width: 768px){
-  .trip-list-title{
-    margin: 55px 0;
+.trip-list-title {
+    margin-bottom: 25px;
     font-weight: 200;
-    font-size: 30px;
-  }
+    font-size: 25px;
+}
+
+#new-trip {
+    margin-top: 20px;
+    margin-left: 30px;
+    color: rgba(0, 0, 0, 0.836);
+    border: grey 1px solid;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 12px;
+    margin-bottom: 15px;
+    width: 75px;
+}
+
+.trip-list-name {
+    color: rgba(0, 0, 0, 0.753);
+    font-weight: 400;
+    padding-left: 0;
+}
+
+.trip-details-link {
+    font-size: 12px;
+}
+
+@media only screen and (min-width: 768px) {
+    .trip-list-title {
+        margin: 55px 0;
+        font-weight: 200;
+        font-size: 30px;
+    }
 }

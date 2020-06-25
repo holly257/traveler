@@ -1,55 +1,55 @@
-.review-list-title{
+.review-list-title {
     margin-bottom: 25px;
     font-weight: 200;
     font-size: 25px;
 }
-  
-#new-review{
-  margin-top: 10px;
-  margin-left: 30px;
-  color: rgba(0, 0, 0, 0.836);
-  border: grey 1px solid;
-  border-radius: 4px;
-  font-weight: 400;
-  font-size: 12px;
-  margin-bottom: 15px;
-  width: 94px;
+
+#new-review {
+    margin-top: 10px;
+    margin-left: 30px;
+    color: rgba(0, 0, 0, 0.836);
+    border: grey 1px solid;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 12px;
+    margin-bottom: 15px;
+    width: 94px;
 }
 
-.success{
-  color: blue; 
-  font-size: 14px;
-  width: 210px;
-  margin-bottom: 10px;
+.success {
+    color: blue;
+    font-size: 14px;
+    width: 210px;
+    margin-bottom: 10px;
 }
 
-.review-list{
-  color: rgba(0, 0, 0, 0.753);
-  font-weight: 400;
-  padding-left: 0;
+.review-list {
+    color: rgba(0, 0, 0, 0.753);
+    font-weight: 400;
+    padding-left: 0;
 }
 
-.review-list-link{
-  font-size: 12px;
+.review-list-link {
+    font-size: 12px;
 }
 
-.review-delete-btn{
-  color: rgba(0, 0, 0, 0.836);
-  background-color: white;
-  border: grey 1px solid;
-  border-radius: 4px;
-  font-weight: 400;
-  font-size: 12px;
-  padding: 3px 5px;
-  margin: 5px 0;
-  margin-bottom: 15px;
-  width: 49px;
+.review-delete-btn {
+    color: rgba(0, 0, 0, 0.836);
+    background-color: white;
+    border: grey 1px solid;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 3px 5px;
+    margin: 5px 0;
+    margin-bottom: 15px;
+    width: 49px;
 }
 
-@media only screen and (min-width: 768px){
-  .review-list-title{
-    margin: 55px 0;
-    font-weight: 200;
-    font-size: 30px;
-  }
+@media only screen and (min-width: 768px) {
+    .review-list-title {
+        margin: 55px 0;
+        font-weight: 200;
+        font-size: 30px;
+    }
 }

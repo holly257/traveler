@@ -1,16 +1,16 @@
-#signup{
+#signup {
     padding-top: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-  
-#container{
+
+#container {
     width: 100px;
     height: 100px;
 }
-  
-#start{
+
+#start {
     text-align: center;
     background-color: rgb(170, 168, 168);
     position: fixed;
@@ -18,12 +18,12 @@
     width: 100%;
 }
 
-.allSignup{
+.allSignup {
     margin: 5px 0 15px;
     width: 150px;
 }
 
-#signup-btn{
+#signup-btn {
     width: 93%;
     color: rgba(0, 0, 0, 0.836);
     border: grey 1px solid;
@@ -34,7 +34,7 @@
     background-color: white;
 }
 
-#login-link{
+#login-link {
     color: rgba(0, 0, 0, 0.836);
     border: grey 1px solid;
     border-radius: 4px;
@@ -45,11 +45,11 @@
     background-color: white;
 }
 
-#signup-title{
+#signup-title {
     margin-bottom: 15px;
     font-weight: 300;
 }
 
-.signup-label{
+.signup-label {
     font-weight: 300;
 }

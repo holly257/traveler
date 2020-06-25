@@ -8,7 +8,7 @@ const AppContext = React.createContext({
     setReviewsList: () => {},
     addReview: () => {},
     deleteReview: () => {},
-    
+
     setTripsState: () => {},
     startNewTrip: () => {},
     updateSelectedTrip: () => {},
@@ -17,6 +17,6 @@ const AppContext = React.createContext({
     addActivity: () => {},
     editActivity: () => {},
     deleteActivity: () => {},
-})
+});
 
 export default AppContext;

@@ -1,20 +1,20 @@
-#review-details-container{
+#review-details-container {
     width: 60vw;
 }
 
-#review-details-container p{
+#review-details-container p {
     font-size: 12px;
     padding-left: 10px;
     padding-bottom: 5px;
 }
 
-.review-details-img{
+.review-details-img {
     width: 150px;
     height: 150px;
     margin: 20px;
 }
 
-#back-to-review-details{
+#back-to-review-details {
     color: rgba(0, 0, 0, 0.836);
     border: grey 1px solid;
     border-radius: 4px;

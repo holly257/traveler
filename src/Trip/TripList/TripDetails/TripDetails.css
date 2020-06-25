@@ -1,47 +1,47 @@
-#main-trip{
+#main-trip {
     padding-top: 60px;
     display: flex;
     justify-content: center;
 }
-  
-#img{
+
+#img {
     text-align: center;
     padding-bottom: 50px;
 }
-  
-span{
+
+span {
     display: inline-block;
     margin: 10px;
 }
 
-#day-cont{
+#day-cont {
     border: grey 1px solid;
     border-radius: 4px;
     width: 60vw;
     margin-top: 20px;
     padding: 10px;
 }
-  
+
 input {
     height: 20px;
     border-style: black;
 }
 
-.new-trip-btns{
+.new-trip-btns {
     margin: 0 0 10px 10px;
     padding: 3px;
 }
 
-#trip-details-activity{
+#trip-details-activity {
     width: 145px;
 }
 
-.start_time{
+.start_time {
     font-size: 14px;
     font-weight: 700;
 }
 
-.back-to-trip-list{
+.back-to-trip-list {
     color: rgba(0, 0, 0, 0.836);
     border: grey 1px solid;
     border-radius: 4px;
@@ -53,7 +53,7 @@ input {
     width: 39px;
 }
 
-.add-day{
+.add-day {
     background-color: white;
     color: rgba(0, 0, 0, 0.836);
     border: grey 1px solid;
@@ -66,7 +66,7 @@ input {
     width: 100%;
 }
 
-.add-activity{
+.add-activity {
     background-color: white;
     color: rgba(0, 0, 0, 0.836);
     border: grey 1px solid;
@@ -79,7 +79,7 @@ input {
     width: 81px;
 }
 
-.delete-act-btn{
+.delete-act-btn {
     background-color: white;
     color: rgba(0, 0, 0, 0.836);
     border: grey 1px solid;
@@ -91,7 +91,7 @@ input {
     width: 50px;
 }
 
-.edit-btn{
+.edit-btn {
     color: rgba(0, 0, 0, 0.836);
     border: grey 1px solid;
     border-radius: 4px;
@@ -102,7 +102,7 @@ input {
     width: 32px;
 }
 
-#back-to-trip-details{
+#back-to-trip-details {
     color: rgba(0, 0, 0, 0.836);
     border: grey 1px solid;
     border-radius: 4px;
@@ -113,30 +113,30 @@ input {
     width: 50px;
 }
 
-.activity{
+.activity {
     font-weight: 300;
 }
 
-.trip-name{
+.trip-name {
     margin-top: 15px;
     font-weight: 300;
     font-size: 16px;
 }
-.trip-details{
+.trip-details {
     font-weight: 500;
     font-size: 14px;
 }
 
-.edit-add-activity-box{
+.edit-add-activity-box {
     padding: 8px;
     margin-top: 5px;
 }
 
-@media only screen and (min-width: 768px){
-    .trip-name{
+@media only screen and (min-width: 768px) {
+    .trip-name {
         font-size: 24px;
     }
-    .trip-details{
+    .trip-details {
         font-size: 16px;
     }
 }

@@ -1,116 +1,129 @@
 import React from 'react';
-import AppContext from '../../App/AppContext'
-import { Link } from 'react-router-dom'
-import TokenService from '../../services/token-service'
-import { API_URL } from '../../config'
+import AppContext from '../../App/AppContext';
+import { Link } from 'react-router-dom';
+import TokenService from '../../services/token-service';
+import { API_URL } from '../../config';
 
 class EditActivity extends React.Component {
     static contextType = AppContext;
-    state = { error: null }
+    state = { error: null };
 
     optRange(n) {
         let range = [];
 
-        for(let i=1; i<=12; i++) {
-            range.push(<option key={i} value={i} >{i}</option>)
+        for (let i = 1; i <= 12; i++) {
+            range.push(
+                <option key={i} value={i}>
+                    {i}
+                </option>
+            );
         }
         return range;
     }
 
     EditActivity = e => {
-        e.preventDefault()
-        this.setState({ error: null })
-        const { start_time, meridiem, activity } = e.target
-        const activityId = this.props.match.params.activityId
-        const dayId = this.props.match.params.dayId
-        const tripId = this.props.match.params.tripId
+        e.preventDefault();
+        this.setState({ error: null });
+        const { start_time, meridiem, activity } = e.target;
+        const activityId = this.props.match.params.activityId;
+        const dayId = this.props.match.params.dayId;
+        const tripId = this.props.match.params.tripId;
 
         const editedActivity = {
             id: parseInt(activityId),
             start_time: start_time.value,
             meridiem: meridiem.value,
             activity: activity.value,
-            dayId: parseInt(dayId)
-        }
+            dayId: parseInt(dayId),
+        };
 
         const options = {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`
+                authorization: `bearer ${TokenService.getAuthToken()}`,
             },
-            body: JSON.stringify(editedActivity),   
-        }
+            body: JSON.stringify(editedActivity),
+        };
         fetch(`${API_URL}/activities/${activityId}`, options)
-        .then(res => {
-            if(!res.ok) {
-                throw new Error('Trip detail fetch failed, please try again later.')
-            }
-            return res
-        })
-        .then(res => res.json())
-        .then((activityData) => {
-            this.context.editActivity(editedActivity, tripId, dayId, activityId)
-            this.props.history.push(`/trip/${tripId}`)
-        })
-        .catch(error => {
-            console.error(error)
-            this.setState({error: 'Something went wrong. Please try again later.'})
-        })
-    }
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Trip detail fetch failed, please try again later.');
+                }
+                return res;
+            })
+            .then(res => res.json())
+            .then(activityData => {
+                this.context.editActivity(editedActivity, tripId, dayId, activityId);
+                this.props.history.push(`/trip/${tripId}`);
+            })
+            .catch(error => {
+                console.error(error);
+                this.setState({ error: 'Something went wrong. Please try again later.' });
+            });
+    };
 
-    render () { 
-        const { error } = this.state
-        const tripId = this.props.match.params.tripId
-        const dayId = this.props.match.params.dayId
-        const activityId = this.props.match.params.activityId
+    render() {
+        const { error } = this.state;
+        const tripId = this.props.match.params.tripId;
+        const dayId = this.props.match.params.dayId;
+        const activityId = this.props.match.params.activityId;
 
-        const selectedTrip = this.context.trips.find(trip => 
-            trip.id.toString() === tripId
-        )
+        const selectedTrip = this.context.trips.find(trip => trip.id.toString() === tripId);
 
-        const selectedDayIndex = selectedTrip.days.findIndex(day =>
-            day.days_id.toString() === dayId
-        )
+        const selectedDayIndex = selectedTrip.days.findIndex(
+            day => day.days_id.toString() === dayId
+        );
 
-        const selectedDay = selectedTrip.days.find(day =>
-            day.days_id.toString() === dayId
-        )
-        
-        const selectedActivity = selectedDay.activities.find(activity =>
-            activity.id.toString() === activityId
-        ) 
+        const selectedDay = selectedTrip.days.find(day => day.days_id.toString() === dayId);
 
-        if(selectedTrip){
+        const selectedActivity = selectedDay.activities.find(
+            activity => activity.id.toString() === activityId
+        );
+
+        if (selectedTrip) {
             return (
-                <section id='main-trip'>
-                    <div id='container'>
-                        <Link id='back-to-trip-details' to={`/trip/${tripId}`}>Cancel</Link>
-                        <div role='alert'>
-                            {error && <p className='error'>{error}</p>}
-                        </div>
-                        <form onSubmit={(e) => this.EditActivity(e)}>
-                            <h1 className='trip-name'>{selectedTrip.name}</h1>
-                            <h2 className='trip-details'>{selectedTrip.city}, {selectedTrip.country}</h2>
+                <section id="main-trip">
+                    <div id="container">
+                        <Link id="back-to-trip-details" to={`/trip/${tripId}`}>
+                            Cancel
+                        </Link>
+                        <div role="alert">{error && <p className="error">{error}</p>}</div>
+                        <form onSubmit={e => this.EditActivity(e)}>
+                            <h1 className="trip-name">{selectedTrip.name}</h1>
+                            <h2 className="trip-details">
+                                {selectedTrip.city}, {selectedTrip.country}
+                            </h2>
                             <br />
-                            <p value={selectedActivity.activity_id}>Day {selectedDayIndex+1}</p>
-                            
-                            <span id='day'>
-                                <select name='start_time' defaultValue={selectedActivity.start_time}>
+                            <p value={selectedActivity.activity_id}>Day {selectedDayIndex + 1}</p>
+
+                            <span id="day">
+                                <select
+                                    name="start_time"
+                                    defaultValue={selectedActivity.start_time}
+                                >
                                     {this.optRange(selectedActivity.start_time)}
                                 </select>
-                                <select name='meridiem' defaultValue={selectedActivity.meridiem}>
-                                    <option value='am'>AM</option>
-                                    <option value='pm'>PM</option>
+                                <select name="meridiem" defaultValue={selectedActivity.meridiem}>
+                                    <option value="am">AM</option>
+                                    <option value="pm">PM</option>
                                 </select>
-                                <textarea className='edit-add-activity-box' rows='3' name='activity' defaultValue={selectedActivity.activity} placeholder='Activity'></textarea>
+                                <textarea
+                                    className="edit-add-activity-box"
+                                    rows="3"
+                                    name="activity"
+                                    defaultValue={selectedActivity.activity}
+                                    placeholder="Activity"
+                                ></textarea>
                             </span>
-                            <button type='submit' className='add-activity'>Save Edit</button>
+                            <button type="submit" className="add-activity">
+                                Save Edit
+                            </button>
                         </form>
                     </div>
                 </section>
-            )
-        } else return null
+            );
+        } else return null;
     }
 }
 
