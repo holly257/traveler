@@ -169,26 +169,37 @@ class TripDetails extends React.Component {
                                             <React.Fragment key={index}>                                              
                                                 <div  id='day-cont'>
                                                     <p>Day {index+1}</p>
-
-                                                        {!day.activities ? '' : day.activities.map((activity, index) => {
-                                                            return (
-                                                                <span key={index} id='day'>                                                
-                                                                    <h3 className='start_time'>{activity.start_time} {activity.meridiem}</h3>
-                                                                    <p id='trip-details-activity' className='activity'>{activity.activity}</p>
-                                                                    <Link 
-                                                                        className='edit-btn' 
-                                                                        to={`/trip/${selectedTrip.id}/day/${day.days_id }/edit/${activity.id}`}
-                                                                    >Edit</Link>
-                                                                    <button
-                                                                        className='delete-act-btn'
-                                                                        onClick={(e) => this.handleDeleteActivity(e)}
-                                                                        value={selectedTrip.id}
-                                                                        name={day.days_id}
-                                                                        id={activity.id}
-                                                                    >Delete</button>
-                                                                    <hr />
-                                                                </span>
-                                                            )
+                                                        {!day.activities ? '' : day.activities
+                                                            .sort((a, b) => {
+                                                                if (a.meridiem < b.meridiem) {
+                                                                    return -1;
+                                                                } else {
+                                                                    if (b.meridiem < a.meridiem) {
+                                                                        return 1;
+                                                                    } else {
+                                                                        return a.start_time - b.start_time;
+                                                                    }
+                                                                }
+                                                            })
+                                                            .map((activity, index) => {
+                                                                return (
+                                                                    <span key={index} id='day'>                                                
+                                                                        <h3 className='start_time'>{activity.start_time} {activity.meridiem}</h3>
+                                                                        <p id='trip-details-activity' className='activity'>{activity.activity}</p>
+                                                                        <Link 
+                                                                            className='edit-btn' 
+                                                                            to={`/trip/${selectedTrip.id}/day/${day.days_id }/edit/${activity.id}`}
+                                                                        >Edit</Link>
+                                                                        <button
+                                                                            className='delete-act-btn'
+                                                                            onClick={(e) => this.handleDeleteActivity(e)}
+                                                                            value={selectedTrip.id}
+                                                                            name={day.days_id}
+                                                                            id={activity.id}
+                                                                        >Delete</button>
+                                                                        <hr />
+                                                                    </span>
+                                                                )
                                                         })}
                                                         
                                                         <Link className='add-activity' to={`/trip/${selectedTrip.id}/day/${day.days_id}`}>Add Activity</Link>
