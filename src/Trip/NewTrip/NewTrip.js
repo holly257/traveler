@@ -41,7 +41,6 @@ class NewTrip extends React.Component {
                 this.props.history.goBack();
             })
             .catch(error => {
-                console.error(error);
                 this.setState({ error: 'The review did not add. Please try again later.' });
             });
     };
@@ -54,7 +53,7 @@ class NewTrip extends React.Component {
                     <div role="alert">{error && <p className="error">{error}</p>}</div>
                     <h1 id="trip-title">New Trip</h1>
                     <form onSubmit={e => this.StartTrip(e)}>
-                        <label for="name" className="new-trip-label">
+                        <label htmlFor="name" className="new-trip-label">
                             Name:{' '}
                         </label>
                         <input
@@ -65,7 +64,7 @@ class NewTrip extends React.Component {
                             placeholder="name"
                             required
                         />
-                        <label for="city" className="new-trip-label">
+                        <label htmlFor="city" className="new-trip-label">
                             City:{' '}
                         </label>
                         <input
@@ -76,7 +75,7 @@ class NewTrip extends React.Component {
                             placeholder="city"
                             required
                         />
-                        <label for="country" className="new-trip-label">
+                        <label htmlFor="country" className="new-trip-label">
                             Country:{' '}
                         </label>
                         <input

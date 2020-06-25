@@ -26,7 +26,6 @@ class LogIn extends React.Component {
                 this.props.onLoginSuccess();
             })
             .catch(res => {
-                console.error(res);
                 this.setState({ error: res.error ? res.error : 'Sorry, something went wrong.' });
             });
     };
@@ -36,7 +35,7 @@ class LogIn extends React.Component {
         return (
             <>
                 <form onSubmit={e => this.logInSubmit(e)} className="allItems">
-                    <label for="username" className="signup-label">
+                    <label htmlFor="username" className="signup-label">
                         Username:{' '}
                     </label>
                     <input
@@ -47,7 +46,7 @@ class LogIn extends React.Component {
                         placeholder="username"
                         required
                     />
-                    <label for="password" className="signup-label">
+                    <label htmlFor="password" className="signup-label">
                         Password:{' '}
                     </label>
                     <input

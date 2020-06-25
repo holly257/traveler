@@ -56,7 +56,6 @@ class AddActivity extends React.Component {
                 this.props.history.push(`/trip/${tripId}`);
             })
             .catch(error => {
-                console.error(error);
                 this.setState({ error: 'Something went wrong. Please try again later.' });
             });
     };

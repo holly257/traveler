@@ -37,7 +37,6 @@ class ReviewList extends React.Component {
                 this.context.setReviewsList(reviewData);
             })
             .catch(error => {
-                console.error(error);
                 this.setState({
                     error: 'Something went wrong. Please try again later.',
                 });
@@ -69,7 +68,6 @@ class ReviewList extends React.Component {
                 this.context.deleteReview(review_id);
             })
             .catch(error => {
-                console.error({ error });
                 this.setState({
                     error: 'Something went wrong. Please try again later.',
                 });

@@ -36,7 +36,6 @@ class TripList extends React.Component {
                 this.context.setTripsState(TripData);
             })
             .catch(error => {
-                console.error(error);
                 this.setState({ error: 'Something went wrong. Please try again later.' });
             });
     }

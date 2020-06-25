@@ -79,7 +79,6 @@ class SignUp extends React.Component {
                 this.props.history.push('/login');
             })
             .catch(res => {
-                console.error(res.error);
                 this.setState({ serverError: res.error });
             });
     };
@@ -92,7 +91,7 @@ class SignUp extends React.Component {
                     <h1 id="signup-title">Sign Up</h1>
                     <br />
                     <form onSubmit={e => this.signUpSubmit(e)}>
-                        <label for="fullname" className="signup-label">
+                        <label htmlFor="fullname" className="signup-label">
                             Name:{' '}
                         </label>
                         <input
@@ -103,7 +102,7 @@ class SignUp extends React.Component {
                             placeholder="full name"
                             required
                         />
-                        <label for="password" className="signup-label">
+                        <label htmlFor="password" className="signup-label">
                             Password:{' '}
                         </label>
                         <input
@@ -114,7 +113,7 @@ class SignUp extends React.Component {
                             placeholder="password"
                             required
                         />
-                        <label for="username" className="signup-label">
+                        <label htmlFor="username" className="signup-label">
                             Username:{' '}
                         </label>
                         <input
@@ -125,7 +124,7 @@ class SignUp extends React.Component {
                             placeholder="username"
                             required
                         />
-                        <label for="email" className="signup-label">
+                        <label htmlFor="email" className="signup-label">
                             Email:{' '}
                         </label>
                         <input

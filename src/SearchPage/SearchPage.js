@@ -51,7 +51,6 @@ class SearchPage extends React.Component {
                 this.context.updateSearchResults(reviewData);
             })
             .catch(res => {
-                console.error(!res.error ? res : res.error.message);
                 this.setState({
                     error: !res.error ? 'Sorry, something went wrong' : res.error.message,
                 });

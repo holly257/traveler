@@ -46,7 +46,6 @@ class TripDetails extends React.Component {
                 this.context.addDay(newData, tripId);
             })
             .catch(error => {
-                console.error(error);
                 this.setState({
                     error: 'Something went wrong. Please try again later.',
                 });
@@ -81,7 +80,6 @@ class TripDetails extends React.Component {
                 this.context.deleteActivity(activity_id, dayId, tripId);
             })
             .catch(error => {
-                console.error({ error });
                 this.setState({
                     error: 'Something went wrong. Please try again later.',
                 });
@@ -93,7 +91,6 @@ class TripDetails extends React.Component {
 
         const dayId = e.target.name;
         const tripId = e.target.value;
-        console.log(dayId, tripId);
 
         const options = {
             method: 'DELETE',
@@ -116,7 +113,6 @@ class TripDetails extends React.Component {
                 this.context.deleteDay(dayId, tripId);
             })
             .catch(error => {
-                console.error({ error });
                 this.setState({
                     error: 'Something went wrong. Please try again later.',
                 });

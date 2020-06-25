@@ -56,7 +56,6 @@ class NewReview extends React.Component {
                 this.props.history.goBack();
             })
             .catch(error => {
-                console.error({ error });
                 this.setState({ error: 'Sorry, the review did not add. Please try again later.' });
             });
     };
