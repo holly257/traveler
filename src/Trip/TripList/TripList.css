@@ -7,13 +7,9 @@
 #new-trip {
     margin-top: 20px;
     margin-left: 30px;
-    color: rgba(0, 0, 0, 0.836);
-    border: grey 1px solid;
-    border-radius: 4px;
-    font-weight: 400;
-    font-size: 12px;
     margin-bottom: 15px;
-    width: 75px;
+    padding-left: 15px;
+    width: 81px;
 }
 
 .trip-list-name {

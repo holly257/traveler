@@ -136,7 +136,7 @@ class SignUp extends React.Component {
                             required
                         />
                         <br />
-                        <button className="allSignup" type="submit" id="signup-btn">
+                        <button className="allSignup button" type="submit" id="signup-submit">
                             Submit
                         </button>
                     </form>
@@ -146,7 +146,7 @@ class SignUp extends React.Component {
                     <div role="alert">{emailError && <p className="error">{emailError}</p>}</div>
                     <div role="alert">{serverError && <p className="error">{serverError}</p>}</div>
                     <br />
-                    <Link id="login-link" to={'/login'}>
+                    <Link className="button" id="login-link" to={'/login'}>
                         Log In
                     </Link>
                 </div>

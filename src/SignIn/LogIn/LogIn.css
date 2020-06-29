@@ -39,25 +39,12 @@ input {
 }
 
 #login-btn {
-    width: 100%;
-    color: rgba(0, 0, 0, 0.836);
-    border: grey 1px solid;
-    border-radius: 4px;
-    font-weight: 400;
-    font-size: 12px;
     padding: 3px 0;
-    background-color: white;
 }
 
 #signup-link {
-    color: rgba(0, 0, 0, 0.836);
-    border: grey 1px solid;
-    border-radius: 4px;
-    font-weight: 400;
-    font-size: 12px;
     margin-top: 20px;
     padding: 3px 3px;
-    background-color: white;
     width: 53px;
 }
 

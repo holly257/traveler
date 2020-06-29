@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from '../SignIn/AuthRouting/PrivateRoute';
 import Nav from '../Nav/Nav';
 import LandingPage from '../LandingPage/LandingPage';
@@ -14,7 +14,7 @@ import SignUp from '../SignIn/SignUp';
 import NotFound from '../NotFound/NotFound';
 
 class AppRoute extends React.Component {
-    render(){
+    render() {
         return (
             <div className="App">
                 <Nav />
@@ -25,33 +25,17 @@ class AppRoute extends React.Component {
                     <Route exact path="/login" component={LogInPage} />
                     <Route exact path="/signup" component={SignUp} />
 
-                    <PrivateRoute
-                        exact
-                        path="/review"
-                        component={ReviewList}
-                    />
-                    <PrivateRoute
-                        exact
-                        path="/review/:reviewId"
-                        component={ReviewDetails}
-                    />
-                    <PrivateRoute
-                        exact
-                        path="/new-review"
-                        component={NewReview}
-                    />
+                    <PrivateRoute exact path="/review" component={ReviewList} />
+                    <PrivateRoute exact path="/review/:reviewId" component={ReviewDetails} />
+                    <PrivateRoute exact path="/new-review" component={NewReview} />
 
-                    <PrivateRoute
-                        exact
-                        path="/new-trip"
-                        component={NewTrip}
-                    />
+                    <PrivateRoute exact path="/new-trip" component={NewTrip} />
                     <PrivateRoute path="/trip" component={TripList} />
 
                     <Route component={NotFound} />
                 </Switch>
             </div>
-        )
+        );
     }
 }
 

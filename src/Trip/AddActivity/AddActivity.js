@@ -73,7 +73,7 @@ class AddActivity extends React.Component {
             return (
                 <section id="main-trip">
                     <div id="container">
-                        <Link className="back-to-trip-list" to={`/trip/${tripId}`}>
+                        <Link className="button back-btn" to={`/trip/${tripId}`}>
                             Back
                         </Link>
                         <div role="alert">{error && <p className="error">{error}</p>}</div>

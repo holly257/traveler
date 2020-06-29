@@ -80,7 +80,7 @@ class SearchPage extends React.Component {
                                 <option>activity</option>
                                 <option>lodging</option>
                             </select>
-                            <button type="submit" id="search-btn">
+                            <button type="submit" className="button" id="search-btn">
                                 Let's Go!
                             </button>
                         </form>

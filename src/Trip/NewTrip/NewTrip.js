@@ -90,7 +90,7 @@ class NewTrip extends React.Component {
                             Get Started
                         </button>
                     </form>
-                    <Link className="back-to-trip-list" to={`/trip`}>
+                    <Link className="button back-btn" to={`/trip`}>
                         Back
                     </Link>
                 </div>

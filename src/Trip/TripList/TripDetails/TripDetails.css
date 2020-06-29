@@ -41,38 +41,15 @@ input {
     font-weight: 700;
 }
 
-.back-to-trip-list {
-    color: rgba(0, 0, 0, 0.836);
-    border: grey 1px solid;
-    border-radius: 4px;
-    font-weight: 400;
-    font-size: 12px;
-    padding: 3px 5px;
-    margin: 5px 0;
-    margin-bottom: 15px;
-    width: 39px;
-}
-
-.add-day {
-    background-color: white;
-    color: rgba(0, 0, 0, 0.836);
-    border: grey 1px solid;
-    border-radius: 4px;
+.add-day-btn {
     font-weight: 500;
-    font-size: 12px;
     padding: 3px 5px;
     margin: 5px 0;
     margin-bottom: 15px;
     width: 100%;
 }
 
-.add-activity {
-    background-color: white;
-    color: rgba(0, 0, 0, 0.836);
-    border: grey 1px solid;
-    border-radius: 4px;
-    font-weight: 400;
-    font-size: 12px;
+.add-act-btn {
     padding: 3px 5px;
     margin: 5px 0;
     margin-top: 15px;
@@ -80,37 +57,19 @@ input {
 }
 
 .delete-act-btn {
-    background-color: white;
-    color: rgba(0, 0, 0, 0.836);
-    border: grey 1px solid;
-    border-radius: 4px;
-    font-weight: 400;
-    font-size: 12px;
     padding: 1px;
     margin: 0 0 5px 0;
     width: 50px;
 }
 
 .edit-btn {
-    color: rgba(0, 0, 0, 0.836);
-    border: grey 1px solid;
-    border-radius: 4px;
-    font-weight: 400;
-    font-size: 12px;
     padding: 1px 4px;
     margin: 5px 0;
     width: 32px;
 }
 
-#back-to-trip-details {
-    color: rgba(0, 0, 0, 0.836);
-    border: grey 1px solid;
-    border-radius: 4px;
-    font-weight: 400;
-    font-size: 12px;
-    padding: 1px 4px;
-    margin: 5px 0;
-    width: 50px;
+.cancel {
+    width: 52px;
 }
 
 .activity {

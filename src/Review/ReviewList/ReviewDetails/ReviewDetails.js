@@ -24,7 +24,7 @@ class ReviewDetails extends React.Component {
         return (
             <section id="main-review">
                 <div id="review-details-container">
-                    <Link className="back-button" to={`/review`}>
+                    <Link className="button back-btn" to={`/review`}>
                         Back
                     </Link>
 

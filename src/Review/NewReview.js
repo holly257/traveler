@@ -65,7 +65,7 @@ class NewReview extends React.Component {
         return (
             <section id="main-review">
                 <div id="container">
-                    <Link className="back-button" to={`/review`}>
+                    <Link className="button back-btn" to={`/review`}>
                         Back
                     </Link>
                     <h1 id="review-title">Review</h1>
@@ -173,7 +173,7 @@ class NewReview extends React.Component {
                             required
                         ></textarea>
 
-                        <button type="submit" className="allReview button" id="add-review-btn">
+                        <button type="submit" className="button" id="add-review-btn">
                             Submit
                         </button>
                     </form>

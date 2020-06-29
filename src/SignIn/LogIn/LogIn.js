@@ -57,7 +57,7 @@ class LogIn extends React.Component {
                         placeholder="password"
                         required
                     />
-                    <button className="allItems" type="submit" id="login-btn">
+                    <button className="allItems button" type="submit" id="login-btn">
                         Submit
                     </button>
                 </form>

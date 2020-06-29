@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import AppContext from './AppContext';
 import { API_URL } from '../config';
-import AppRoute from '../AppRoute/AppRoute'
+import AppRoute from '../AppRoute/AppRoute';
 
 class App extends React.Component {
     state = {
@@ -16,9 +16,7 @@ class App extends React.Component {
         fetch(`${API_URL}/search`)
             .then(res => {
                 if (!res.ok) {
-                    throw new Error(
-                        'Something went wrong, please try again soon.'
-                    );
+                    throw new Error('Something went wrong, please try again soon.');
                 }
                 return res;
             })
@@ -71,9 +69,7 @@ class App extends React.Component {
     };
 
     handleUpdateSelectedTrip = (allTripInfo, trip_id) => {
-        const chosenTripIndex = this.state.trips.findIndex(
-            trips => trips.id === trip_id
-        );
+        const chosenTripIndex = this.state.trips.findIndex(trips => trips.id === trip_id);
 
         let newTrips = this.state.trips;
         newTrips[chosenTripIndex] = allTripInfo;
@@ -90,9 +86,7 @@ class App extends React.Component {
     };
 
     handleAddDay = (newDay, tripId) => {
-        const selectedTrip = this.state.trips.find(
-            trip => trip.id.toString() === tripId
-        );
+        const selectedTrip = this.state.trips.find(trip => trip.id.toString() === tripId);
 
         if (!selectedTrip.days) {
             selectedTrip['days'] = [newDay];
@@ -108,13 +102,9 @@ class App extends React.Component {
     };
 
     handleDeleteDay = (dayId, tripId) => {
-        const selectedTrip = this.state.trips.find(
-            trip => trip.id.toString() === tripId
-        );
+        const selectedTrip = this.state.trips.find(trip => trip.id.toString() === tripId);
 
-        const newDays = selectedTrip.days.filter(
-            day => day.days_id.toString() !== dayId
-        );
+        const newDays = selectedTrip.days.filter(day => day.days_id.toString() !== dayId);
 
         selectedTrip.days = newDays;
 
@@ -124,13 +114,9 @@ class App extends React.Component {
     };
 
     handleAddActivity = (newActivity, tripId, dayId) => {
-        const selectedTrip = this.state.trips.find(
-            trip => trip.id.toString() === tripId
-        );
+        const selectedTrip = this.state.trips.find(trip => trip.id.toString() === tripId);
 
-        const selectedDay = selectedTrip.days.find(
-            day => day.days_id.toString() === dayId
-        );
+        const selectedDay = selectedTrip.days.find(day => day.days_id.toString() === dayId);
 
         if (!selectedDay.activities) {
             selectedDay['activities'] = [newActivity];
@@ -144,13 +130,9 @@ class App extends React.Component {
     };
 
     handleEditActivity = (editedActivity, tripId, dayId, activityId) => {
-        const selectedTrip = this.state.trips.find(
-            trip => trip.id.toString() === tripId
-        );
+        const selectedTrip = this.state.trips.find(trip => trip.id.toString() === tripId);
 
-        const selectedDay = selectedTrip.days.find(
-            day => day.days_id.toString() === dayId
-        );
+        const selectedDay = selectedTrip.days.find(day => day.days_id.toString() === dayId);
 
         const selectedActivityIndex = selectedDay.activities.findIndex(
             activity => activity.id.toString() === activityId
@@ -164,13 +146,9 @@ class App extends React.Component {
     };
 
     handleDeleteActivity = (activityId, dayId, tripId) => {
-        const selectedTrip = this.state.trips.find(
-            trip => trip.id.toString() === tripId
-        );
+        const selectedTrip = this.state.trips.find(trip => trip.id.toString() === tripId);
 
-        const selectedDay = selectedTrip.days.find(
-            day => day.days_id.toString() === dayId
-        );
+        const selectedDay = selectedTrip.days.find(day => day.days_id.toString() === dayId);
 
         const newActivitiesList = selectedDay.activities.filter(
             activity => activity.id.toString() !== activityId

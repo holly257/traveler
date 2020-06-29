@@ -52,7 +52,7 @@ class TripList extends React.Component {
                             <h2>No Trips yet...</h2>
                         </section>
                         <br />
-                        <Link id="new-trip" to={'/new-trip'}>
+                        <Link className="button" id="new-trip" to={'/new-trip'}>
                             New Trip
                         </Link>
                     </div>
@@ -84,7 +84,7 @@ class TripList extends React.Component {
                                 })}
                             </section>
                             <br />
-                            <Link id="new-trip" to={'/new-trip'}>
+                            <Link id="new-trip" className="button" to={'/new-trip'}>
                                 New Trip
                             </Link>
                         </div>

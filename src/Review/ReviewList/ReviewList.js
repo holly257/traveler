@@ -86,7 +86,7 @@ class ReviewList extends React.Component {
                             <h6>No reviews yet...</h6>
                         </section>
                         <br />
-                        <Link id="new-review" to={'/new-review'}>
+                        <Link className="button new-review" to={'/new-review'}>
                             New review
                         </Link>
                     </div>
@@ -110,7 +110,7 @@ class ReviewList extends React.Component {
                                         {review.city}, {review.country}
                                     </h2>
                                     <button
-                                        className="review-delete-btn"
+                                        className="review-delete button"
                                         onClick={e => this.handleDeleteClick(e)}
                                         value={review.id}
                                     >
@@ -122,7 +122,7 @@ class ReviewList extends React.Component {
                         })}
                     </section>
                     <br />
-                    <Link id="new-review" to={'/new-review'}>
+                    <Link className="button new-review" to={'/new-review'}>
                         New Review
                     </Link>
                 </div>

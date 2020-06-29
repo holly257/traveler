@@ -132,7 +132,7 @@ class TripDetails extends React.Component {
             return (
                 <section id="main-trip">
                     <div id="container">
-                        <Link className="back-to-trip-list" to={`/trip`}>
+                        <Link className="button back-btn" to={`/trip`}>
                             Back
                         </Link>
                         <br />
@@ -145,7 +145,7 @@ class TripDetails extends React.Component {
 
                             <div role="alert">{error && <p className="error">{error}</p>}</div>
                             <button
-                                className="back-to-trip-list"
+                                className="button add-day-btn"
                                 onClick={e => this.AddAnotherDay(e)}
                             >
                                 Add Day
@@ -160,7 +160,7 @@ class TripDetails extends React.Component {
                     <Route exact path={`/trip/:tripId`}>
                         <section id="main-trip">
                             <div id="container">
-                                <Link className="back-to-trip-list" to={`/trip`}>
+                                <Link className="button back-btn" to={`/trip`}>
                                     Back
                                 </Link>
                                 <br />
@@ -210,13 +210,13 @@ class TripDetails extends React.Component {
                                                                               {activity.activity}
                                                                           </p>
                                                                           <Link
-                                                                              className="edit-btn"
+                                                                              className="button edit-btn"
                                                                               to={`/trip/${selectedTrip.id}/day/${day.days_id}/edit/${activity.id}`}
                                                                           >
                                                                               Edit
                                                                           </Link>
                                                                           <button
-                                                                              className="delete-act-btn"
+                                                                              className="button delete-act-btn"
                                                                               onClick={e =>
                                                                                   this.handleDeleteActivity(
                                                                                       e
@@ -236,13 +236,13 @@ class TripDetails extends React.Component {
                                                               })}
 
                                                     <Link
-                                                        className="add-activity"
+                                                        className="button add-act-btn"
                                                         to={`/trip/${selectedTrip.id}/day/${day.days_id}`}
                                                     >
                                                         Add Activity
                                                     </Link>
                                                     <button
-                                                        className="add-day"
+                                                        className="button add-day-btn"
                                                         onClick={e => this.handleDeleteDay(e)}
                                                         value={selectedTrip.id}
                                                         name={day.days_id}
@@ -255,7 +255,7 @@ class TripDetails extends React.Component {
                                         );
                                     })}
                                     <button
-                                        className="add-day"
+                                        className="button add-day-btn"
                                         onClick={e => this.AddAnotherDay(e)}
                                     >
                                         Add Day

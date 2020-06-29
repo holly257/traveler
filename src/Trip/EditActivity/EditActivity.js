@@ -84,7 +84,7 @@ class EditActivity extends React.Component {
             return (
                 <section id="main-trip">
                     <div id="container">
-                        <Link id="back-to-trip-details" to={`/trip/${tripId}`}>
+                        <Link className="button back-btn cancel" to={`/trip/${tripId}`}>
                             Cancel
                         </Link>
                         <div role="alert">{error && <p className="error">{error}</p>}</div>

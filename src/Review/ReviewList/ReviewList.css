@@ -4,16 +4,10 @@
     font-size: 25px;
 }
 
-#new-review {
+.new-review {
     margin-top: 10px;
-    margin-left: 30px;
-    color: rgba(0, 0, 0, 0.836);
-    border: grey 1px solid;
-    border-radius: 4px;
-    font-weight: 400;
-    font-size: 12px;
-    margin-bottom: 15px;
-    width: 94px;
+    margin-left: 35px;
+    width: 75px;
 }
 
 .success {
@@ -33,13 +27,7 @@
     font-size: 12px;
 }
 
-.review-delete-btn {
-    color: rgba(0, 0, 0, 0.836);
-    background-color: white;
-    border: grey 1px solid;
-    border-radius: 4px;
-    font-weight: 400;
-    font-size: 12px;
+.review-delete {
     padding: 3px 5px;
     margin: 5px 0;
     margin-bottom: 15px;
