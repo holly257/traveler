@@ -13,15 +13,3 @@
     height: 150px;
     margin: 20px;
 }
-
-#back-to-review-details {
-    color: rgba(0, 0, 0, 0.836);
-    border: grey 1px solid;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 12px;
-    padding: 3px 5px;
-    margin: 5px 0;
-    margin-bottom: 15px;
-    width: 41px;
-}
