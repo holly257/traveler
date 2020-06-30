@@ -6,7 +6,6 @@ import LandingPage from '../LandingPage/LandingPage';
 import SearchPage from '../SearchPage/SearchPage';
 import NewReview from '../Review/NewReview';
 import ReviewList from '../Review/ReviewList/ReviewList';
-import ReviewDetails from '../Review/ReviewList/ReviewDetails/ReviewDetails';
 import TripList from '../Trip/TripList/TripList';
 import NewTrip from '../Trip/NewTrip/NewTrip';
 import LogInPage from '../SignIn/LogIn/LogInPage';
@@ -25,8 +24,7 @@ class AppRoute extends React.Component {
                     <Route exact path="/login" component={LogInPage} />
                     <Route exact path="/signup" component={SignUp} />
 
-                    <PrivateRoute exact path="/review" component={ReviewList} />
-                    <PrivateRoute exact path="/review/:reviewId" component={ReviewDetails} />
+                    <PrivateRoute path="/review" component={ReviewList} />
                     <PrivateRoute exact path="/new-review" component={NewReview} />
 
                     <PrivateRoute exact path="/new-trip" component={NewTrip} />

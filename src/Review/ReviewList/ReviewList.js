@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
 import './ReviewList.css';
 import AppContext from '../../App/AppContext';
 import { API_URL } from '../../config';
 import TokenService from '../../services/token-service';
+import PrivateRoute from '../../SignIn/AuthRouting/PrivateRoute';
+import ReviewDetails from './ReviewDetails/ReviewDetails';
 
 class ReviewList extends React.Component {
     static contextType = AppContext;
@@ -94,39 +96,49 @@ class ReviewList extends React.Component {
             );
         }
         return (
-            <main id="main-review">
-                <div>
-                    <h1 className="review-list-title">My Review's</h1>
-                    <section>
-                        <div role="alert">{error && <p className="error">{error}</p>}</div>
-                        <div role="alert">{success && <p className="success">{success}</p>}</div>
-                        {this.context.reviews.map((review, index) => {
-                            return (
-                                <section key={index} className="reviews">
-                                    <Link className="review-list" to={`/review/${review.id}`}>
-                                        {review.name}
-                                    </Link>
-                                    <h2 className="review-list-link">
-                                        {review.city}, {review.country}
-                                    </h2>
-                                    <button
-                                        className="review-delete button"
-                                        onClick={e => this.handleDeleteClick(e)}
-                                        value={review.id}
-                                    >
-                                        Delete
-                                    </button>
-                                    <br />
-                                </section>
-                            );
-                        })}
-                    </section>
-                    <br />
-                    <Link className="button new-review" to={'/new-review'}>
-                        New Review
-                    </Link>
-                </div>
-            </main>
+            <Switch>
+                <Route exact path={'/review'}>
+                    <main id="main-review">
+                        <div>
+                            <h1 className="review-list-title">My Review's</h1>
+                            <section>
+                                <div role="alert">{error && <p className="error">{error}</p>}</div>
+                                <div role="alert">
+                                    {success && <p className="success">{success}</p>}
+                                </div>
+                                {this.context.reviews.map((review, index) => {
+                                    return (
+                                        <section key={index} className="reviews">
+                                            <Link
+                                                className="review-list"
+                                                to={`/review/${review.id}`}
+                                            >
+                                                {review.name}
+                                            </Link>
+                                            <h2 className="review-list-link">
+                                                {review.city}, {review.country}
+                                            </h2>
+                                            <button
+                                                className="review-delete button"
+                                                onClick={e => this.handleDeleteClick(e)}
+                                                value={review.id}
+                                            >
+                                                Delete
+                                            </button>
+                                            <br />
+                                        </section>
+                                    );
+                                })}
+                            </section>
+                            <br />
+                            <Link className="button new-review" to={'/new-review'}>
+                                New Review
+                            </Link>
+                        </div>
+                    </main>
+                </Route>
+                <PrivateRoute path="/review/:reviewId" component={ReviewDetails} />
+            </Switch>
         );
     }
 }
