@@ -56,7 +56,10 @@ class ReviewDetails extends React.Component {
                             <p>{selectedReview.comments}</p>
                             <br />
 
-                            <Link className="button" to={`/review/${selectedReview.id}/edit`}>
+                            <Link
+                                className="button edit-btn"
+                                to={`/review/${selectedReview.id}/edit`}
+                            >
                                 Edit
                             </Link>
                         </div>

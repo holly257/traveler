@@ -1,5 +1,6 @@
 import React from 'react';
 import AppContext from '../../../App/AppContext';
+import '../../NewReview.css';
 import { Link } from 'react-router-dom';
 import TokenService from '../../../services/token-service';
 import { API_URL } from '../../../config';
@@ -84,7 +85,7 @@ class EditReview extends React.Component {
                     <Link className="button" to={`/review/${selectedReview.id}`}>
                         Cancel
                     </Link>
-                    <h1 id="review-title">Review</h1>
+                    <h1 className="review-title edit-review-title">Edit Review</h1>
                     <div role="alert">{error && <p className="error">{error}</p>}</div>
                     <form onSubmit={e => this.EditReview(e)}>
                         <label htmlFor="name" className="form-input-titles">

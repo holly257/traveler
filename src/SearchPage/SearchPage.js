@@ -65,6 +65,9 @@ class SearchPage extends React.Component {
                     <div id="search-container">
                         <h3 id="search-title">Search Reviews</h3>
                         <form onSubmit={e => this.SubmitSearch(e)}>
+                            <label htmlFor="search" className="form-input-titles">
+                                Search:
+                            </label>
                             <input
                                 id="search"
                                 type="text"
@@ -72,7 +75,10 @@ class SearchPage extends React.Component {
                                 placeholder="search by city name"
                             />
                             <br />
-                            <select className="searchTypes" name="category">
+                            <label htmlFor="category" className="form-input-titles">
+                                Choose a Category:
+                            </label>
+                            <select className="searchTypes" name="category" id="category">
                                 <option value="cat">Categories:</option>
                                 <option>restaurant</option>
                                 <option>bar/coffee</option>

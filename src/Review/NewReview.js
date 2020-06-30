@@ -68,7 +68,7 @@ class NewReview extends React.Component {
                     <Link className="button back-btn" to={`/review`}>
                         Back
                     </Link>
-                    <h1 id="review-title">Review</h1>
+                    <h1 className="review-title">Review</h1>
                     <div role="alert">{error && <p className="error">{error}</p>}</div>
                     <form onSubmit={e => this.SubmitReview(e)}>
                         <label htmlFor="name" className="form-input-titles">
