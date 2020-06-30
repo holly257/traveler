@@ -52,6 +52,19 @@ class App extends React.Component {
         });
     };
 
+    handleEditReview = (updatedReview, reviewId) => {
+        const selectedReviewIndex = this.state.reviews.findIndex(
+            review => review.id.toString() === reviewId
+        );
+
+        const newReviews = this.state.reviews;
+        newReviews[selectedReviewIndex] = updatedReview;
+
+        this.setState({
+            reviews: newReviews,
+        });
+    };
+
     handleDeleteReview = reviewToDelete => {
         const newReviewsList = this.state.reviews.filter(
             review => review.id.toString() !== reviewToDelete
@@ -170,6 +183,7 @@ class App extends React.Component {
             updateSearchResults: this.handleUpdateSearchResults,
             setReviewsList: this.handleSetReviewsList,
             addReview: this.handleAddReview,
+            editReview: this.handleEditReview,
             deleteReview: this.handleDeleteReview,
 
             setTripsState: this.handleSetTripsState,

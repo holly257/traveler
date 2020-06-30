@@ -1,51 +1,65 @@
 import React from 'react';
 import AppContext from '../../../App/AppContext';
 import { Link } from 'react-router-dom';
+import TokenService from '../../../services/token-service';
+import { API_URL } from '../../../config';
 
 class EditReview extends React.Component {
     static contextType = AppContext;
     state = { error: null };
 
-    EditActivity = e => {
+    EditReview = e => {
         e.preventDefault();
         this.setState({ error: null });
-        console.log('editing');
-        // const {  } = e.target;
-        // const activityId = this.props.match.params.activityId;
-        // const dayId = this.props.match.params.dayId;
-        // const tripId = this.props.match.params.tripId;
+        const {
+            name,
+            rating,
+            city,
+            country,
+            address,
+            category,
+            comments,
+            image_val,
+            altText,
+        } = e.target;
+        const reviewId = this.props.match.params.reviewId;
 
-        // const editedActivity = {
-        //     id: parseInt(activityId),
-        //     start_time: start_time.value,
-        //     meridiem: meridiem.value,
-        //     activity: activity.value,
-        //     dayId: parseInt(dayId),
-        // };
+        const editedReview = {
+            id: parseInt(reviewId),
+            name: name.value,
+            image: image_val.value,
+            image_alt: altText.value,
+            city: city.value,
+            country: country.value,
+            address: address.value,
+            rating: rating.value,
+            category: category.value,
+            comments: comments.value,
+        };
 
-        // const options = {
-        //     method: 'PATCH',
-        //     headers: {
-        //         'content-type': 'application/json',
-        //         authorization: `bearer ${TokenService.getAuthToken()}`,
-        //     },
-        //     body: JSON.stringify(editedActivity),
-        // };
-        // fetch(`${API_URL}/activities/${activityId}`, options)
-        //     .then(res => {
-        //         if (!res.ok) {
-        //             throw new Error('Trip detail fetch failed, please try again later.');
-        //         }
-        //         return res;
-        //     })
-        //     .then(res => res.json())
-        //     .then(activityData => {
-        //         this.context.editActivity(editedActivity, tripId, dayId, activityId);
-        //         this.props.history.push(`/trip/${tripId}`);
-        //     })
-        //     .catch(error => {
-        //         this.setState({ error: 'Something went wrong. Please try again later.' });
-        //     });
+        const options = {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `bearer ${TokenService.getAuthToken()}`,
+            },
+            body: JSON.stringify(editedReview),
+        };
+        fetch(`${API_URL}/reviews/${reviewId}`, options)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Review edit failed, please try again later.');
+                }
+                return res;
+            })
+            .then(res => res.json())
+            .then(reviewData => {
+                this.context.editReview(reviewData, reviewId);
+                this.props.history.push(`/review/${reviewId}`);
+            })
+            .catch(error => {
+                this.setState({ error: 'Something went wrong. Please try again later.' });
+            });
     };
 
     render() {
@@ -159,7 +173,7 @@ class EditReview extends React.Component {
                             className="allReview"
                             type="url"
                             defaultValue={selectedReview.image}
-                            name="image"
+                            name="image_val"
                             id="image"
                         />
                         <input
