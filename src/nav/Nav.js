@@ -21,11 +21,7 @@ class Nav extends React.Component {
     renderLogoutLink() {
         return (
             <>
-                <Link
-                    className="nav-link"
-                    onClick={this.handleLogoutClick}
-                    to="/"
-                >
+                <Link className="nav-link" onClick={this.handleLogoutClick} to="/">
                     Log Out
                 </Link>
             </>
@@ -55,48 +51,38 @@ class Nav extends React.Component {
         const { hiddenDropdown } = this.state;
         return (
             <nav>
-                <Link className="nav-link" to={'/'}>
-                    <FontAwesomeIcon icon={faPlaneDeparture} />
-                </Link>
-                <span id="right-nav">
-                    <FontAwesomeIcon
-                        icon={hiddenDropdown ? faBars : faWindowClose}
-                        id="nav-bars"
-                        onClick={this.toggleDropdown}
-                    />
-                    <div id={`${hiddenDropdown ? 'nav-hide' : 'nav-show'}`}>
-                        <Link
+                <div id="inner-nav">
+                    <Link className="nav-link" to={'/'}>
+                        <FontAwesomeIcon icon={faPlaneDeparture} />
+                    </Link>
+                    <span id="right-nav">
+                        <FontAwesomeIcon
+                            icon={hiddenDropdown ? faBars : faWindowClose}
+                            id="nav-bars"
                             onClick={this.toggleDropdown}
-                            className="nav-link"
-                            to={'/search'}
-                        >
-                            Search
-                        </Link>
-                        <Link
-                            onClick={this.toggleDropdown}
-                            className="nav-link"
-                            to={'/review'}
-                        >
-                            Reviews
-                        </Link>
-                        <Link
-                            onClick={this.toggleDropdown}
-                            className="nav-link"
-                            to={'/trip'}
-                        >
-                            Trips
-                        </Link>
-                        <p
-                            onClick={this.toggleDropdown}
-                            className="nav-auth"
-                            to={TokenService.hasAuthToken() ? '/' : '/login'}
-                        >
-                            {TokenService.hasAuthToken()
-                                ? this.renderLogoutLink()
-                                : this.renderLoginLink()}
-                        </p>
-                    </div>
-                </span>
+                        />
+                        <div id={`${hiddenDropdown ? 'nav-hide' : 'nav-show'}`}>
+                            <Link onClick={this.toggleDropdown} className="nav-link" to={'/search'}>
+                                Search
+                            </Link>
+                            <Link onClick={this.toggleDropdown} className="nav-link" to={'/review'}>
+                                Reviews
+                            </Link>
+                            <Link onClick={this.toggleDropdown} className="nav-link" to={'/trip'}>
+                                Trips
+                            </Link>
+                            <p
+                                onClick={this.toggleDropdown}
+                                className="nav-auth"
+                                to={TokenService.hasAuthToken() ? '/' : '/login'}
+                            >
+                                {TokenService.hasAuthToken()
+                                    ? this.renderLogoutLink()
+                                    : this.renderLoginLink()}
+                            </p>
+                        </div>
+                    </span>
+                </div>
             </nav>
         );
     }

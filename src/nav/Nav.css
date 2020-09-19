@@ -1,7 +1,4 @@
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: white;
     position: fixed;
     top: 0;
@@ -9,6 +6,14 @@ nav {
     height: 40px;
     padding: 0 10px 0 10px;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+#inner-nav {
+    max-width: 950px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav-link,
@@ -36,5 +41,41 @@ a {
 #nav-show {
     position: fixed;
     top: 40px;
+    
     right: 0px;
+}
+
+@media only screen and (min-width: 768px) {
+    #nav-bars {
+        display: none;
+    }
+
+    #nav-show {
+        position: static;
+        display: flex;
+        top: initial;
+        font-size: 16px;
+    }
+
+    .nav-link,
+    a {
+        color: #464646;
+        font-weight: 300;
+    }
+
+    #nav-hide {
+        display: flex;
+        font-size: 16px;
+    }
+
+    .nav-link,
+    a {
+        display: initial;
+        background-color: white;
+    }
+
+    .nav-auth {
+        box-shadow: none;
+        padding-top: 2px;
+    }
 }
