@@ -10,7 +10,7 @@ class ResultsPage extends React.Component {
                     src={this.props.review.image}
                     alt={this.props.review.image_alt}
                 />
-                <section>
+                <section className="results-content">
                     <h5 className="results-trip-name">{this.props.review.name}</h5>
                     <h6 className="review-details">Rating: {this.props.review.rating}</h6>
                     <h6 className="review-details">
