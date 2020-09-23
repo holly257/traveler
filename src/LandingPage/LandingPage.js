@@ -6,18 +6,18 @@ function LandingPage() {
     return (
         <>
             <main id="main-landing">
-                <br />
-                <h1 className="landing-main-text">
-                    Plan your next trip with ease!
-                </h1>
-                <p className="landing-demo-text">Search fun activities</p>
-                <p className="landing-demo-text">Review places you've been</p>
-                <p className="landing-demo-text">Create new trips</p>
-                <br />
-                <br />
-                <h2 className="landing-main-text">Want to demo the app?</h2>
-                <p className="landing-demo-text">Username: test_user</p>
-                <p className="landing-demo-text">Password: Pa55w-rd</p>
+                <span id="landing-inner">
+                    <br />
+                    <h1 className="landing-main-text">Plan your next trip with ease!</h1>
+                    <p className="landing-demo-text">Search fun activities</p>
+                    <p className="landing-demo-text">Review places you've been</p>
+                    <p className="landing-demo-text">Create new trips</p>
+                    <br />
+                    <br />
+                    <h2 className="landing-main-text">Want to demo the app?</h2>
+                    <p className="landing-demo-text">Username: test_user</p>
+                    <p className="landing-demo-text">Password: Pa55w-rd</p>
+                </span>
             </main>
             <section id="landing-start">
                 <Link className="landing-links" to={'/search'}>
