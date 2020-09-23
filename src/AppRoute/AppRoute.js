@@ -11,6 +11,8 @@ import NewTrip from '../Trip/NewTrip/NewTrip';
 import LogInPage from '../SignIn/LogIn/LogInPage';
 import SignUp from '../SignIn/SignUp';
 import NotFound from '../NotFound/NotFound';
+import UserBookmarkedPage from '../Review/UserBookmarked/UserBookmarkedPage';
+import BookmarkDetails from '../Review/UserBookmarked/BookmarkDetails';
 
 class AppRoute extends React.Component {
     render() {
@@ -26,6 +28,9 @@ class AppRoute extends React.Component {
 
                     <PrivateRoute path="/review" component={ReviewList} />
                     <PrivateRoute exact path="/new-review" component={NewReview} />
+
+                    <PrivateRoute exact path="/bookmarks" component={UserBookmarkedPage} />
+                    <PrivateRoute path="/bookmarks/:bookmarkId" component={BookmarkDetails} />
 
                     <PrivateRoute exact path="/new-trip" component={NewTrip} />
                     <PrivateRoute path="/trip" component={TripList} />

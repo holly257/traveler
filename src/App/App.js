@@ -8,6 +8,7 @@ class App extends React.Component {
     state = {
         searchList: [],
         reviews: [],
+        bookmarked: [],
         trips: [],
         error: false,
     };
@@ -42,6 +43,12 @@ class App extends React.Component {
     handleSetReviewsList = reviewsData => {
         this.setState({
             reviews: reviewsData,
+        });
+    };
+
+    handleSetBookmarkedList = bookmarkedData => {
+        this.setState({
+            bookmarked: bookmarkedData,
         });
     };
 
@@ -177,11 +184,13 @@ class App extends React.Component {
     render() {
         const value = {
             searchList: this.state.searchList,
-            trips: this.state.trips,
             reviews: this.state.reviews,
+            bookmarked: this.state.bookmarked,
+            trips: this.state.trips,
 
             updateSearchResults: this.handleUpdateSearchResults,
             setReviewsList: this.handleSetReviewsList,
+            setBookmarkedList: this.handleSetBookmarkedList,
             addReview: this.handleAddReview,
             editReview: this.handleEditReview,
             deleteReview: this.handleDeleteReview,
