@@ -88,9 +88,9 @@ class App extends React.Component {
         });
     };
 
-    handleDeleteBookmark = reviewToDelete => {
+    handleDeleteBookmark = bookmarkId => {
         const newBookmarkedList = this.state.bookmarked.filter(
-            review => review.id !== reviewToDelete
+            review => review.id.toString() !== bookmarkId
         );
 
         this.setState({

@@ -16,15 +16,12 @@ class BookmarkReview extends React.Component {
     };
 
     toggleSaved = () => {
-        let prevState = this.state.saved_review;
         let review = this.props.review;
-        if (prevState === true) {
-            this.remove_bookmark(review);
-        } else {
+        if (this.state.saved_review !== true) {
             this.bookmark_review(review);
         }
         this.setState({
-            saved_review: !prevState,
+            saved_review: true,
         });
     };
 
@@ -39,14 +36,6 @@ class BookmarkReview extends React.Component {
                     error: 'Something went wrong. Please try again later.',
                 });
             });
-    };
-
-    remove_bookmark = review => {
-        this.context.deleteBookmark(review.id);
-        console.log('remove', review);
-
-        //start here
-        //no server route yet
     };
 
     render() {

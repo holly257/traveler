@@ -4,6 +4,7 @@ import '../ReviewList/ReviewList.css';
 import AppContext from '../../App/AppContext';
 import { API_URL } from '../../config';
 import TokenService from '../../services/token-service';
+import BookmarkService from '../../services/bookmark-api-service';
 
 class UserBookmarkedPage extends React.Component {
     static contextType = AppContext;
@@ -19,22 +20,7 @@ class UserBookmarkedPage extends React.Component {
             success: null,
         });
 
-        const options = {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json',
-                authorization: `bearer ${TokenService.getAuthToken()}`,
-            },
-        };
-
-        fetch(`${API_URL}/reviews/bookmarks`, options)
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error('Something went wrong, please try again soon.');
-                }
-                return res;
-            })
-            .then(res => res.json())
+        BookmarkService.get_bookmarks()
             .then(reviewData => {
                 this.context.setBookmarkedList(reviewData);
             })
@@ -47,34 +33,17 @@ class UserBookmarkedPage extends React.Component {
 
     handleDeleteClick = e => {
         e.preventDefault();
-        console.log('not implemented yet');
-        // const review_id = e.target.value;
-        // const options = {
-        //     method: 'DELETE',
-        //     headers: {
-        //         'content-type': 'application/json',
-        //         authorization: `bearer ${TokenService.getAuthToken()}`,
-        //     },
-        // };
+        let bookmarkId = e.target.value;
 
-        // fetch(`${API_URL}/reviews/${review_id}`, options)
-        //     .then(res => {
-        //         if (!res.ok) {
-        //             return res.json().then(error => {
-        //                 throw error;
-        //             });
-        //         }
-        //         return;
-        //     })
-        //     .then(() => {
-        //         this.setState({ success: 'Review Deleted' });
-        //         this.context.deleteReview(review_id);
-        //     })
-        //     .catch(error => {
-        //         this.setState({
-        //             error: 'Something went wrong. Please try again later.',
-        //         });
-        //     });
+        BookmarkService.delete_bookmark(bookmarkId)
+            .then(reviewData => {
+                this.context.deleteBookmark(bookmarkId);
+            })
+            .catch(error => {
+                this.setState({
+                    error: 'Something went wrong. Please try again later.',
+                });
+            });
     };
 
     render() {
@@ -97,7 +66,7 @@ class UserBookmarkedPage extends React.Component {
                             </div>
                             {this.context.bookmarked.map((review, index) => {
                                 return (
-                                    <section key={index} className="reviews">
+                                    <section key={review.id} className="reviews">
                                         <Link
                                             className="review-list"
                                             to={`/bookmarks/${review.id}`}
@@ -107,13 +76,13 @@ class UserBookmarkedPage extends React.Component {
                                         <h2 className="review-list-link">
                                             {review.city}, {review.country}
                                         </h2>
-                                        {/* <button
-                                        className="review-delete button"
-                                        onClick={e => this.handleDeleteClick(e)}
-                                        value={review.id}
-                                    >
-                                        Delete
-                                    </button> */}
+                                        <button
+                                            className="review-delete button"
+                                            onClick={e => this.handleDeleteClick(e)}
+                                            value={review.id}
+                                        >
+                                            Remove
+                                        </button>
                                         <br />
                                     </section>
                                 );
