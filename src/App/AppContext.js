@@ -9,8 +9,10 @@ const AppContext = React.createContext({
     setReviewsList: () => {},
     setBookmarkedList: () => {},
     addReview: () => {},
+    addBookmark: () => {},
     editReview: () => {},
     deleteReview: () => {},
+    deleteBookmark: () => {},
 
     setTripsState: () => {},
     startNewTrip: () => {},

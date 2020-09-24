@@ -30,7 +30,7 @@ class UserBookmarkedPage extends React.Component {
         fetch(`${API_URL}/reviews/bookmarks`, options)
             .then(res => {
                 if (!res.ok) {
-                    throw new Error('Bookmarks - Something went wrong, please try again soon.');
+                    throw new Error('Something went wrong, please try again soon.');
                 }
                 return res;
             })
@@ -40,7 +40,7 @@ class UserBookmarkedPage extends React.Component {
             })
             .catch(error => {
                 this.setState({
-                    error: 'Bookmarks - Something went wrong. Please try again later.',
+                    error: 'Something went wrong. Please try again later.',
                 });
             });
     }
@@ -79,7 +79,6 @@ class UserBookmarkedPage extends React.Component {
 
     render() {
         const { error, success } = this.state;
-
         return (
             <main id="main-review">
                 <div>
@@ -98,7 +97,7 @@ class UserBookmarkedPage extends React.Component {
                             </div>
                             {this.context.bookmarked.map((review, index) => {
                                 return (
-                                    <section key={review.id} className="reviews">
+                                    <section key={index} className="reviews">
                                         <Link
                                             className="review-list"
                                             to={`/bookmarks/${review.id}`}

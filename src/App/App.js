@@ -59,6 +59,12 @@ class App extends React.Component {
         });
     };
 
+    handleBookmarkReview = reviewToAdd => {
+        this.setState({
+            bookmarked: [...this.state.bookmarked, reviewToAdd],
+        });
+    };
+
     handleEditReview = (updatedReview, reviewId) => {
         const selectedReviewIndex = this.state.reviews.findIndex(
             review => review.id.toString() === reviewId
@@ -79,6 +85,16 @@ class App extends React.Component {
 
         this.setState({
             reviews: newReviewsList,
+        });
+    };
+
+    handleDeleteBookmark = reviewToDelete => {
+        const newBookmarkedList = this.state.bookmarked.filter(
+            review => review.id !== reviewToDelete
+        );
+
+        this.setState({
+            bookmarked: newBookmarkedList,
         });
     };
 
@@ -192,8 +208,10 @@ class App extends React.Component {
             setReviewsList: this.handleSetReviewsList,
             setBookmarkedList: this.handleSetBookmarkedList,
             addReview: this.handleAddReview,
+            addBookmark: this.handleBookmarkReview,
             editReview: this.handleEditReview,
             deleteReview: this.handleDeleteReview,
+            deleteBookmark: this.handleDeleteBookmark,
 
             setTripsState: this.handleSetTripsState,
             startNewTrip: this.handleStartNewTrip,

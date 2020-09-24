@@ -20,7 +20,7 @@ class ResultsPage extends React.Component {
                     </h6>
                     <p className="search-comments">{this.props.review.comments}</p>
                 </section>
-                <BookmarkReview id={this.props.review.id} />
+                <BookmarkReview review={this.props.review} />
             </div>
         );
     }
