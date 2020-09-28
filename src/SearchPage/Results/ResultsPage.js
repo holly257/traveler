@@ -1,5 +1,6 @@
 import React from 'react';
 import './ResultsPage.css';
+import BookmarkReview from './BookmarkReview/BookmarkReview';
 
 class ResultsPage extends React.Component {
     render() {
@@ -10,6 +11,7 @@ class ResultsPage extends React.Component {
                     src={this.props.review.image}
                     alt={this.props.review.image_alt}
                 />
+
                 <section className="results-content">
                     <h5 className="results-trip-name">{this.props.review.name}</h5>
                     <h6 className="review-details">Rating: {this.props.review.rating}</h6>
@@ -18,6 +20,7 @@ class ResultsPage extends React.Component {
                     </h6>
                     <p className="search-comments">{this.props.review.comments}</p>
                 </section>
+                <BookmarkReview review={this.props.review} />
             </div>
         );
     }

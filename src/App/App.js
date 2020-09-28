@@ -8,6 +8,7 @@ class App extends React.Component {
     state = {
         searchList: [],
         reviews: [],
+        bookmarked: [],
         trips: [],
         error: false,
     };
@@ -45,10 +46,22 @@ class App extends React.Component {
         });
     };
 
+    handleSetBookmarkedList = bookmarkedData => {
+        this.setState({
+            bookmarked: bookmarkedData,
+        });
+    };
+
     handleAddReview = reviewToAdd => {
         this.setState({
             reviews: [...this.state.reviews, reviewToAdd],
             searchList: [...this.state.searchList, reviewToAdd],
+        });
+    };
+
+    handleBookmarkReview = reviewToAdd => {
+        this.setState({
+            bookmarked: [...this.state.bookmarked, reviewToAdd],
         });
     };
 
@@ -72,6 +85,16 @@ class App extends React.Component {
 
         this.setState({
             reviews: newReviewsList,
+        });
+    };
+
+    handleDeleteBookmark = bookmarkId => {
+        const newBookmarkedList = this.state.bookmarked.filter(
+            review => review.id.toString() !== bookmarkId
+        );
+
+        this.setState({
+            bookmarked: newBookmarkedList,
         });
     };
 
@@ -177,14 +200,18 @@ class App extends React.Component {
     render() {
         const value = {
             searchList: this.state.searchList,
-            trips: this.state.trips,
             reviews: this.state.reviews,
+            bookmarked: this.state.bookmarked,
+            trips: this.state.trips,
 
             updateSearchResults: this.handleUpdateSearchResults,
             setReviewsList: this.handleSetReviewsList,
+            setBookmarkedList: this.handleSetBookmarkedList,
             addReview: this.handleAddReview,
+            addBookmark: this.handleBookmarkReview,
             editReview: this.handleEditReview,
             deleteReview: this.handleDeleteReview,
+            deleteBookmark: this.handleDeleteBookmark,
 
             setTripsState: this.handleSetTripsState,
             startNewTrip: this.handleStartNewTrip,

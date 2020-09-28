@@ -35,13 +35,13 @@ a {
 }
 
 #nav-bars {
-    color: black;
+    color: #0d89c3;
 }
 
 #nav-show {
     position: fixed;
     top: 40px;
-    
+
     right: 0px;
 }
 

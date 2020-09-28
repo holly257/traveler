@@ -51,6 +51,9 @@ class NewTrip extends React.Component {
             <section id="main-trip">
                 <div id="container">
                     <div role="alert">{error && <p className="error">{error}</p>}</div>
+                    <Link className="button back-btn" to={`/trip`}>
+                        Back
+                    </Link>
                     <h1 id="trip-title">New Trip</h1>
                     <form onSubmit={e => this.StartTrip(e)}>
                         <label htmlFor="name" className="new-trip-label">
@@ -86,13 +89,10 @@ class NewTrip extends React.Component {
                             placeholder="country"
                             required
                         />
-                        <button type="submit" id="search-btn">
+                        <button type="submit" className="button" id="search-btn">
                             Get Started
                         </button>
                     </form>
-                    <Link className="button back-btn" to={`/trip`}>
-                        Back
-                    </Link>
                 </div>
             </section>
         );

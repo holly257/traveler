@@ -115,7 +115,7 @@ class EditActivity extends React.Component {
                                     placeholder="Activity"
                                 ></textarea>
                             </span>
-                            <button type="submit" className="add-activity">
+                            <button type="submit" className="button add-activity">
                                 Save Edit
                             </button>
                         </form>

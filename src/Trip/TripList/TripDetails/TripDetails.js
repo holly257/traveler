@@ -243,6 +243,7 @@ class TripDetails extends React.Component {
                                                     </Link>
                                                     <button
                                                         className="button add-day-btn"
+                                                        id="delete-day"
                                                         onClick={e => this.handleDeleteDay(e)}
                                                         value={selectedTrip.id}
                                                         name={day.days_id}
