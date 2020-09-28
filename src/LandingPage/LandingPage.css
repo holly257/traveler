@@ -1,11 +1,16 @@
 #main-landing {
-    margin-top: 40px;
-    padding: 20px;
     background-image: url('../Images/SantoriniGreeceTall.jpg');
     background-size: cover;
     height: 100vh;
+    margin: 0 auto;
 }
 
+#landing-inner {
+    display: flex;
+    flex-direction: column;
+    max-width: 950px;
+    margin: 40px;
+}
 #landing-start {
     background-color: white;
     height: 60px;
@@ -42,6 +47,11 @@
         background-image: url('../Images/SantoriniGreece.jpg');
         background-size: cover;
         height: 100vh;
+    }
+
+    #landing-inner {
+        margin: 0 auto;
+        padding-top: 50px;
     }
 
     .landing-main-text {
