@@ -84,7 +84,7 @@ class ReviewList extends React.Component {
                 <Route exact path={'/review'}>
                     <main id="main-review">
                         <div>
-                            <h1 className="review-list-title">My Review's</h1>
+                            <h1 className="review-list-title">My Reviews</h1>
                             {!this.context.reviews.length ? (
                                 <section>
                                     <div role="alert">
