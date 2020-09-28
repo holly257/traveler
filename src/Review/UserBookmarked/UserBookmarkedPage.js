@@ -81,7 +81,7 @@ class UserBookmarkedPage extends React.Component {
                                             onClick={e => this.handleDeleteClick(e)}
                                             value={review.id}
                                         >
-                                            Remove
+                                            Delete
                                         </button>
                                         <br />
                                     </section>

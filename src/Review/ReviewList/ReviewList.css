@@ -4,10 +4,24 @@
     font-size: 25px;
 }
 
+.review-list:hover {
+    text-decoration: underline #0d89c3;
+    color: #0d89c3;
+}
+
 .new-review {
     margin-top: 10px;
     margin-left: 35px;
     width: 75px;
+    color: black;
+    background-color: white;
+    border: none;
+    font-size: 16px;
+}
+
+.new-review:hover {
+    text-decoration: underline #0d89c3;
+    color: #0d89c3;
 }
 
 .success {

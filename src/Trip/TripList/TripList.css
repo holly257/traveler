@@ -18,6 +18,11 @@
     padding-left: 0;
 }
 
+.trip-list-name:hover {
+    text-decoration: underline #0d89c3;
+    color: #0d89c3;
+}
+
 .trip-details-link {
     font-size: 12px;
 }

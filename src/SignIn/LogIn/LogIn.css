@@ -46,6 +46,13 @@ input {
     margin-top: 20px;
     padding: 3px 3px;
     width: 53px;
+    color: black;
+    background-color: white;
+}
+
+#signup-link:hover {
+    text-decoration: underline #0d89c3;
+    color: #0d89c3;
 }
 
 .error {

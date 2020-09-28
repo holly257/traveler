@@ -85,6 +85,16 @@ input {
     margin-top: 5px;
 }
 
+#delete-day {
+    color: black;
+    background-color: white;
+}
+
+#delete-day:hover {
+    text-decoration: underline #0d89c3;
+    color: #0d89c3;
+}
+
 @media only screen and (min-width: 768px) {
     .trip-name {
         font-size: 24px;
